@@ -1,0 +1,45 @@
+
+.notFoundPage{
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   /* height: auto; */
+    
+    
+}
+.notFoundImage{
+    height:38vh;
+    padding:57px 0;
+}
+.notFoundDiv{
+    padding: 20px 0 20px 20px;
+}
+.notFoundLink button{
+    background-color:rgb(78, 76, 76);
+    color:  rgb(251, 246, 246);
+    padding:5px 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight:600 ;
+}
+.notFoundLink button:hover{
+    background-color:  rgb(220, 178, 40);
+    color: rgb(78, 76, 76);
+    border: none;
+}
+
+@media only screen and (max-width:640px){
+    .notFoundPage{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .notFoundImage{
+        width: 100vw;
+        height: auto;
+    }
+    
+}

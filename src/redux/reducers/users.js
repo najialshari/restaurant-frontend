@@ -4,11 +4,12 @@ import {
   FETCH_TOKEN_FAILED,
   TOKEN_REMOVE,
   GET_USERINFO,
-  UPDATE_PASSWORD,
+  // UPDATE_PASSWORD,
   UPDATE_USERNAME,
   UPDATE_EMAIL,
+  UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
-  DELETE_USER
+  // DELETE_USER
 } from "../constants";
 
 let initialState = {
@@ -36,6 +37,8 @@ const usersReducer = (state = initialState, action) => {
         isAuthenticated: true,
       };
     case SIGNUP_NEW_USER:
+      window.localStorage.removeItem("token");
+      window.localStorage.removeItem("user");
       return {
         success: action?.payload?.success,
         messages: action?.payload?.messages,
@@ -86,6 +89,7 @@ const usersReducer = (state = initialState, action) => {
     case UPDATE_USERNAME:
       newState = {
         ...state,
+        isAuthenticated: true,
         data:{
           ...state.data,
           user:{
@@ -96,6 +100,40 @@ const usersReducer = (state = initialState, action) => {
       }
       window.localStorage.setItem("user", JSON.stringify(newState?.data?.user));
       console.log("UPDATE_USERNAME", action?.payload)
+      return {
+        ...newState
+      }    
+    case UPDATE_PHONENO:
+      newState = {
+        ...state,
+        isAuthenticated: true,
+        data:{
+          ...state.data,
+          user:{
+            ...state?.data?.user,
+            phoneNo: action?.payload?.data?.phoneNo
+          }
+        }
+      }
+      window.localStorage.setItem("user", JSON.stringify(newState?.data?.user));
+      console.log("UPDATE_PHONENO", action?.payload)
+      return {
+        ...newState
+      }    
+    case UPDATE_EMAIL:
+      newState = {
+        ...state,
+        isAuthenticated: true,
+        data:{
+          ...state.data,
+          user:{
+            ...state?.data?.user,
+            email: action?.payload?.data?.email
+          }
+        }
+      }
+      window.localStorage.setItem("user", JSON.stringify(newState?.data?.user));
+      console.log("UPDATE_EMAIL", action?.payload)
       return {
         ...newState
       }    

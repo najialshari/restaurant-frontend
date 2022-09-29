@@ -28,6 +28,10 @@ const ChangePassword = () => {
         display: "flex",
         flexDirection: "column",
         ml: "4em",
+        margin: "auto",
+        padding: "auto",
+        width: "40em",
+        mb:"20px"
       }}
     >
       <TextField
@@ -61,6 +65,7 @@ const ChangePassword = () => {
         sx={{
           width: "fit-content",
           ml: "2em",
+          mt: "1em",
         }}
         variant="contained"
         size="small"

@@ -11,9 +11,14 @@ import {
 // import { deepPurple } from "@mui/material/colors";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { signupAction } from "../../redux/actions/users";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
+// import { useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import './signUp.css';
+
+
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -23,6 +28,8 @@ const SignUp = () => {
     password: "",
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
   const handleOnChange = (e) => {
     user[e.target.name] = e.target.value;
@@ -30,8 +37,17 @@ const SignUp = () => {
 
   const onSubmit = async (user, e) => {
     e.preventDefault();
-    await dispatch(signupAction(user)).then(()=>console.log("done")) 
+    console.log("User Sign Up Data?",user)
+    await dispatch(signupAction(user))
+    // .then(()=>console.log("Sign UP Action done",user)) 
   };
+
+  const isSignedUp = useSelector(state => state.auth.success);
+  
+  console.log("isSignedup,",isSignedUp);
+  if(isSignedUp) navigate("/signin");
+  
+  
 
   
 
@@ -45,7 +61,7 @@ const SignUp = () => {
         textAlign: "center",
         m: "auto",
         width: "40vw",
-        height: "80vh",
+        height: "100vh",
         
       }}
     >
@@ -100,7 +116,19 @@ const SignUp = () => {
               label="Password"
               type="password"
               id="password"
-              autoComplete="new-password"
+              autoComplete="password"
+              onChange={(e) => handleOnChange(e)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              fullWidth
+              name="passwordConfirmation"
+              label="passwordConfirmation"
+              type="passwordConfirmation"
+              id="passwordConfirmation"
+              autoComplete="passwordConfirmation"
               onChange={(e) => handleOnChange(e)}
             />
           </Grid>
@@ -117,7 +145,6 @@ const SignUp = () => {
           fullWidth
           variant="contained"
           sx={{ mt: 3, mb: 2 ,bgcolor:"rgb(220, 178, 40)"}}
-          // onClick={(e)=> onSubmit(user,e)}
         >
           Sign Up
         </Button>

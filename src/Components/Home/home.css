@@ -1,6 +1,12 @@
+.welcome{
+  align-items: center;
+  text-align: center;
+
+}
 .home {
     overflow: hidden;
     margin-bottom: 0;
+
   }
   .slideContainer {
     display: flex;
@@ -8,8 +14,15 @@
   .slideImage img{
     flex: 0 0 100%;
     width: 100vw;
-    height: 90vh;
+    height: auto;
+    
+    align-items: center;
+
+    /* width: 100vw;
+    height: 90vh; */
     
     
     
   }
+
+ 

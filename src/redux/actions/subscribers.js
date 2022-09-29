@@ -2,17 +2,21 @@ import { SUBSCRIBE,GET_ALL_SUBSCRIBERS,GET_ACTIVE_SUBSCRIBERS, DELETE_SUBSCRIBER
 import API_URLS from "../../api";
 import { requestApi } from "../../helper";
 
+
 export const subscribeAction = (userData) => async (dispatch) => {
+  console.log("userData",userData)
   let data = {
     url: API_URLS().SUBSCRIBERS.SUBSCRIBE,
     method: "POST",
     body: {
       ...userData,
+
+      // email:userData.email
     },
   };
   await requestApi(data)
     .then((res) => {
-      dispatch({ type: SUBSCRIBE, payload: res?.data });
+      dispatch({ type: SUBSCRIBE, payload: userData.email });
     })
     .catch((e) => {
       console.error(e);

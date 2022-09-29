@@ -1,19 +1,24 @@
-import Grid from "@mui/material/Grid";
-import { display } from "@mui/system";
+import { Link } from 'react-router-dom';
+import "./pageNotFound.css"
+
 
 const PageNotFound = () => {
   return (
-    <Grid sx={{
-        height: "100vh"
-    }}container>
-      <Grid item sx={{display:"flex", justifyContent: "center", m:"auto"}}>
+    
+      <div className='notFoundPage' >
+        <div className='notFoundDiv'>
+        <h2>This QR Code doesn`t work<br/></h2>
+      <Link className='notFoundLink' to={'/'} ><button>Check the Menu</button> </Link>
+      </div>
         <img
-          alt="404 - page not found"
-          width="50%"
-          src="https://freesvg.org/img/1646582431404-error-404.png"
+          className='notFoundImage'
+          alt="404 - QR Code doesn`t work "
+          // width="50%"
+          // src="https://freesvg.org/img/1646582431404-error-404.png"
+          src="https://www.pcworld.com/wp-content/uploads/2021/09/thinkstock-qr-code-100725734-orig.jpg?quality=50&strip=all"
         />
-      </Grid>
-    </Grid>
+      </div>
+      
   );
 };
 

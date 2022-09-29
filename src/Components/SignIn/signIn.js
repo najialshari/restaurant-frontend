@@ -7,33 +7,37 @@ import {
   Button,
   Grid,
   Link,
-  Checkbox
+  Checkbox,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 // import { deepPurple } from "@mui/material/colors";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { signinAction } from "../../redux/actions/users";
 import { useNavigate } from "react-router-dom";
+import './signIn.css';
+
 
 const SignIn = () => {
+  const [userData, setUserData] = useState({
+    usernameOrEmail: "",
+    password: "",
+  });
+  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const [userData, setUserData] = useState({
-        account: "",
-        password: ""
-    })
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const handleOnChange =  (e) =>{
-        userData[e.target.name] = e.target.value
-    } 
-    const handleSubmit = async (userData ,e) => {
-        e.preventDefault();
-        await dispatch(signinAction(userData)).then(()=> navigate("/me")
-        )
-    }
+  const handleOnChange = (e) => {
+    userData[e.target.name] = e.target.value;
+  };
+  const handleSubmit = async (userData, e) => {
+    e.preventDefault();
+    await dispatch(signinAction(userData))
+    // .then((res) =>navigate("/signin"));
+  };
+  const isSignedIn = useSelector(state => state.auth.isAuthenticated)
+  console.log("isSignedIn,",isSignedIn)
+  if(isSignedIn)navigate("/")
   return (
     <Box
       sx={{
@@ -43,7 +47,7 @@ const SignIn = () => {
         justifyContent: "center",
         m: "auto",
         width: "40vw",
-        height: "85vh"
+        height: "85vh",
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>
@@ -52,16 +56,19 @@ const SignIn = () => {
       <Typography component="h1" variant="h5">
         Sign in
       </Typography>
-      <Box component="form" 
-      onSubmit={e => handleSubmit(userData, e)} 
-      noValidate sx={{ mt: 1 }}>
+      <Box
+        component="form"
+        onSubmit={(e) => handleSubmit(userData, e)}
+        noValidate
+        sx={{ mt: 1 }}
+      >
         <TextField
           margin="normal"
           required
           fullWidth
           id="email"
           label="Email or Username"
-          name="account"
+          name="usernameOrEmail"
           autoFocus
           onChange={(e) => handleOnChange(e)}
         />
@@ -83,8 +90,7 @@ const SignIn = () => {
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2 ,bgcolor:"rgb(220, 178, 40)"}}
-          
+          sx={{ mt: 3, mb: 2, bgcolor: "rgb(220, 178, 40)" }}
         >
           Sign In
         </Button>

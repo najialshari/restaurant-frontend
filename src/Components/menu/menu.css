@@ -10,14 +10,139 @@
     color: white;
     text-decoration: none;
 }
-.categories a{
+.categories  a{
+    color: black;
+    text-decoration: none;
+}
+#categoriesType{
     color: white;
     text-decoration: none;
 }
-.categories a:hover{
+.categories a:hover,
+#categoriesType:hover{
     color:  rgb(220, 178, 40);
     text-decoration: none;
 }
 .categories{
     margin:5px 20px ;
 }
+
+
+
+
+
+
+.category-cards {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px ;
+
+}
+
+
+.mealsCard {
+
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+
+    margin: 10px;
+    height: 250px;
+    width: 200px;
+    border-radius: 2rem;
+    border: 3px solid grey;
+    color: gray;
+
+    padding: 0px ;   
+    position: relative;
+    /* overflow: auto; */
+    overflow: hidden;
+
+}
+
+
+.mealsImage {
+    height: 150px;
+    width: 200px;
+    /* object-fit: cover; */
+    padding:0  auto;
+    /* margin:0 auto; */
+    margin:0 ;
+    text-align: center;
+    /* padding-left: 25%; */
+    /* padding-bottom: 30px; */
+    /* margin-top: 25%; */
+
+
+
+}
+
+.linkToMeal {
+    align-items: center;
+    text-decoration: none;
+    color: gray;
+}
+
+.moreDetailsButton {
+    /* padding: 20px; */
+    padding-bottom: 15px;
+
+    background-color: gray;
+    color: white;
+    width: 100%;
+    /* margin: 0 10px; */
+    /* border-radius: 10px; */
+    text-align: center;
+
+}
+.moreDetailsButton:hover {
+    
+
+    background-color:  rgb(220, 178, 40) ;
+    color:  white;
+    /* width: 100px; */
+    /* margin: 0 10px; */
+    /* border-radius: 10px; */
+    text-align: center;
+
+}
+
+.mealsCard h2 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mealsprice {
+    margin: 0 5px;
+    text-align: center;
+}
+.oldPrice{
+    padding-right: 10px;
+    text-decoration-line:line-through;
+    text-decoration-color: rgb(193, 9, 9);
+  }
+  
+
+@media only screen and (max-width:640px){
+    
+    .categories ul{
+     
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+       
+
+    }
+    
+    .categories ul li{
+     
+        padding-top: 5px;
+        padding-bottom: 5px;
+       
+
+    }
+  }

@@ -10,27 +10,27 @@ const API_URLS = (extraData) => ({
     LOGOUT: API_ROOT + "/users/logout/",
     UPDATE_PASSWORD: API_ROOT + "/users/updatepassword/",
     UPDATE_USERNAME: API_ROOT + "/users/updateusername/",
-    UPDATE_EMAIL: API_ROOT + "/users/updatemail/",
+    UPDATE_EMAIL: API_ROOT + "/users/updateemail",
+    UPDATE_PHONENO: API_ROOT + "/users/updatephoneno",
     GET_USERINFO: API_ROOT + "/users/",
     UPDATE_PROFILEPIC: API_ROOT + "/users/updateprofilepic/",
-    DELETE_USER: API_ROOT + "/users/",
+    DELETE_USER: API_ROOT + "/users/"+ extraData,
   },
-  LINKS: {
-    GET_USERLINKS: API_ROOT + "/links/",
-    REORDER_LINKS : API_ROOT + "/links/reorder",
-    EDIT_LINK: API_ROOT+ "/links/",
-    DELETE_LINK: API_ROOT+ "/links/",
-    GET_LINK_TYPES: API_ROOT+ "/links/linkTypes/",
-    ADD_NEW_LINK: API_ROOT+ "/links/",
-    GET_QR: API_ROOT+ "/qrcodes/",
+  MENU: {
+    GET_MENU_CATEGORIES: API_ROOT + "/menus/categories",
+    GET_MENU_CATEGORY_MEALS: API_ROOT + "/menus/categoryMeals",
+    GET_MENU_CATEGORY_MEALS_BY_ID: API_ROOT + "/menus/categoryMeals"+ extraData,
+    GET_MENU_MEALS: API_ROOT + "/menus/Meals",
+   
+    
   },
   QRCODE: {
-    CREATE_QR_CODE: API_ROOT + "/qrcodes/",
-    SCANE_QR_FOR_TABLES: API_ROOT + "/qrcodes/qrytables",
-    SCANE_QR_FOR_MENU: API_ROOT + "/qrcodes/menu"
+    SCANE_QR_FOR_TABLES: API_ROOT + "/qrcodes/scan/"+ extraData,
+    // SCANE_QR_FOR_MENU: API_ROOT + "/qrcodes/menu"
   },
   SUBSCRIBERS : {
-    SUBSCRIBE : API_ROOT + "/subscription",
+    SUBSCRIBE : API_ROOT + "/subscription/",
+    // SUBSCRIBE :"https://www.wp-course.site//wp-json/youthink/subscribe",
     GET_ALL_SUBSCRIBERS : API_ROOT + "/subscription/allsubscribers",
     GET_ACTIVE_SUBSCRIBERS : API_ROOT + "/subscription/activesubscribers",
     DELETE_SUBSCRIBER : API_ROOT + "/subscription/"

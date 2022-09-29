@@ -7,11 +7,14 @@ import {
   UPDATE_PASSWORD,
   UPDATE_USERNAME,
   UPDATE_EMAIL,
+  UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
   DELETE_USER
 } from "../constants";
 import API_URLS from "../../api";
 import { requestApi } from "../../helper";
+import { useNavigate } from "react-router-dom";
+
 
 
 export const signupAction = (userData) => {
@@ -23,8 +26,10 @@ return async (dispatch) => {
       ...userData,
     },
   };
-  await requestApi(data);
-  dispatch({ type: SIGNUP_NEW_USER });
+  await requestApi(data)
+  .then((res) => {
+  dispatch({ type: SIGNUP_NEW_USER ,payload: res?.data });
+  })
 };
 };
 
@@ -46,7 +51,7 @@ await requestApi(data)
   });
 };
 
-export const logoutAction = () => async (dispatch) => {
+export const logOutAction = () => async (dispatch) => {
 let data = {
   url: API_URLS().AUTH.LOGOUT,
   method: "POST",
@@ -55,6 +60,7 @@ await requestApi(data).then(() => dispatch({ type: TOKEN_REMOVE }))
 };
 
 export const getUserInfoAction = () => async (dispatch) => {
+  const navigate = useNavigate();
 let data = {
   url: API_URLS().AUTH.GET_USERINFO,
 };
@@ -118,6 +124,22 @@ export const updateEmailAction = (userData) => async (dispatch) => {
       console.error(e);
     });
 };
+export const updatePhoneNoAction = (userData) => async (dispatch) => {
+  let data = {
+    url: API_URLS().AUTH.UPDATE_PHONENO,
+    method: "PATCH",
+    body: {
+      ...userData
+    }
+  };
+  await requestApi(data)
+    .then((res) => {
+      dispatch({ type: UPDATE_PHONENO });
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+};
 
 export const updateProfilePicAction = (formData) => async (dispatch) => {
   let data = {
@@ -139,7 +161,7 @@ export const updateProfilePicAction = (formData) => async (dispatch) => {
 export const deleteUserAction = () => async (dispatch) => {
   let data = {
     url: API_URLS().AUTH.DELETE_USER,
-    method: "DELET",
+    method: "DELETE",
   };
   await requestApi(data)
     .then((res) => {

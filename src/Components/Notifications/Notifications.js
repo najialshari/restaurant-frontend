@@ -4,7 +4,7 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { toggleNotfOff } from "../../redux/actions/notifications";
 
-const SimpleSnackbar = () => {
+const Notification = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const {
@@ -57,4 +57,4 @@ const SimpleSnackbar = () => {
   );
 };
 
-export default SimpleSnackbar;
+export default Notification;

@@ -1,9 +1,17 @@
-.footer{
-    color:  rgb(8, 8, 8);
+.body{
+   
+
+}
+footer{
+    /* color:  rgb(8, 8, 8);
     display: flex;
-    flex-direction: column;
-    
-    
+    flex-direction: column; */
+    font-weight:bold ;
+    background-image: url("../../Images/footer.png");
+    background-repeat:repeat-x ;
+    background-size: 90vh;
+    background-position-y: 100px;
+   
 }
 .footer-section{
     
@@ -13,6 +21,7 @@
     /* margin: 2% 15%; */
     margin: auto 30px;
     align-items: center;
+    
     
   
     
@@ -43,6 +52,11 @@
    padding-bottom: 5px;
     
 }
+.footer-Link:hover{
+    
+   color: rgb(220, 178, 40) ;
+    
+}
 .section h4{
     
    
@@ -68,7 +82,7 @@
  cursor: pointer;
 }
 .sub-btn:HOVER{
- background-color:rgb(47, 146, 75) ;
+ background-color:rgb(78, 76, 76) ;
  
 }
 .footer-company{
@@ -87,13 +101,12 @@
        
 
     }
-    .section{
-        display: flex;
-        flex-direction: column;
     
-        /* margin: 0 10%; */
-        margin: auto;
+    .sections ul , .sections h4{
+       
+        padding-left: 0;
         text-align: center;
         
     }
+    
 }

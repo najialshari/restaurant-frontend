@@ -11,6 +11,9 @@ function Home() {
 
   return (
     <div className='homePage'>
+      {/* <div className='welcome'>
+
+      </div> */}
       <div className="home" ref={emblaRef}>
         <div className="slideContainer">
           <div className="slideImage"><img src={home1} alt='' /></div>

@@ -1,13 +1,20 @@
 import ChangeEmail from "./ChangeEmail";
-import ChangeBgPic from "./ChangeBgPic";
 import ChangePassword from "./ChangePassword";
-import ChangeProfile from "./ChangeProfile";
+import ChangePhoneNo from "./ChangePhoneNo";
 import ChangeProfilePic from "./ChangeProfilePic";
 import ChangeUsername from "./ChangeUsername";
 
+function Profile() {
+   
+  
+    return (
+      <div className="profile">
+        <ChangeProfilePic />
+        <ChangeUsername />
+        <ChangeEmail />
+        <ChangePhoneNo />
+        <ChangePassword />
+      </div >
+    )}
 
-
-
-export {
-    ChangeEmail, ChangeBgPic, ChangePassword, ChangeProfile, ChangeProfilePic, ChangeUsername
-}
+export default Profile;

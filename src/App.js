@@ -10,6 +10,11 @@ import Menu from './Components/menu/menu';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import ForgetPassword from './Components/forgetPassword/forgetPassword';
 import RequireAuth from './RequiredAuth';
+import Notification from "./Components/Notifications/Notifications";
+import   Profile from './Components/EditProfile';
+import TableScan from './Components/TableScan/tableScan';
+import CategoryMeal from './Components/CategoryMeal/categoryMeal';
+
 
 function App() {
 
@@ -22,16 +27,19 @@ function App() {
         <Route path='/menu' exact element={<Menu />} />
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/signin"} element={<SignIn />} />
+        <Route path={"/table/:id"} element={<TableScan />} />
         <Route path={"/forgetPassword"} element={<ForgetPassword />} />
+        <Route path={"/meals/:id"} element={<CategoryMeal />} />
         <Route path='*'  element={<Home />} />
-        {/* <Route path='*'  element={<PageNotFound />} /> */}
+        <Route path='/notfound'  element={<PageNotFound />} />
         <Route element={<RequireAuth />}>
-
+        <Route path={"/profile"} element={<Profile />} />
         </Route>
 
       </Routes>
 
       <Footer />
+      <Notification />
 
     </div>
   );

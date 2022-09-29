@@ -1,0 +1,109 @@
+.SingleCard {
+  /* padding: 20px; */
+
+
+  margin: auto;
+  margin-top: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+
+  margin: center;
+  height: 80%;
+  width: 80%;
+  border-radius: 2rem;
+  border: 5px solid grey;
+
+}
+/* .backButton, */
+/* button, */
+.removeButton,
+.addButton,
+.backButtonLink {
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  /* border: none; */
+  border: 2px solid  rgb(63, 63, 63);
+  width: 150px;
+  margin: 5PX;
+  background-color: rgb(63, 63, 63);
+  color: white;
+  text-decoration: none;
+}
+
+.backButtonLink:hover,
+.addButton:hover {
+  background-color: rgb(220, 178, 40);
+  border: 2px solid   rgb(220, 178, 40);
+}
+.removeButton:hover {
+  background-color: white;
+  color: #e94c3d;
+  border: 2px solid #e94c3d;
+
+}
+
+.oneMealCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.pro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* padding-right: 80px; */
+}
+
+.mealImage {
+  height: 50vh;
+  width: auto;
+  /* object-fit: cover; */
+  /* padding-left: 5%; */
+  padding-bottom: 30px;
+  margin-top: auto;
+  border-top-left-radius : 2rem;
+  border-top-right-radius : 2rem;
+
+
+
+}
+
+.description {
+
+  
+}
+.price {
+  padding: 0rem 1.2rem;
+/* width: 300px; */
+  
+}
+
+.oldPrice{
+  padding-right: 10px;
+  text-decoration-line:line-through;
+}
+
+
+@media only screen and (max-width:880px){
+  .oneMealCard ,.pro {
+    display: flex;
+    flex-direction: column;
+   
+  }}
+  
+@media only screen and (max-width:640px){
+ 
+  .mealImage {
+    height: auto;
+  width:50vw ;
+    padding: 0 10px 10px 10px;
+  }
+
+}

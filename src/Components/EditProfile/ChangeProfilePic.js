@@ -49,11 +49,11 @@ const ChangeProfilePic = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          margin:"0 auto"
+          margin:"10px auto"
         }}
       >
         <Avatar
-          src={user && user?.usersprofile?.profilePic}
+          src={user && user?.photo}
           sx={{ width: "10em", height: "10em", mb: 3 }}
         />
         <Container
@@ -71,7 +71,8 @@ const ChangeProfilePic = () => {
             size: "2em",
             fontSize: "1em",
             width: "fit-content",
-            m: "0 1em"
+            m: "1em"
+
           }}
         >
           {user?.username}
@@ -79,13 +80,13 @@ const ChangeProfilePic = () => {
         <Button
         sx={{
           width: "fit-content",
-          p:".5em 1em",
-          color: "text.primary",
-          bgcolor: "background.default",
-          fontSize: ".6em",
+          // p:".5em 1em",
+          // color: "text.primary",
+          // bgcolor: "background.default",
+          // fontSize: ".6em",
           textTransform:"capitalize",
-          fontWeight:"2rem",
-          m: "0 0"
+          // fontWeight:"2rem",
+          // m: "0 0"
         }}
         variant="contained"
         endIcon={<FileUploadIcon />}

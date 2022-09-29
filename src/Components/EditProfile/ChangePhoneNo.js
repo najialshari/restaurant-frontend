@@ -3,14 +3,14 @@ import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { updateEmailAction } from "../../redux/actions/users";
+import { updatePhoneNoAction } from "../../redux/actions/users";
 
-const ChangeEmail = () => {
+const ChangePhoneNo = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
-  // console.log(user);
+  console.log(user);
   const dispatch = useDispatch();
   const [data, setDate] = useState({
-    newEmail: user.email,
+    newPhoneNo: user.phoneNo,
     password: "",
   });
 
@@ -18,8 +18,8 @@ const ChangeEmail = () => {
     data[e.target.name] = e.target.value;
   };
 
-  const handleOnChangeEmail = async () => {
-    await dispatch(updateEmailAction(data))
+  const handleOnChangePhoneNo = async () => {
+    await dispatch(updatePhoneNoAction(data))
       .then(() => console.log("yes"))
       .catch(() => console.log("no"));
   };
@@ -36,20 +36,20 @@ const ChangeEmail = () => {
       }}
     >
       <TextField
-        label="Email"
+        label="Phone Number"
         variant="standard"
-        type={"email"}
-        helperText={`Enter the email here`}
-        name={"newEmail"}
+        type={"number"}
+        helperText={`Enter the Phone No here`}
+        name={"newPhoneNo"}
         onChange={handleInputChange}
-        defaultValue={user.email}
+        defaultValue={user.phoneNo}
       />
       <TextField
         label="Password"
         variant="standard"
         type={"password"}
         helperText={`Enter password for authorization to change email`}
-        name={"password"}
+        name="password"
         onChange={handleInputChange}
       />
       <Button
@@ -63,12 +63,12 @@ const ChangeEmail = () => {
         }}
         variant="contained"
         size="larg"
-        onClick={handleOnChangeEmail}
+        onClick={handleOnChangePhoneNo}
       >
-        changEmail
+        change Phone Number
       </Button>
     </Container>
   );
 };
 
-export default ChangeEmail;
+export default ChangePhoneNo;

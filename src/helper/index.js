@@ -5,6 +5,7 @@ import axios from "axios";
 export const checkHttpStatus = async (response) => {
   if (response.status >= 200 && response.status < 300) {
     store.dispatch(toggleNotf(response.data));
+    console.log("response.data",response.data)
     return response;
   }
 
@@ -29,8 +30,8 @@ export const requestApi = async (data) => {
   })
     .then(checkHttpStatus)
     .catch((e) => {
-      console.log("i am in the error")
-      let { data, status } = e.response;
+      console.log(" there is error in requestApi")
+      let { data, status } = e?.response;
       if (status === 401) window.localStorage.removeItem("token");
       store.dispatch(toggleNotf(data || { message: e.message }));
       throw new Error(e);
