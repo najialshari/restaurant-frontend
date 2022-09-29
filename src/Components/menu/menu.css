@@ -1,0 +1,23 @@
+.categories ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: black;
+    border-radius: 10px;
+    /* margin: 5px 10px; */
+    color: white;
+    text-decoration: none;
+}
+.categories a{
+    color: white;
+    text-decoration: none;
+}
+.categories a:hover{
+    color:  rgb(220, 178, 40);
+    text-decoration: none;
+}
+.categories{
+    margin:5px 20px ;
+}
