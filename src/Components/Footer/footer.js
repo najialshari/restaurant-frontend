@@ -7,39 +7,27 @@ import { subscribeAction } from "../../redux/actions/subscribers";
 const Footer = () => {
   const dispatch = useDispatch();
 
-  const [subscribeData, setSubscribeData] = useState({
+ 
+const emailRef = useRef({})
+ const [subscribeData, setSubscribeData] = useState({
     email: ""
   });
-
-  const handleInputChange = (e) => {
-    subscribeData[e.target.name] = e.target.value;
-  };
+//   const handleInputChange = (e) => {
+//     subscribeData[e.target.name] = e.target.value;
+//   };
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
+    subscribeData.email = emailRef.current.value;
     await dispatch(subscribeAction(subscribeData))
-      .then(() => console.log("subscribe: ", "sucess"))
+      .then(() =>
+      setTimeout(() => {
+        emailRef.current.value = " "}, 100),
+        
+      console.log("subscribe: ", "sucess"))
       .catch((err) => console.error("subscribe:", err));
   };
 
-  // const emailRef = useRef()
-  // const [subscription, setSubscription] = useState({})
-
-  // const subscribe = () => {
-
-  //     fetch('https://www.wp-course.site//wp-json/youthink/subscribe', {
-  //         method: 'post',
-  //         body: JSON.stringify({ email: emailRef.current.value }),
-  //         headers: {  'Content-Type': 'application/json' }
-  //     }).then((response) => {
-  //         response.json().then((json) => {
-  //             setSubscription(json)
-  //             setTimeout(() => {
-  //                 setSubscription({})
-  //                 emailRef.current.value = " "}, 2000)
-  //         })
-  //     })
-  // }
 
   return (
     <footer>
@@ -116,27 +104,18 @@ const Footer = () => {
               <input
                 className="sub-input"
                 type="email"
-                name="email"
+                // name="email"
                 placeholder="Email address"
-                // ref={emailRef}
-                onChange={handleInputChange}
+                ref={emailRef}
+                // onChange={handleInputChange}
               />
               <button className="sub-btn" 
                     type="button" 
-                    // onClick={subscribe}
                     onClick={handleSubscribe}
                     >
                 Subscribe
               </button>
             </div>
-            {/* {subscription.message && (
-              <p
-                className="sub-message"
-                style={{ color: subscription.success ? "green" : "red" }}
-              >
-                {subscription.message}
-              </p>
-            )} */}
           </div>
         </div>
       </div>

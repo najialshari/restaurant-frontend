@@ -8,6 +8,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { scanQRAciton } from "../../redux/actions/qrcodes";
 import { useNavigate, useParams } from "react-router-dom";
 import './tableScan.css';
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 
 const TableScan = () => {
@@ -21,42 +22,34 @@ const TableScan = () => {
   const getQrCodeInfo = async () => {
     await dispatch(scanQRAciton(id))
       .then(() => console.log("getQrCodeInfo", "sucess"))
-      .catch((err) => console.error("disPatch err",err))
-      
+      .catch((err) => console.error(err));
   };
-    // dispatch(scanQRAciton(id))
   useEffect(() => {
     getQrCodeInfo();
-    // checkTable()
-
-
   }, [id]);
 
-  const isTableAvailble = useSelector(state => state?.qrcodes?.isAuthenticated);
+  // const isTableAvailble = useSelector(state => state?.qrcodes?.isAuthenticated)
 
-  console.log("isTableAvailble,",isTableAvailble)
-  if(isTableAvailble)navigate("/");
-  else navigate("/notfound");
-  
-  // const checkTable =  () => {
   // console.log("isTableAvailble,",isTableAvailble)
   // if(isTableAvailble)navigate("/");
-  // if(!isTableAvailble)navigate("/notfound");
-  // }
+  // else navigate("/notfound");
+
+  
+
+  const isTableAvailble = useSelector(state => state?.qrcodes?.success);
+  const [isTableAvailbleNow, setIsTableAvailbleNow] = useState(isTableAvailble);
+
+
+  useEffect(()=>{
+    setIsTableAvailbleNow(isTableAvailble);
+  console.log("isTableAvailble,",isTableAvailble)
+  if(isTableAvailble)navigate("/");
+  // else navigate("/notfound");
+}, [isTableAvailble]);
+  
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        m: "auto",
-        width: "40vw",
-        height: "85vh",
-      }}
-    >
-      
-    </Box>
+    (!isTableAvailbleNow)?
+    < PageNotFound /> :null
   );
 };
 

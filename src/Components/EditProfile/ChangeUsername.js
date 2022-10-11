@@ -30,10 +30,12 @@ const ChangeUsername = ({}) => {
         display: "flex",
         flexDirection: "column",
         ml: "4em",
+        
         margin: "auto",
         padding: "auto",
-        width: "40em",
-        mb:"20px"
+        width: "85vw",
+        mb:"20px",
+        mt: "2em",
       }}
     >
       <TextField

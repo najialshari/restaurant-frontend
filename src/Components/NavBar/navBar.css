@@ -44,6 +44,13 @@ li {
     display: block;
     
 }
+.darkBtn{
+  border: none;
+  background-color: inherit;
+  color:  rgb(251, 246, 246); 
+  font-size: 20px;
+    
+}
 .navLinkLogo img{
     height: 100px;
     width: 100px;
@@ -53,7 +60,7 @@ li {
     height:300px ;
     width: 300px;
 } */
-.navLink:hover,.nav-btn:hover,#cartLogo:hover{
+.navLink:hover,.nav-btn:hover,#cartLogo:hover, .darkBtn:hover{
    
     color:rgb(78, 76, 76);
     
@@ -95,7 +102,7 @@ li {
         flex-direction: column;
         text-align: center;
         padding:10px 20px 10px 20px;
-        width: 100vw;
+        width: 85vw;
         
         
 
@@ -120,7 +127,7 @@ li {
         
 
     }
-    .menu-List li:hover {
+    .menu-List li:hover, .darkBtn:hover {
         background-color: rgba(255, 255, 255, 0.368);
         
 

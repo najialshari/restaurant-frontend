@@ -9,6 +9,7 @@ let initialState = {
   categories:[],
   categoriesDate:[],
   categoryMeals:[{}],
+  categoryMealsById:{}
   
 };
 
@@ -33,7 +34,7 @@ const menuReducer = (state = initialState, action) => {
     case GET_MENU_CATEGORY_MEALS_BY_ID:
       return {
   
-        ...state.data,
+        // ...state.data,
         categoryMealsById:action?.payload?.data
       };
     

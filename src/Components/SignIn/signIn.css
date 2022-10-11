@@ -1,0 +1,9 @@
+.signBox{
+    display: flex;
+    flex-Direction: column;
+    align-Items: center;
+    justify-Content: center;
+    margin:auto;
+    width: 40vw;
+    height: 85vh;
+  }

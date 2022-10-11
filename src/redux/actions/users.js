@@ -1,5 +1,6 @@
 import {
   SIGNUP_NEW_USER,
+  DELETE_SIGNUP_DATA ,
   FETCH_TOKEN,
   FETCH_TOKEN_FAILED,
   TOKEN_REMOVE,
@@ -31,6 +32,13 @@ return async (dispatch) => {
   dispatch({ type: SIGNUP_NEW_USER ,payload: res?.data });
   })
 };
+};
+
+export const deleteSignupDataAction = (userData) => {
+return async (dispatch) => {
+  
+  dispatch({ type: DELETE_SIGNUP_DATA  });
+  }
 };
 
 export const signinAction = (userData) => async (dispatch) => {

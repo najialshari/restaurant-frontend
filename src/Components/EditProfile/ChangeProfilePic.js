@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfilePicAction } from "../../redux/actions/users";
+import  "./ChangeProfilePic.css";
 
 const ChangeProfilePic = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
@@ -38,30 +39,23 @@ const ChangeProfilePic = () => {
     }
   };
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        ml:"2em"
-      }}
-    >
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          margin:"10px auto"
-        }}
-      >
-        <Avatar
+    <div>
+      <div className="updatePhoto">
+        <img
+              className="profilePhoto"
+
           src={user && user?.photo}
-          sx={{ width: "10em", height: "10em", mb: 3 }}
+          // sx={{ width: "9em", height: "9em", }}
         />
-        <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          margin:"auto 0"
-        }}
+        <div
+        className="profileName"
+        // sx={{
+        //   display: "flex",
+        //   flexDirection: "column",
+        //   margin:"auto ",
+        //   mr:"20vw"
+          
+        // }}
       >
         
         <Typography
@@ -71,7 +65,7 @@ const ChangeProfilePic = () => {
             size: "2em",
             fontSize: "1em",
             width: "fit-content",
-            m: "1em"
+            m: "auto"
 
           }}
         >
@@ -86,7 +80,7 @@ const ChangeProfilePic = () => {
           // fontSize: ".6em",
           textTransform:"capitalize",
           // fontWeight:"2rem",
-          // m: "0 0"
+          m: "auto"
         }}
         variant="contained"
         endIcon={<FileUploadIcon />}
@@ -94,8 +88,8 @@ const ChangeProfilePic = () => {
       >
         upload Image
       </Button>
-      </Container>
-      </Container>
+      </div>
+      </div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Update Profile Picture</DialogTitle>
         <DialogContent>
@@ -114,7 +108,7 @@ const ChangeProfilePic = () => {
           <Button onClick={handleClose}>Save photo</Button>
         </DialogActions>
       </Dialog>
-    </Container>
+    </div>
   );
 };
 

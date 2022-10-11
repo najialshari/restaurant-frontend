@@ -23,7 +23,7 @@ export const scanQRAciton = (uuid) => async (dispatch) => {
     })
     .catch((e) => {
       console.error(e);
-      <Navigate to="/" replace={ true } />;
+      // <Navigate to="/" replace={ true } />;
       dispatch({ type: NOT_FOUND});
     });
 };

@@ -1,5 +1,6 @@
 import {
   SIGNUP_NEW_USER,
+  DELETE_SIGNUP_DATA ,
   FETCH_TOKEN,
   FETCH_TOKEN_FAILED,
   TOKEN_REMOVE,
@@ -144,6 +145,20 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: false,
+        success: false,
+        data:{
+          ...state.data,
+        token: null,
+        user: null,
+        }
+      };
+    case DELETE_SIGNUP_DATA:
+      window.localStorage.removeItem("token");
+      window.localStorage.removeItem("user");
+      return {
+        ...state,
+        isAuthenticated: false,
+        success: false,
         data:{
           ...state.data,
         token: null,

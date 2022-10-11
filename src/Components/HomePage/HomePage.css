@@ -1,5 +1,5 @@
 
-.notFoundPage{
+.homePage{
     display: flex;
     flex-direction: row;
     
@@ -7,21 +7,24 @@
     justify-content: space-around;
     text-align: center;
    /* height: auto; */
+   /* z-index: 50; */
    color: rgb(139, 91, 91);
    text-shadow: 4px 4px 4px  rgb(220, 178, 40)
     
     
 }
-.notFoundImage{
-    height:38vh;
-    padding:57px  ;
-    border-radius:5em;
-    
+.homePageImage{
+    height:50vh;
+    padding:0px 0;
 }
-.notFoundDiv{
+.homePageDiv{
     padding: 20px 0 20px 20px;
+    text-align: start;
 }
-.notFoundLink button{
+.restaurantName{
+    font-weight: 300;
+}
+.homePageLink button{
     background-color:rgb(78, 76, 76);
     color:  rgb(251, 246, 246);
     padding:5px 30px;
@@ -29,20 +32,20 @@
     border: none;
     font-weight:600 ;
 }
-.notFoundLink button:hover{
+.homePageLink button:hover{
     background-color:  rgb(220, 178, 40);
     color: rgb(78, 76, 76);
     border: none;
 }
 
 @media only screen and (max-width:640px){
-    .notFoundPage{
+    .homePage{
         display: flex;
         flex-direction: column;
         
     }
-    .notFoundImage{
-        width: 85vw;
+    .homePageImage{
+        width: 50vw;
         height: auto;
     }
     

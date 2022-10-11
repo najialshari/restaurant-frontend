@@ -31,7 +31,7 @@ const ChangePhoneNo = () => {
         ml: "4em",
         margin: "auto",
         padding: "auto",
-        width: "40em",
+        width: "85vw",
         mb:"20px"
       }}
     >

@@ -4,8 +4,10 @@ import {
 } from "../constants";
 
 let initialState = {
-  categories:[],
-  categoriesDate:[],
+  // data:{
+  // categories:[],
+  categoriesDate:[]
+// }
     
 };
 
@@ -16,8 +18,8 @@ const categoriesReducer = (state = initialState, action) => {
       console.log("reducer categories :",action?.payload?.data)
       return {
         
-          ...state.data,
-          categories:action?.payload?.data?.name,
+          ...state,
+          // categories:action?.payload?.data?.name,
           categoriesDate:action?.payload?.data,
 
         };

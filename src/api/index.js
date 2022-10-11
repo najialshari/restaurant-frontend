@@ -19,7 +19,7 @@ const API_URLS = (extraData) => ({
   MENU: {
     GET_MENU_CATEGORIES: API_ROOT + "/menus/categories",
     GET_MENU_CATEGORY_MEALS: API_ROOT + "/menus/categoryMeals",
-    GET_MENU_CATEGORY_MEALS_BY_ID: API_ROOT + "/menus/categoryMeals"+ extraData,
+    GET_MENU_CATEGORY_MEALS_BY_ID: API_ROOT + "/menus/categoryMeals/"+ extraData,
     GET_MENU_MEALS: API_ROOT + "/menus/Meals",
    
     

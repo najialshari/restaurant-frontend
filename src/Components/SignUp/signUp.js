@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import {
   Box,
   Typography,
@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 // import { deepPurple } from "@mui/material/colors";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { signupAction } from "../../redux/actions/users";
+import { signupAction ,deleteSignupDataAction } from "../../redux/actions/users";
 import { useDispatch, useSelector} from "react-redux";
 // import { useEffect} from "react";
 import { useNavigate } from "react-router-dom";
@@ -30,6 +30,14 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // const deleteSignupData = async () => {
+  //   await dispatch(deleteSignupDataAction())
+  //     .then(() => console.log("deleteSignedIn", "sucess"))
+  //     .catch((err) => console.error("disPatch err",err))
+      
+  // };
+  // deleteSignupData();
+ 
 
   const handleOnChange = (e) => {
     user[e.target.name] = e.target.value;
@@ -44,10 +52,12 @@ const SignUp = () => {
 
   const isSignedUp = useSelector(state => state.auth.success);
   
-  console.log("isSignedup,",isSignedUp);
-  if(isSignedUp) navigate("/signin");
-  
-  
+  const [isSignedUpNow, setIsSignedUpNow] = useState(isSignedUp);
+  useEffect(()=>{
+    // setIsSignedUpNow(isSignedUp);
+    console.log("isSignedup,",isSignedUp)
+    if(isSignedUp)navigate("/signin")
+  }, [isSignedUp]);
 
   
 
@@ -104,6 +114,7 @@ const SignUp = () => {
               id="phoneNo"
               label="Phone Number"
               name="phoneNo"
+              type="number"
               autoComplete="phoneNo  "
               onChange={(e) => handleOnChange(e)}
             />
@@ -126,7 +137,7 @@ const SignUp = () => {
               fullWidth
               name="passwordConfirmation"
               label="passwordConfirmation"
-              type="passwordConfirmation"
+              type="password"
               id="passwordConfirmation"
               autoComplete="passwordConfirmation"
               onChange={(e) => handleOnChange(e)}

@@ -9,28 +9,27 @@
     /* margin: 5px 10px; */
     color: white;
     text-decoration: none;
+    font-weight: 500;
 }
 .categories  a{
-    color: black;
+    color: rgb(50, 49, 49);
     text-decoration: none;
 }
+
 #categoriesType{
     color: white;
     text-decoration: none;
+    
 }
 .categories a:hover,
 #categoriesType:hover{
     color:  rgb(220, 178, 40);
     text-decoration: none;
+    
 }
 .categories{
     margin:5px 20px ;
 }
-
-
-
-
-
 
 .category-cards {
 
@@ -51,8 +50,8 @@
     background: rgb(255, 255, 255);
 
     margin: 10px;
-    height: 250px;
-    width: 200px;
+    height: 290px;
+    width: 220px;
     border-radius: 2rem;
     border: 3px solid grey;
     color: gray;
@@ -65,11 +64,12 @@
 }
 
 
+
 .mealsImage {
-    height: 150px;
-    width: 200px;
+    height: 180px;
+    width: 100% ;
     /* object-fit: cover; */
-    padding:0  auto;
+    padding:0 ;
     /* margin:0 auto; */
     margin:0 ;
     text-align: center;
@@ -89,9 +89,18 @@
 
 .moreDetailsButton {
     /* padding: 20px; */
-    padding-bottom: 15px;
+    position: absolute;
+  bottom: 0px;
+  
+    padding-bottom: 9px;
+    /* margin-top: 0; */
+    margin-bottom: 0;
+    padding-top: 10px;
+    font-weight: 500;
 
-    background-color: gray;
+    /* background-color: gray; */
+    background-image: linear-gradient(white 10%,gray 90%)   ;
+
     color: white;
     width: 100%;
     /* margin: 0 10px; */
@@ -101,24 +110,45 @@
 }
 .moreDetailsButton:hover {
     
-
+    
     background-color:  rgb(220, 178, 40) ;
-    color:  white;
-    /* width: 100px; */
-    /* margin: 0 10px; */
-    /* border-radius: 10px; */
+    background-image: linear-gradient(white 10%, rgb(220, 178, 40) 90%)   ;
+    color:  gray;
     text-align: center;
+    border: inherit;
 
 }
+/* .moreDetailsButton:hover .mealsCard {
 
+    
+    border: 3px solid  rgb(220, 178, 40);
+    
+
+} */
+.cardDetails{
+
+
+}
 .mealsCard h2 {
-    margin: 0 auto;
+    margin: auto;
+    /* display: flex; */
+    /* position: absolute;
+    Top: 170px;
+    bottom: 50px; */
+    
+    width: 100%;
     text-align: center;
+    font-size:medium;
 }
 
 .mealsprice {
+    position: absolute;
+    bottom: 40px;
+
     margin: 0 5px;
+    width: 100%;
     text-align: center;
+
 }
 .oldPrice{
     padding-right: 10px;
@@ -138,11 +168,24 @@
 
     }
     
-    .categories ul li{
-     
+    .categories ul li a
+    ,.categories ul li{
+        width: 100%;
+        text-align: center;
         padding-top: 5px;
         padding-bottom: 5px;
+        
+        /* background-color: aqua; */
+        
        
 
     }
+    .categories ul li:hover{
+        
+        background-color: rgba(255, 255, 255, 0.368);
+        border-radius: 5px;
+       
+
+    }
+    
   }

@@ -23,12 +23,8 @@ const SignOut = () => {
     await dispatch(logOutAction())
    .then((res) =>navigate("/signin"));
   };
-  // useEffect(() => {
-  //   handleLogOut()
-  // }, []);
-    // const isSignedOut = useSelector(state => state.auth.data.user)
-    // console.log("isSignedOut,",isSignedOut)
-    // if(isSignedOut)navigate("/signin")
+ 
+   
   return (
     <Box
       sx={{

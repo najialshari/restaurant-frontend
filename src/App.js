@@ -14,6 +14,7 @@ import Notification from "./Components/Notifications/Notifications";
 import   Profile from './Components/EditProfile';
 import TableScan from './Components/TableScan/tableScan';
 import CategoryMeal from './Components/CategoryMeal/categoryMeal';
+import HomePage from './Components/HomePage/HomePage';
 
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-
         <Route path='/' exact element={<Home />} />
+        <Route path='/home' exact element={<HomePage />} />
         <Route path='/menu' exact element={<Menu />} />
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/signin"} element={<SignIn />} />
@@ -32,9 +33,9 @@ function App() {
         <Route path={"/meals/:id"} element={<CategoryMeal />} />
         <Route path='*'  element={<Home />} />
         <Route path='/notfound'  element={<PageNotFound />} />
-        <Route element={<RequireAuth />}>
+        {/* <Route element={<RequireAuth />}> */}
         <Route path={"/profile"} element={<Profile />} />
-        </Route>
+        {/* </Route> */}
 
       </Routes>
 

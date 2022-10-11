@@ -67,7 +67,7 @@ footer{
 
 .footer-Link{
     text-decoration: none;
-    color:   rgb(5, 5, 5);
+    color:currentColor;
     cursor: pointer;
     
 }
