@@ -89,7 +89,7 @@ const emailRef = useRef({})
               </li>
               <li>
                 <Link className="footer-Link" to="/">
-                  About
+                  Telegram
                 </Link>
               </li>
             </ul>
@@ -98,7 +98,7 @@ const emailRef = useRef({})
 
         <div className="sub-section">
           <div>
-            <h2>Subscribe to our newsletter</h2>
+            <h2>Subscribe to our Newsletter</h2>
             <p>Monthly digest of whats new and exciting from us.</p>
             <div className="d-flex w-100 gap-2">
               <input

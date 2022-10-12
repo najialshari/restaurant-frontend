@@ -47,7 +47,7 @@ console.log("in NavBar is User Signed In ",isSignedIn)
         
         <nav className='navBar' >
             <div className='navBar-Logo' >
-                <Link className='navLinkLogo' to={'/home'}><img src={logo} alt=''/></Link>
+                <Link className='navLinkLogo' to={'/home'}><img src={logo} alt='resturantLogo'/></Link>
             </div>
             <button className='nav-btn ' ref={btnRef}
             onClick={showNavMenu}><FaBars />
