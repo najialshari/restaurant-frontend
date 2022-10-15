@@ -69,7 +69,7 @@ function Menu() {
       <div className="categories-container">
         {categories?.map((item) => (
           <div className="category-container" key={item.id}>
-            <h2 id={`${item.name}`}>{item.name}:</h2>
+            <h2 className="category-title" id={`${item.name}`}>{item.name}:</h2>
             
             <div className="category-description" >
               <p>

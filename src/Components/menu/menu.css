@@ -30,6 +30,12 @@
 .categories{
     margin:5px 20px ;
 }
+.category-title{
+    padding-left: 5%;
+}
+.category-description{
+    padding-left: 10%;
+}
 
 .category-cards {
 
@@ -38,7 +44,7 @@
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    padding: 5px ;
+    padding: 5px  0;
 
 }
 
@@ -186,6 +192,14 @@
         border-radius: 5px;
        
 
+    }
+    
+  }
+
+@media only screen and (max-width:300px){
+    
+    .mealsCard{
+        margin:10px 0;
     }
     
   }
