@@ -24,6 +24,7 @@ const Notification = () => {
 
   return (
     <div>
+      {message?
       <Snackbar
         sx={{ height: "25%" }}
         anchorOrigin={{
@@ -52,7 +53,7 @@ const Notification = () => {
             {message || "success"}
           </Alert>
         )}
-      </Snackbar>
+      </Snackbar>:null}
     </div>
   );
 };

@@ -11,18 +11,34 @@
   .slideContainer {
     display: flex;
   }
-  .slideImage img{
-    flex: 0 0 100%;
-    width: 100vw;
-    height: auto;
-    
-    align-items: center;
 
-    /* width: 100vw;
-    height: 90vh; */
-    
-    
-    
+  .slideImage {
+    display: flex;
+    flex: 0 0 100% ;
+    width: 100vw;
+    height: 40vh;
+    justify-content: center;
+
+    background-color: black;
   }
 
  
+
+  .slideImage img{
+    /* flex: 0 0 100%; */
+    /* margin:10px auto auto auto; */
+    /* width: 40vw; */
+    /* height: auto; */
+    /* border-radius: 10px; */
+  }
+  
+  
+@media only screen and (max-width:432.95px){
+  .slideImage img{
+    width: 100vw;
+    height: auto;
+  }
+  .slideImage {
+    height: auto;
+  }
+  }

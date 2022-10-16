@@ -50,14 +50,13 @@ useEffect(()=>{
 
   return (
     <Box
+    className="signBox"
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        m: "auto",
-        width: "40vw",
-        height: "85vh",
+        m: "10px auto",
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>

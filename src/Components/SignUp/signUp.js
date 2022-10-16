@@ -63,15 +63,16 @@ const SignUp = () => {
 
   return (
     <Box
+    className="signBox"
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        m: "auto",
-        width: "40vw",
-        height: "100vh",
+        m: "10px auto",
+        // width: "40vw",
+        // height: "100vh",
         
       }}
     >

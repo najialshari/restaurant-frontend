@@ -2,24 +2,27 @@
 .notFoundPage{
     display: flex;
     flex-direction: row;
-    
+    /* width: 95vw; */
+    margin: auto;
     align-items: center;
     justify-content: space-around;
-    text-align: center;
+    
+    padding:30px 23px ;
    /* height: auto; */
-   color: rgb(139, 91, 91);
-   text-shadow: 4px 4px 4px  rgb(220, 178, 40)
+   
     
     
 }
 .notFoundImage{
     height:38vh;
-    padding:57px  ;
-    border-radius:5em;
+    margin-bottom: 10px;
+    border-radius:3em;
     
 }
 .notFoundDiv{
     padding: 20px 0 20px 20px;
+    color: rgb(136, 71, 71);
+   text-shadow: 4px 4px 4px  rgb(220, 178, 40)
 }
 .notFoundLink button{
     background-color:rgb(78, 76, 76);
@@ -39,11 +42,15 @@
     .notFoundPage{
         display: flex;
         flex-direction: column;
+        text-align: center;
+        padding:10px 10px ;
+
         
     }
     .notFoundImage{
         width: 85vw;
         height: auto;
+        
     }
     
 }

@@ -33,14 +33,24 @@ function NavBar() {
 
       },[setMood]);
 
-    const isTableTokenAvailable = useSelector(state => state.qrcodes.isAuthenticated);
-    console.log(" in NavBaris Token ,",isTableTokenAvailable)
+    const [isTableTokenAvailable,setIsTableTokenAvailable]=useState({}) 
+    const [isSignedIn,setIsSignedIn]=useState({}) 
+    const tableToken = useSelector(state => state.qrcodes.data.table);
+    console.log(" in NavBaris Table Token ,",tableToken)
 
     
-    const isSignedIn = useSelector(state => state.auth.isAuthenticated);
-console.log("in NavBar is User Signed In ",isSignedIn)
+    const signedIn = useSelector(state => state.auth.data.user);
+console.log("in NavBar is User Signed In ",signedIn)
 
+useEffect(()=>{
+    setIsTableTokenAvailable(tableToken);
+    console.log("use Eff in NavBaris Table Token ,",isTableTokenAvailable)
 
+  },[tableToken]);
+useEffect(()=>{
+    setIsSignedIn(signedIn);
+    console.log("in NavBar is User Signed In ",isSignedIn)
+  },[signedIn]);
 
 
     return (
@@ -63,7 +73,7 @@ console.log("in NavBar is User Signed In ",isSignedIn)
                     <li>
                         {/* <Link className='navLink' to={'/home'} >Home</Link> */}
                     </li>
-                    {isSignedIn?
+                    {isSignedIn && !isTableTokenAvailable?
                     <li>
                         <Link className='navLink' to={'/profile'}>Profile</Link>
                     </li>:null}

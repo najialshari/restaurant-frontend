@@ -26,6 +26,7 @@ const usersReducer = (state = initialState, action) => {
   let newState= {};
   switch (action.type) {
     case FETCH_TOKEN:
+      window.localStorage.removeItem("table");
       window.localStorage.setItem("token", action?.payload?.data?.token);
       window.localStorage.setItem("user", JSON.stringify(action?.payload?.data?.user));
       return {
@@ -38,6 +39,7 @@ const usersReducer = (state = initialState, action) => {
         isAuthenticated: true,
       };
     case SIGNUP_NEW_USER:
+      window.localStorage.removeItem("table");
       window.localStorage.removeItem("token");
       window.localStorage.removeItem("user");
       return {
@@ -57,6 +59,7 @@ const usersReducer = (state = initialState, action) => {
         }
       };
     case GET_USERINFO:
+      window.localStorage.removeItem("table");
       return {
         ...state,
         success: true,
@@ -67,6 +70,7 @@ const usersReducer = (state = initialState, action) => {
         }
       };
     case UPDATE_PROFILEPIC:
+      window.localStorage.removeItem("table");
        newState = {
         ...state,
         isAuthenticated: true,
@@ -88,6 +92,7 @@ const usersReducer = (state = initialState, action) => {
       };
       
     case UPDATE_USERNAME:
+      window.localStorage.removeItem("table");
       newState = {
         ...state,
         isAuthenticated: true,
@@ -105,6 +110,8 @@ const usersReducer = (state = initialState, action) => {
         ...newState
       }    
     case UPDATE_PHONENO:
+      window.localStorage.removeItem("table");
+
       newState = {
         ...state,
         isAuthenticated: true,
@@ -122,6 +129,7 @@ const usersReducer = (state = initialState, action) => {
         ...newState
       }    
     case UPDATE_EMAIL:
+      window.localStorage.removeItem("table");
       newState = {
         ...state,
         isAuthenticated: true,
@@ -140,6 +148,7 @@ const usersReducer = (state = initialState, action) => {
       }    
      
     case TOKEN_REMOVE:
+      window.localStorage.removeItem("table");
       window.localStorage.removeItem("token");
       window.localStorage.removeItem("user");
       return {
@@ -153,6 +162,7 @@ const usersReducer = (state = initialState, action) => {
         }
       };
     case DELETE_SIGNUP_DATA:
+      window.localStorage.removeItem("table");
       window.localStorage.removeItem("token");
       window.localStorage.removeItem("user");
       return {

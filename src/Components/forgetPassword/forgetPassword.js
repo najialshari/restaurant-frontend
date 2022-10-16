@@ -35,14 +35,14 @@ const ForgetPassword = () => {
     // }
   return (
     <Box
+    className="signBox"
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        m: "auto",
-        width: "60vw",
-        height: "50vh"
+        m: "10px auto",
+        
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>
