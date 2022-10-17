@@ -15,6 +15,7 @@ import   Profile from './Components/EditProfile';
 import TableScan from './Components/TableScan/tableScan';
 import CategoryMeal from './Components/CategoryMeal/categoryMeal';
 import HomePage from './Components/HomePage/HomePage';
+import Cart from './Components/Cart/cart';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/' exact element={<Home />} />
         <Route path='/home' exact element={<HomePage />} />
         <Route path='/menu' exact element={<Menu />} />
+        <Route path='/cart' exact element={<Cart />} />
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/signin"} element={<SignIn />} />
         <Route path={"/table/:id"} element={<TableScan />} />

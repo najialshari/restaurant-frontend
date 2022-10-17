@@ -91,6 +91,7 @@
     align-items: center;
     text-decoration: none;
     color: gray;
+    text-align: center;
 }
 
 .moreDetailsButton {
@@ -131,10 +132,7 @@
     
 
 } */
-.cardDetails{
 
-
-}
 .mealsCard h2 {
     margin: auto;
     /* display: flex; */

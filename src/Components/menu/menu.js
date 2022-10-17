@@ -92,8 +92,9 @@ function Menu() {
                             <img className='mealsImage' alt="" src={itemType.image} />
                             <div className="cardDetails">
                             <h2 className='mealName'>
-                              {itemType.MealType?.name}{" "}{itemType.Meal?.name}
+                              {itemType.Meal?.name}
                               </h2>
+                              <label>{itemType.MealType?.name}</label>
                             {itemType.discount>0?
                 <p className='mealsprice' ><span className='oldPrice'>{itemType.price}  ${" "}</span> <span> {" "}
                 {/* <b> {PriceAfterDiscount(itemType.price)} $</b></span></p>: */}

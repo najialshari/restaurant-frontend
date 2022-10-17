@@ -21,16 +21,6 @@
 
     background-color: black;
   }
-
- 
-
-  .slideImage img{
-    /* flex: 0 0 100%; */
-    /* margin:10px auto auto auto; */
-    /* width: 40vw; */
-    /* height: auto; */
-    /* border-radius: 10px; */
-  }
   
   
 @media only screen and (max-width:432.95px){
