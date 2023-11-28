@@ -17,6 +17,7 @@ const qrcodesReducer = (state = initialState, action) => {
         window.localStorage.removeItem("user");
         // window.localStorage.setItem("token", action?.payload?.data?.token);
       window.localStorage.setItem("table", JSON.stringify(action?.payload?.data?.table));
+      
       return {
         success: action?.payload?.success,
         messages: action?.payload?.messages,
@@ -29,7 +30,7 @@ const qrcodesReducer = (state = initialState, action) => {
       };
      case NOT_FOUND: 
     //  window.localStorage.removeItem("token");
-     window.localStorage.removeItem("table");
+    window.localStorage.removeItem("table");
     //  window.localStorage.removeItem("user");
      return {
        success: false,

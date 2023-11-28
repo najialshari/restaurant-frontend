@@ -15,6 +15,7 @@ const TableScan = () => {
   // const [tableData, setTableData] = useState();
   let { id } = useParams();
   // setTableData= id;
+  
   console.log("isUUID Availble,",id)
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const TableScan = () => {
   useEffect(()=>{
     setIsTableAvailbleNow(isTableAvailble);
   console.log("isTableAvailble,",isTableAvailble)
-  if(isTableAvailble)navigate("/");
+  if(isTableAvailble) navigate("/");
   // else navigate("/notfound");
 }, [isTableAvailble]);
   

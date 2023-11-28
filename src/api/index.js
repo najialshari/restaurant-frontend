@@ -1,5 +1,6 @@
 const API_ROOT = process.env.REACT_APP_API_URL;
-console.log("TEST API", API_ROOT)
+// const API_ROOT = "http://localhost:8000/api/v1";
+console.log("TEST API", process.env,API_ROOT)
 
 const API_URLS = (extraData) => ({
   // the extraData can be used to send url params and request query data if needed to api.

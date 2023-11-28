@@ -9,7 +9,7 @@ import SignIn from './Components/SignIn/signIn';
 import Menu from './Components/menu/menu';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import ForgetPassword from './Components/forgetPassword/forgetPassword';
-import RequireAuth from './RequiredAuth';
+// import RequireAuth from './RequiredAuth';
 import Notification from "./Components/Notifications/Notifications";
 import   Profile from './Components/EditProfile';
 import TableScan from './Components/TableScan/tableScan';

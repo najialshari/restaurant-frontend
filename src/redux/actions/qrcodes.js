@@ -20,6 +20,7 @@ export const scanQRAciton = (uuid) => async (dispatch) => {
   await requestApi(data)
     .then((res) => {
       dispatch({ type: SCAN_QR, payload: res?.data });
+
     })
     .catch((e) => {
       console.error(e);
