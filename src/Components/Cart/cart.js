@@ -26,8 +26,8 @@ const itemsState = useSelector((state) => state.cart)
 
         const data = {
             totalPrice: mySum,
-            userId: 31,
-            addressId: 11,
+            userId: "",
+            addressId: "",
             tableUUID: "",
             items: itemsState
         }
