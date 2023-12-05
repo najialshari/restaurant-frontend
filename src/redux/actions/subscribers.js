@@ -10,13 +10,11 @@ export const subscribeAction = (userData) => async (dispatch) => {
     method: "POST",
     body: {
       ...userData,
-
-      // email:userData.email
     },
   };
   await requestApi(data)
     .then((res) => {
-      dispatch({ type: SUBSCRIBE, payload: userData.email });
+      dispatch({ type: SUBSCRIBE, payload: res.data.email });
     })
     .catch((e) => {
       console.error(e);

@@ -1,6 +1,5 @@
 const API_ROOT = process.env.REACT_APP_API_URL;
 // const API_ROOT = "http://localhost:8000/api/v1";
-console.log("TEST API", process.env,API_ROOT)
 
 const API_URLS = (extraData) => ({
   // the extraData can be used to send url params and request query data if needed to api.
@@ -35,6 +34,9 @@ const API_URLS = (extraData) => ({
     GET_ALL_SUBSCRIBERS : API_ROOT + "/subscription/allsubscribers",
     GET_ACTIVE_SUBSCRIBERS : API_ROOT + "/subscription/activesubscribers",
     DELETE_SUBSCRIBER : API_ROOT + "/subscription/"
+  },
+  ORDERS : {
+    ADD_ORDERS : API_ROOT + "/orders/",
   }
 });
 

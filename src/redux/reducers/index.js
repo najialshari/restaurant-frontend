@@ -6,6 +6,7 @@ import qrcodesReducer from "./qrcodes";
 import menuReducer from "./menu";
 import categoriesReducer from "./categories";
 import cartReducer from "./cart";
+import orderReducer from "./order";
 
 const allReducers = combineReducers({
     auth: usersReducer,
@@ -14,7 +15,8 @@ const allReducers = combineReducers({
     notifications: notificationsReducer,
     menu:menuReducer,
     categories:categoriesReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    order: orderReducer,
 })
 
 export default allReducers

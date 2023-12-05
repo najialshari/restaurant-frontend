@@ -4,7 +4,7 @@ import menuLogo from "../../Images/menu0.png";
 import logo from "../../Images/logo6.png";
 
 const HomePage = () => {
-  console.log("Page path is " + window.location.pathname);
+  
 
   return (
     <div className="homePage">
@@ -20,7 +20,7 @@ const HomePage = () => {
             {" "}
             <b>LEZZET </b>
           </span>{" "}
-          Rerstaurant
+          Restaurant
           <br />
         </h2>
         <h2>
@@ -45,8 +45,6 @@ const HomePage = () => {
       <img
         className="homePageImage"
         alt="404 - QR Code doesn`t work "
-        // width="50%"
-        // src="https://freesvg.org/img/1646582431404-error-404.png"
         src={menuLogo}
       />
     </div>

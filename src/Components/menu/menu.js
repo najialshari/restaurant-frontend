@@ -9,31 +9,18 @@ import { getCategoriesAction } from "../../redux/actions/categories";
 import { useState } from "react";
 
 function Menu() {
-  // const categoryTypes = ["Breackfast",
-  //  "Dinner",
-  //  "Launch",
-  //  "Meat",
-  //  "Drinks"];
-  // const categoryTypes = [{name:"Breackfast",description:""},
-  // {name: "Dinner",description:""},
-  // {name: "Launch",description:""},
-  // {name: "Meat",description:""},
-  // {name: "Drinks",description:""}];
 
   const dispatch = useDispatch();
   const getCategories = async () => {
-    await dispatch(getCategoriesAction())
-      .then(() => {
-        console.log("getCategory", "success");
-      })
-      .catch((err) => {
-        console.error("getCategory", err);
-      });
+    await dispatch(getCategoriesAction()).catch((err) => {
+      console.error("getCategory", err);
+    });
   };
 
   useEffect(() => {
     getCategories();
-    //eslint-disable-next-line
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [categories, setCategories] = useState();
@@ -45,17 +32,6 @@ function Menu() {
     setCategories(TempCategories);
   }, [TempCategories]);
 
-  console.log("get Categories", categories);
-  // const categories = [
-  //   {id:"0",category:"Breackfast",price:"105.95",discount:"10",description:"Nestle leeks, potato and capers around salmon fillets to make this easy traybake for two. It's great as an midweek meal, or for a more romantic occasion",meal:"Fish1",type:"person",image:"https://pngimage.net/wp-content/uploads/2018/06/mariscada-png-2.png",rating:{rate:3.9,"count":120}},
-  //   {id:"1",category:"Dinner",price:"120.85",discount:"0",description:"Nestle leeks, potato and capers around salmon fillets to make this easy traybake for two. It's great as an midweek meal, or for a more romantic occasion",meal:"Fish2",type:"person",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6aO8yNH-p1gxE2IXCggBXCJrk16GsLkzY8qsK04B4ogdlQoK387oj55MCzuOcYEm5D6Q&usqp=CAU",rating:{rate:3.9,"count":120}},
-  //   {id:"2",category:"Launch",price:"50",discount:"0",description:"Nestle leeks, potato and capers around salmon fillets to make this easy traybake for two. It's great as an midweek meal, or for a more romantic occasion",meal:"Fish3",type:"person",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx8p04VZEuStLPP5qnNFr0MfbOGSGfDxS4LyNbmxdQHdHTNKLsK2xoORajNBny7mu06yc&usqp=CAU",rating:{rate:3.9,"count":120}},
-  //   {id:"3",category:"Drinks",price:"80.9",discount:"20",description:"Nestle leeks, potato and capers around salmon fillets to make this easy traybake for two. It's great as an midweek meal, or for a more romantic occasion",meal:"Fish4",type:"person",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTquz_9qGbLANmt1hXrRSVW7pzjqD5j0v7LFND5-Zvepcif-KgMBq5ZiS_CjhNxO88OaBI&usqp=CAU",rating:{rate:3.9,"count":120}},
-
-  // const PriceAfterDiscount=(price,discount)=>{
-  //   const newPrice=(price-(price*(discount/100)));
-  //   return parseFloat(newPrice).toFixed(2)
-  // }
   return (
     <div className="categories" id="menuCategories">
       <ul>
@@ -97,7 +73,10 @@ function Menu() {
                   <Link to={`/meals/${itemType.id}`} className="linkToMeal">
                     <img className="mealsImage" alt="" src={itemType.image} />
                     <div className="cardDetails">
-                      <h2 className="mealName">{itemType.Meal?.name[0].toUpperCase() + itemType.Meal?.name.substr(1)}</h2>
+                      <h2 className="mealName">
+                        {itemType.Meal?.name[0].toUpperCase() +
+                          itemType.Meal?.name.substr(1)}
+                      </h2>
                       <label>{itemType.MealType?.name}</label>
                       {itemType.discount > 0 ? (
                         <p className="mealsprice">

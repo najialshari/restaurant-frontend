@@ -14,7 +14,7 @@ let initialState = {
 };
 
 const menuReducer = (state = initialState, action) => {
-  let newState= {};
+
   switch (action.type) {
     case GET_CATEGORIES:
       return {

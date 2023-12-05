@@ -7,14 +7,11 @@ import './home.css'
 import Menu from '../menu/menu';
 import HomePage from '../HomePage/HomePage';
 function Home() {
-  // const [emblaRef] = useEmblaCarousel()
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()])
 
   return (
     <div className='homePage0'>
-      {/* <div className='welcome'>
-
-      </div> */}
+      
       <div className="home" ref={emblaRef}>
         <div className="slideContainer">
           <div className="slideImage"><img src={home1} alt='HOME1' /></div>

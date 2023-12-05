@@ -2,26 +2,22 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './navBar.css';
 import { FaTimes, FaBars } from 'react-icons/fa';
-import { MdOutlineNightlight, MdOutlineLightMode } from 'react-icons/md';
 import { GiBowlOfRice } from 'react-icons/gi';
 import { CgDarkMode } from 'react-icons/cg';
 import logo from '../../Images/logo6.png';
 import SignOut from '../SignOut/signOut';
 import { useSelector } from "react-redux";
-// import { useSelector, useDispatch } from "react-redux";
 
 function NavBar() {
-    //   const dispatch = useDispatch();
     const navRef = useRef();
     const btnRef = useRef();
+
     const showNavMenu = () => {
         navRef.current.classList.toggle("responsive_nav")
         btnRef.current.classList.toggle("responsive_btn")
     }
     const [mood, setMood] = useState(false)
-    console.log(" in NavBaris element 1,", mood)
-
-
+    
     const darkMood = () => {
         var element = document.body;
         element.classList.toggle("dark-mode");
@@ -29,32 +25,29 @@ function NavBar() {
     }
     useEffect(() => {
         darkMood()
-        console.log(" in NavBaris element 2,", mood)
 
     }, [setMood]);
 
     const [isTableTokenAvailable, setIsTableTokenAvailable] = useState({})
     const [isSignedIn, setIsSignedIn] = useState({})
     const tableToken = useSelector(state => state.qrcodes.data.table);
-    console.log(" in NavBaris Table Token ,", tableToken)
-
-
+   
     const items = useSelector((num) => num.cart)
     let sum = 0
     for (let dummy of items)
         sum += dummy.count
         
     const signedIn = useSelector(state => state.auth.data.user);
-    console.log("in NavBar is User Signed In ", signedIn)
+   
 
     useEffect(() => {
         setIsTableTokenAvailable(tableToken);
-        console.log("use Eff in NavBaris Table Token ,", isTableTokenAvailable)
 
     }, [tableToken]);
+
     useEffect(() => {
         setIsSignedIn(signedIn);
-        console.log("in NavBar is User Signed In ", isSignedIn)
+
     }, [signedIn]);
 
 
