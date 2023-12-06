@@ -5,8 +5,7 @@ import {
 } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
 // import { deepPurple } from "@mui/material/colors";
-import { useEffect } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch} from "react-redux";
 import { logOutAction } from "../../redux/actions/users";
 import { useNavigate } from "react-router-dom";
 import './signOut.css';

@@ -14,13 +14,11 @@ const ChangePassword = () => {
   });
 
   const handleInputChange = (e) => {
-    data[e.target.name] = e.target.value;
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleOnChangePassword = async () => {
-    await dispatch(updatePasswordAction(data))
-      .then(() => console.log("yes"))
-      .catch(() => console.log("no"));
+  const handleOnChangePassword = () => {
+    dispatch(updatePasswordAction(data));
   };
   return (
     <Container
@@ -31,7 +29,7 @@ const ChangePassword = () => {
         margin: "auto",
         padding: "auto",
         width: "85vw",
-        mb:"20px"
+        mb: "20px",
       }}
     >
       <TextField
@@ -40,7 +38,7 @@ const ChangePassword = () => {
         variant="standard"
         type={"password"}
         name={"currPassword"}
-        helperText={`Enter password for authorization to change password`}
+        helperText={`Enter current password for authorization`}
         onChange={handleInputChange}
       />
       <TextField
@@ -49,7 +47,7 @@ const ChangePassword = () => {
         variant="standard"
         type={"password"}
         name={"newPassword"}
-        helperText={`Enter the new password here`}
+        helperText={`Enter the new password`}
         onChange={handleInputChange}
       />
       <TextField
@@ -58,7 +56,7 @@ const ChangePassword = () => {
         variant="standard"
         type={"password"}
         name={"newPasswordConfirmation"}
-        helperText={`Enter the password confirmation here`}
+        helperText={`Re-enter the new password`}
         onChange={handleInputChange}
       />
       <Button
@@ -66,6 +64,7 @@ const ChangePassword = () => {
           width: "fit-content",
           ml: "2em",
           mt: "1em",
+          textTransform:"capitalize"
         }}
         variant="contained"
         size="small"

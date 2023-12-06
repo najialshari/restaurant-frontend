@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Container from "@mui/material/Container";
+// import Container from "@mui/material/Container";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfilePicAction } from "../../redux/actions/users";
-import  "./ChangeProfilePic.css";
+import "./ChangeProfilePic.css";
 
 const ChangeProfilePic = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
@@ -41,54 +41,33 @@ const ChangeProfilePic = () => {
   return (
     <div>
       <div className="updatePhoto">
-        <img
-              className="profilePhoto"
-
-          src={user && user?.photo}
-          // sx={{ width: "9em", height: "9em", }}
-        />
-        <div
-        className="profileName"
-        // sx={{
-        //   display: "flex",
-        //   flexDirection: "column",
-        //   margin:"auto ",
-        //   mr:"20vw"
-          
-        // }}
-      >
-        
-        <Typography
-          id="username"
-          variant="caption"
-          sx={{
-            size: "2em",
-            fontSize: "1em",
-            width: "fit-content",
-            m: "auto"
-
-          }}
-        >
-          {user?.username}
-        </Typography>
-        <Button
-        sx={{
-          width: "fit-content",
-          // p:".5em 1em",
-          // color: "text.primary",
-          // bgcolor: "background.default",
-          // fontSize: ".6em",
-          textTransform:"capitalize",
-          // fontWeight:"2rem",
-          m: "auto"
-        }}
-        variant="contained"
-        endIcon={<FileUploadIcon />}
-        onClick={handleClickOpen}
-      >
-        upload Image
-      </Button>
-      </div>
+        <img className="profilePhoto" alt="hi" src={user && user?.photo} />
+        <div className="profileName">
+          <Typography
+            id="username"
+            variant="caption"
+            sx={{
+              size: "2em",
+              fontSize: "1em",
+              width: "fit-content",
+              m: "auto",
+            }}
+          >
+            {user?.username}
+          </Typography>
+          <Button
+            sx={{
+              width: "fit-content",
+              textTransform: "capitalize",
+              m: "auto",
+            }}
+            variant="contained"
+            endIcon={<FileUploadIcon />}
+            onClick={handleClickOpen}
+          >
+            upload Image
+          </Button>
+        </div>
       </div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Update Profile Picture</DialogTitle>

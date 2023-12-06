@@ -31,7 +31,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleOnChange = (e) => {
-    setUser(user[e.target.name] = e.target.value);
+    setUser({...user , [e.target.name] : e.target.value});
   };
 
   const onSubmit = async (user, e) => {

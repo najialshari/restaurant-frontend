@@ -7,15 +7,14 @@ import { updateEmailAction } from "../../redux/actions/users";
 
 const ChangeEmail = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
-  // console.log(user);
   const dispatch = useDispatch();
-  const [data, setDate] = useState({
+  const [data, setData] = useState({
     newEmail: user.email,
     password: "",
   });
 
   const handleInputChange = (e) => {
-    data[e.target.name] = e.target.value;
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const handleOnChangeEmail = async () => {
@@ -32,7 +31,7 @@ const ChangeEmail = () => {
         margin: "auto",
         padding: "auto",
         width: "85vw",
-        mb:"20px"
+        mb: "20px",
       }}
     >
       <TextField
@@ -65,7 +64,7 @@ const ChangeEmail = () => {
         size="larg"
         onClick={handleOnChangeEmail}
       >
-        changEmail
+        chang email
       </Button>
     </Container>
   );

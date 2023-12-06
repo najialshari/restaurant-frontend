@@ -20,6 +20,7 @@ let initialState = {
     user: JSON.parse(window.localStorage.getItem("user")) || null,
   },
   isAuthenticated: false,
+  messages:""
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -160,10 +161,10 @@ const usersReducer = (state = initialState, action) => {
         isAuthenticated: false,
         success: false,
         data: {
-          ...state.data,
           token: null,
           user: null,
         },
+        messages:""
       };
     case DELETE_SIGNUP_DATA:
       window.localStorage.removeItem("table");

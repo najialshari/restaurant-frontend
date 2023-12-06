@@ -10,47 +10,37 @@ import {
   Checkbox,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-// import { deepPurple } from "@mui/material/colors";
-import { useState ,useEffect} from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { signinAction } from "../../redux/actions/users";
 import { useNavigate } from "react-router-dom";
-import './signIn.css';
-
+import "./signIn.css";
 
 const SignIn = () => {
   const [userData, setUserData] = useState({
     usernameOrEmail: "",
     password: "",
   });
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleOnChange = (e) => {
-    userData[e.target.name] = e.target.value;
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async (userData, e) => {
+  const handleSubmit = (userData, e) => {
     e.preventDefault();
-    await dispatch(signinAction(userData))
-    // .then((res) =>navigate("/signin"));
+    dispatch(signinAction(userData));
   };
-  const isSignedIn = useSelector(state => state.auth.isAuthenticated)
-  // console.log("isSignedIn,",isSignedIn)
-  // if(isSignedIn)navigate("/")
+  const isSignedIn = useSelector((state) => state.auth.isAuthenticated);
 
-//useEffect
-
-useEffect(()=>{
-  console.log("isSignedIn,",isSignedIn)
-  if(isSignedIn)navigate("/")
-}, [isSignedIn]);
-
-
+  useEffect(() => {
+    if (isSignedIn) navigate("/");
+  }, [isSignedIn, navigate]);
 
   return (
     <Box
-    className="signBox"
+      className="signBox"
       sx={{
         display: "flex",
         flexDirection: "column",

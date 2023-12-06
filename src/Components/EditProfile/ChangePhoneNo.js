@@ -9,19 +9,17 @@ const ChangePhoneNo = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
   console.log(user);
   const dispatch = useDispatch();
-  const [data, setDate] = useState({
+  const [data, setData] = useState({
     newPhoneNo: user.phoneNo,
     password: "",
   });
 
   const handleInputChange = (e) => {
-    data[e.target.name] = e.target.value;
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleOnChangePhoneNo = async () => {
-    await dispatch(updatePhoneNoAction(data))
-      .then(() => console.log("yes"))
-      .catch(() => console.log("no"));
+  const handleOnChangePhoneNo = () => {
+    dispatch(updatePhoneNoAction(data));
   };
   return (
     <Container
@@ -32,7 +30,7 @@ const ChangePhoneNo = () => {
         margin: "auto",
         padding: "auto",
         width: "85vw",
-        mb:"20px"
+        mb: "20px",
       }}
     >
       <TextField
@@ -48,7 +46,7 @@ const ChangePhoneNo = () => {
         label="Password"
         variant="standard"
         type={"password"}
-        helperText={`Enter password for authorization to change email`}
+        helperText={`Enter password for authorization to change Phone No.`}
         name="password"
         onChange={handleInputChange}
       />
@@ -59,13 +57,12 @@ const ChangePhoneNo = () => {
           mt: "1em",
           textTransform: "capitalize",
           color: "white",
-          // bgcolor: "background.default",
         }}
         variant="contained"
         size="larg"
         onClick={handleOnChangePhoneNo}
       >
-        change Phone Number
+        change phone number
       </Button>
     </Container>
   );
