@@ -1,6 +1,6 @@
 import {
   SIGNUP_NEW_USER,
-  DELETE_SIGNUP_DATA ,
+  DELETE_SIGNUP_DATA,
   FETCH_TOKEN,
   FETCH_TOKEN_FAILED,
   TOKEN_REMOVE,
@@ -10,76 +10,70 @@ import {
   UPDATE_EMAIL,
   UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
-  DELETE_USER
+  DELETE_USER,
 } from "../constants";
 import API_URLS from "../../api";
 import { requestApi } from "../../helper";
-import { useNavigate } from "react-router-dom";
-
-
 
 export const signupAction = (userData) => {
-return async (dispatch) => {
+  return async (dispatch) => {
+    let data = {
+      url: API_URLS().AUTH.SIGNUP,
+      method: "POST",
+      body: {
+        ...userData,
+      },
+    };
+    await requestApi(data).then((res) => {
+      dispatch({ type: SIGNUP_NEW_USER, payload: res?.data });
+    });
+  };
+};
+
+export const deleteSignupDataAction = (userData) => {
+  return async (dispatch) => {
+    dispatch({ type: DELETE_SIGNUP_DATA });
+  };
+};
+
+export const signinAction = (userData) => async (dispatch) => {
   let data = {
-    url: API_URLS().AUTH.SIGNUP,
+    url: API_URLS().AUTH.SIGNIN,
     method: "POST",
     body: {
       ...userData,
     },
   };
   await requestApi(data)
-  .then((res) => {
-  dispatch({ type: SIGNUP_NEW_USER ,payload: res?.data });
-  })
-};
-};
-
-export const deleteSignupDataAction = (userData) => {
-return async (dispatch) => {
-  
-  dispatch({ type: DELETE_SIGNUP_DATA  });
-  }
-};
-
-export const signinAction = (userData) => async (dispatch) => {
-let data = {
-  url: API_URLS().AUTH.SIGNIN,
-  method: "POST",
-  body: {
-    ...userData,
-  },
-};
-await requestApi(data)
-  .then((res) => {
-    dispatch({ type: FETCH_TOKEN, payload: res?.data });
-  })
-  .catch((e) => {
-    console.error(e);
-    dispatch({ type: FETCH_TOKEN_FAILED });
-  });
+    .then((res) => {
+      dispatch({ type: FETCH_TOKEN, payload: res?.data });
+    })
+    .catch((e) => {
+      console.error(e);
+      dispatch({ type: FETCH_TOKEN_FAILED });
+    });
 };
 
 export const logOutAction = () => async (dispatch) => {
-let data = {
-  url: API_URLS().AUTH.LOGOUT,
-  method: "POST",
-};
-await requestApi(data).then(() => dispatch({ type: TOKEN_REMOVE }))
+  let data = {
+    url: API_URLS().AUTH.LOGOUT,
+    method: "POST",
+  };
+  await requestApi(data).then(() => dispatch({ type: TOKEN_REMOVE }));
 };
 
 export const getUserInfoAction = () => async (dispatch) => {
-  const navigate = useNavigate();
-let data = {
-  url: API_URLS().AUTH.GET_USERINFO,
-};
-await requestApi(data)
-  .then((res) => {
-    dispatch({ type: GET_USERINFO, payload: res?.data });
-  })
-  .catch((e) => {
-    console.error(e);
-    dispatch({ type: FETCH_TOKEN_FAILED });
-  });
+  let data = {
+    url: API_URLS().AUTH.GET_USERINFO,
+  };
+  await requestApi(data)
+    .then((res) => {
+      dispatch({ type: GET_USERINFO, payload: res?.data });
+    })
+    .catch((e) => {
+      console.error(e);
+      dispatch({ type: FETCH_TOKEN_FAILED });
+    });
 };
 
 export const updatePasswordAction = (userData) => async (dispatch) => {
@@ -87,8 +81,8 @@ export const updatePasswordAction = (userData) => async (dispatch) => {
     url: API_URLS().AUTH.UPDATE_PASSWORD,
     method: "PATCH",
     body: {
-      ...userData
-    }
+      ...userData,
+    },
   };
   await requestApi(data)
     .then((res) => {
@@ -104,12 +98,12 @@ export const updateUsernameAction = (userData) => async (dispatch) => {
     url: API_URLS().AUTH.UPDATE_USERNAME,
     method: "PATCH",
     body: {
-      ...userData
-    }
+      ...userData,
+    },
   };
   await requestApi(data)
     .then((res) => {
-      dispatch({ type: UPDATE_USERNAME , payload: res?.data});
+      dispatch({ type: UPDATE_USERNAME, payload: res?.data });
     })
     .catch((e) => {
       console.error(e);
@@ -121,8 +115,8 @@ export const updateEmailAction = (userData) => async (dispatch) => {
     url: API_URLS().AUTH.UPDATE_EMAIL,
     method: "PATCH",
     body: {
-      ...userData
-    }
+      ...userData,
+    },
   };
   await requestApi(data)
     .then((res) => {
@@ -137,8 +131,8 @@ export const updatePhoneNoAction = (userData) => async (dispatch) => {
     url: API_URLS().AUTH.UPDATE_PHONENO,
     method: "PATCH",
     body: {
-      ...userData
-    }
+      ...userData,
+    },
   };
   await requestApi(data)
     .then((res) => {
@@ -164,7 +158,6 @@ export const updateProfilePicAction = (formData) => async (dispatch) => {
       console.error(e);
     });
 };
-
 
 export const deleteUserAction = () => async (dispatch) => {
   let data = {

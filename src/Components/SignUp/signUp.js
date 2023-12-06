@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -8,17 +8,15 @@ import {
   Button,
   Link,
 } from "@mui/material";
-// import { deepPurple } from "@mui/material/colors";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { signupAction ,deleteSignupDataAction } from "../../redux/actions/users";
-import { useDispatch, useSelector} from "react-redux";
-// import { useEffect} from "react";
+import {
+  signupAction,
+} from "../../redux/actions/users";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import './signUp.css';
-
-
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import "./signUp.css";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -26,44 +24,30 @@ const SignUp = () => {
     email: "",
     phoneNo: "",
     password: "",
+    passwordConfirmation: "",
+    roleName: "user",
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const deleteSignupData = async () => {
-  //   await dispatch(deleteSignupDataAction())
-  //     .then(() => console.log("deleteSignedIn", "sucess"))
-  //     .catch((err) => console.error("disPatch err",err))
-      
-  // };
-  // deleteSignupData();
- 
-
   const handleOnChange = (e) => {
-    user[e.target.name] = e.target.value;
+    setUser(user[e.target.name] = e.target.value);
   };
 
   const onSubmit = async (user, e) => {
     e.preventDefault();
-    console.log("User Sign Up Data?",user)
-    await dispatch(signupAction(user))
-    // .then(()=>console.log("Sign UP Action done",user)) 
+    dispatch(signupAction(user));
   };
 
-  const isSignedUp = useSelector(state => state.auth.success);
-  
-  const [isSignedUpNow, setIsSignedUpNow] = useState(isSignedUp);
-  useEffect(()=>{
-    // setIsSignedUpNow(isSignedUp);
-    console.log("isSignedup,",isSignedUp)
-    if(isSignedUp)navigate("/signin")
-  }, [isSignedUp]);
+  const isSignedUp = useSelector((state) => state.auth.success);
 
-  
+  useEffect(() => {
+    if (isSignedUp) navigate("/signin");
+  }, [isSignedUp,navigate]);
 
   return (
     <Box
-    className="signBox"
+      className="signBox"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -71,20 +55,20 @@ const SignUp = () => {
         justifyContent: "center",
         textAlign: "center",
         m: "10px auto",
-        // width: "40vw",
-        // height: "100vh",
-        
       }}
     >
-      <Avatar sx={{ m: 1, bgcolor:"rgb(220, 178, 40)" }}>
+      <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>
         <LockOutlinedIcon />
       </Avatar>
       <Typography component="h1" variant="h5">
         Sign up
       </Typography>
-      <Box component="form" noValidate 
-      onSubmit={(e) => onSubmit(user, e)}
-       sx={{ mt: 3 }}>
+      <Box
+        component="form"
+        noValidate
+        onSubmit={(e) => onSubmit(user, e)}
+        sx={{ mt: 3 }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -156,7 +140,7 @@ const SignUp = () => {
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2 ,bgcolor:"rgb(220, 178, 40)"}}
+          sx={{ mt: 3, mb: 2, bgcolor: "rgb(220, 178, 40)" }}
         >
           Sign Up
         </Button>

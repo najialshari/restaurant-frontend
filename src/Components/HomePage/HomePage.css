@@ -1,52 +1,44 @@
+.homePage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 2px 4px rgb(220, 178, 40);
+}
+.homePageImage {
+  height: 20vh;
+  padding: 0px 0;
+}
+.homePageDiv {
+  padding: 20px 0 20px 20px;
+  text-align: start;
+}
+.restaurantName {
+  font-weight: 300;
+}
+.homePageLink button {
+  background-color: rgb(78, 76, 76);
+  color: rgb(251, 246, 246);
+  padding: 5px 30px;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+}
+.homePageLink button:hover {
+  background-color: rgb(220, 178, 40);
+  color: rgb(78, 76, 76);
+  /* border: none; */
+}
 
-.homePage{
+@media only screen and (max-width: 640px) {
+  .homePage {
     display: flex;
-    flex-direction: row;
-    
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-   /* height: auto; */
-   /* z-index: 50; */
-   color: rgb(139, 91, 91);
-   text-shadow: 4px 4px 4px  rgb(220, 178, 40)
-    
-    
-}
-.homePageImage{
-    height:48vh;
-    padding:0px 0;
-}
-.homePageDiv{
-    padding: 20px 0 20px 20px;
-    text-align: start;
-}
-.restaurantName{
-    font-weight: 300;
-}
-.homePageLink button{
-    background-color:rgb(78, 76, 76);
-    color:  rgb(251, 246, 246);
-    padding:5px 30px;
-    border-radius: 20px;
-    border: none;
-    font-weight:600 ;
-}
-.homePageLink button:hover{
-    background-color:  rgb(220, 178, 40);
-    color: rgb(78, 76, 76);
-    border: none;
-}
-
-@media only screen and (max-width:640px){
-    .homePage{
-        display: flex;
-        flex-direction: column;
-        
-    }
-    .homePageImage{
-        width: 50vw;
-        height: auto;
-    }
-    
+    flex-direction: column;
+  }
+  .homePageImage {
+    width: 50vw;
+    height: auto;
+  }
 }

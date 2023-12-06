@@ -4,8 +4,6 @@ import menuLogo from "../../Images/menu0.png";
 import logo from "../../Images/logo6.png";
 
 const HomePage = () => {
-  
-
   return (
     <div className="homePage">
       <div className="homePageDiv">
@@ -18,15 +16,15 @@ const HomePage = () => {
           Welcome To{" "}
           <span className="restaurantName">
             {" "}
-            <b>LEZZET </b>
+            <b>LEZZET</b>
           </span>{" "}
           Restaurant
-          <br />
         </h2>
-        <h2>
+        <h3>
+          {" "}
           Discover and Enjoy The Most Delicious Food And Drinks in Istanbul{" "}
           <br />
-        </h2>
+        </h3>
         {window.location.pathname === "/home" ? (
           <Link className="homePageLink" to={"/"}>
             {" "}

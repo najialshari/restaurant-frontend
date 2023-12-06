@@ -26,7 +26,7 @@
     margin: 0;
     display: flex;
     flex-direction: row;
-    
+
 }
 
 li {
@@ -37,12 +37,10 @@ li {
 .navLink ,.navLinkLogo{
     margin: auto 10px;
     text-decoration: none;
-    font-weight: 500;
-    font-weight: 600px;
+    font-weight:600;
     cursor: pointer;
     color:  rgb(251, 246, 246); 
     display: block;
-    
 }
 .darkBtn{
   border: none;
@@ -52,14 +50,11 @@ li {
     
 }
 .navLinkLogo img{
-    height: 100px;
+    height: 50px;
     width: 100px;
  
 }
-/* #cartLogo{
-    height:300px ;
-    width: 300px;
-} */
+
 .navLink:hover,.nav-btn:hover,#cartLogo:hover, .darkBtn:hover{
    
     color:rgb(78, 76, 76);
@@ -77,8 +72,6 @@ li {
     display: none;
     width: 30;
     size: 0px;
-    /* visibility: hidden;
-    opacity: 0 */
 }
 
 @media only screen and (max-width:640px){
