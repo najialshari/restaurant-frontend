@@ -7,28 +7,29 @@ import { updatePasswordAction } from "../../redux/actions/users";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
-  const [data, setData] = useState({
+  const initData = {
     currPassword: "",
     newPassword: "",
     newPasswordConfirmation: "",
-  });
+  };
+  const [data, setData] = useState(initData);
 
   const handleInputChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const handleOnChangePassword = () => {
-    dispatch(updatePasswordAction(data));
+    dispatch(updatePasswordAction(data)).then(() => setData(initData));
   };
   return (
-    <Container
+    <Container className="proData"
       sx={{
         display: "flex",
         flexDirection: "column",
         ml: "4em",
         margin: "auto",
         padding: "auto",
-        width: "85vw",
+        width: "60vw",
         mb: "20px",
       }}
     >
@@ -40,6 +41,7 @@ const ChangePassword = () => {
         name={"currPassword"}
         helperText={`Enter current password for authorization`}
         onChange={handleInputChange}
+        value={data.currPassword}
       />
       <TextField
         id="New password"
@@ -49,6 +51,7 @@ const ChangePassword = () => {
         name={"newPassword"}
         helperText={`Enter the new password`}
         onChange={handleInputChange}
+        value={data.newPassword}
       />
       <TextField
         id="Password confirmation"
@@ -58,13 +61,13 @@ const ChangePassword = () => {
         name={"newPasswordConfirmation"}
         helperText={`Re-enter the new password`}
         onChange={handleInputChange}
+        value={data.newPasswordConfirmation}
       />
       <Button
         sx={{
           width: "fit-content",
-          ml: "2em",
-          mt: "1em",
-          textTransform:"capitalize"
+          m: "5px auto",
+          textTransform: "capitalize",
         }}
         variant="contained"
         size="small"

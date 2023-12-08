@@ -7,28 +7,31 @@ import { updateUsernameAction } from "../../redux/actions/users";
 
 const ChangeUsername = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
-  const [data, setData] = useState({newUsername:"", password:""})
+  const initData = { newUsername: user.username, password: "" };
+  const [data, setData] = useState(initData);
   const dispatch = useDispatch();
 
   const handleOnChangeInput = (e) => {
-    setData({...data, [e.target.name] : e.target.value});
-  }
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   const handleOnChangeUsername = () => {
-  dispatch(updateUsernameAction(data))
+    dispatch(updateUsernameAction(data)).then(()=>
+    setData(initData));
   };
 
   return (
-    <Container
+    <Container className="proData"
       sx={{
         display: "flex",
         flexDirection: "column",
-        ml: "4em",
-        margin: "auto",
-        padding: "auto",
-        width: "85vw",
-        mb:"20px",
-        mt: "2em",
+        // ml: "4em",
+        // margin: "auto",
+        // padding: "auto",
+        // width: "60vw",
+        // mb: "20px",
+        // mt: "2em",
+        // backgroundColor:"white"
       }}
     >
       <TextField
@@ -50,17 +53,17 @@ const ChangeUsername = () => {
         required={false}
         onChange={handleOnChangeInput}
         type="password"
+        value={data.password}
       />
       <Button
         sx={{
           width: "fit-content",
-          ml: "2em",
-          mt: "1em",
+          m: "5px auto",
           textTransform: "capitalize",
         }}
         variant="contained"
         size="small"
-        onClick={handleOnChangeUsername} 
+        onClick={handleOnChangeUsername}
       >
         Change username
       </Button>

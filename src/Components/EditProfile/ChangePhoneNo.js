@@ -7,29 +7,30 @@ import { updatePhoneNoAction } from "../../redux/actions/users";
 
 const ChangePhoneNo = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
-  console.log(user);
-  const dispatch = useDispatch();
-  const [data, setData] = useState({
+  const initData = {
     newPhoneNo: user.phoneNo,
     password: "",
-  });
+  };
+  const dispatch = useDispatch();
+  const [data, setData] = useState(initData);
 
   const handleInputChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const handleOnChangePhoneNo = () => {
-    dispatch(updatePhoneNoAction(data));
+    dispatch(updatePhoneNoAction(data)).then(() => setData(initData));
+
   };
   return (
-    <Container
+    <Container className="proData"
       sx={{
         display: "flex",
         flexDirection: "column",
         ml: "4em",
         margin: "auto",
         padding: "auto",
-        width: "85vw",
+        width: "60vw",
         mb: "20px",
       }}
     >
@@ -49,17 +50,18 @@ const ChangePhoneNo = () => {
         helperText={`Enter password for authorization to change Phone No.`}
         name="password"
         onChange={handleInputChange}
+        value={data.password}
       />
       <Button
         sx={{
           width: "fit-content",
-          ml: "2em",
-          mt: "1em",
+          m: "5px auto",
+          // mt: "1em",
           textTransform: "capitalize",
           color: "white",
         }}
         variant="contained"
-        size="larg"
+        size="small"
         onClick={handleOnChangePhoneNo}
       >
         change phone number

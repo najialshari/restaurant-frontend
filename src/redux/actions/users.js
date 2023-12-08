@@ -120,7 +120,7 @@ export const updateEmailAction = (userData) => async (dispatch) => {
   };
   await requestApi(data)
     .then((res) => {
-      dispatch({ type: UPDATE_EMAIL });
+      dispatch({ type: UPDATE_EMAIL, payload: res.data });
     })
     .catch((e) => {
       console.error(e);
@@ -136,7 +136,7 @@ export const updatePhoneNoAction = (userData) => async (dispatch) => {
   };
   await requestApi(data)
     .then((res) => {
-      dispatch({ type: UPDATE_PHONENO });
+      dispatch({ type: UPDATE_PHONENO, payload: res.data });
     })
     .catch((e) => {
       console.error(e);

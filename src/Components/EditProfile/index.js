@@ -6,11 +6,11 @@ import ChangePassword from "./ChangePassword";
 import ChangePhoneNo from "./ChangePhoneNo";
 import ChangeProfilePic from "./ChangeProfilePic";
 import ChangeUsername from "./ChangeUsername";
+import "./ChangeProfilePic.css";
 
 function Profile() {
   const location = useLocation();
   const signedIn = useSelector((state) => state.auth.data.user);
-
 
   return signedIn ? (
     <div className="profile ">

@@ -32,7 +32,7 @@ const Notification = () => {
           horizontal: "right",
         }}
         open={open}
-        autoHideDuration={2000}
+        autoHideDuration={3000}
         onClose={handleClose}
         onClick={handleClose}
       >

@@ -15,12 +15,11 @@ import "./ChangeProfilePic.css";
 
 const ChangeProfilePic = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
-  console.log(user);
   const [open, setOpen] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
   const dispatch = useDispatch();
 
-  const handelChange = (e) => {
+  const handleChange = (e) => {
     setUserPhoto(e.target.files[0]);
   };
 
@@ -51,6 +50,7 @@ const ChangeProfilePic = () => {
               fontSize: "1em",
               width: "fit-content",
               m: "auto",
+              color: "black",
             }}
           >
             {user?.username}
@@ -61,11 +61,12 @@ const ChangeProfilePic = () => {
               textTransform: "capitalize",
               m: "auto",
             }}
+            size="small"
             variant="contained"
             endIcon={<FileUploadIcon />}
             onClick={handleClickOpen}
           >
-            upload Image
+            change photo
           </Button>
         </div>
       </div>
@@ -80,7 +81,7 @@ const ChangeProfilePic = () => {
             type="file"
             fullWidth
             variant="standard"
-            onChange={handelChange}
+            onChange={handleChange}
           />
         </DialogContent>
         <DialogActions>
