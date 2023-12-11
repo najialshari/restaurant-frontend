@@ -1,112 +1,62 @@
-.body{
-   
-
+footer {
+  background-image: url("../../Images/footer.png");
+  background-repeat: repeat-x;
+  background-size: 90vh;
+  background-position-y: 100px;
+  width: 100%;
+  padding-bottom: 20px;
+  background-color: rgb(108, 107, 107);
 }
-footer{
-    /* color:  rgb(8, 8, 8);
+.footer-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  line-height: 2rem;
+}
+
+.sections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 30vw;
+}
+
+.sections .section ul {
+  list-style: none;
+  text-align: left;
+}
+
+.footer-Link {
+  text-decoration: none;
+  color: currentColor;
+  cursor: pointer;
+}
+.footer-Link:hover {
+  color: rgb(220, 178, 40);
+}
+.sub-section span {
+color :whitesmoke
+}
+.sub-btn:hover {
+  background-color: rgb(78, 76, 76);
+}
+.footer-company {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+@media only screen and (max-width: 640px) {
+  .footer-section {
     display: flex;
-    flex-direction: column; */
-    font-weight:bold ;
-    background-image: url("../../Images/footer.png");
-    background-repeat:repeat-x ;
-    background-size: 90vh;
-    background-position-y: 100px;
-   
-}
-.footer-section{
-    
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    /* margin: 2% 15%; */
-    margin: auto 30px;
-    align-items: center;
-    
-    
-  
-    
-}
+    flex-direction: column;
+  }
 
-.sections{
-    
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    
-    
+  .sections ul,
+  .sections h4 {
+    padding-left: 0;
     text-align: center;
-    /* flex-wrap:wrap; */
-   
-    
-}
-.section{
-    
-    
-    margin: 0 10%;
-    text-align: center;
-    
-}
-
-.section ul li{
-    
-   padding-bottom: 5px;
-    
-}
-.footer-Link:hover{
-    
-   color: rgb(220, 178, 40) ;
-    
-}
-.section h4{
-    
-   
-    text-align: center;
-    padding-left: 35px;
-    
-}
-
-.footer-Link{
-    text-decoration: none;
-    color:currentColor;
-    cursor: pointer;
-    
-}
-.sub-section{
-    position:flex;
-    margin:0 30px;
-    text-align: center;
-}
-.sub-btn{
- background-color: rgb(220, 178, 40) ;
- color: white;
- cursor: pointer;
-}
-.sub-btn:HOVER{
- background-color:rgb(78, 76, 76) ;
- 
-}
-.footer-company{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-
-}
-
-@media only screen and (max-width:640px){
-    
-    .footer-section{
-     
-        display: flex;
-        flex-direction: column;
-       
-
-    }
-    
-    .sections ul , .sections h4{
-       
-        padding-left: 0;
-        text-align: center;
-        
-    }
-    
+  }
 }

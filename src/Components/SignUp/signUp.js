@@ -99,7 +99,7 @@ const SignUp = () => {
               id="phoneNo"
               label="Phone Number"
               name="phoneNo"
-              type="number"
+              type="text"
               autoComplete="phoneNo  "
               onChange={(e) => handleOnChange(e)}
             />
@@ -132,7 +132,7 @@ const SignUp = () => {
             <FormControlLabel
               required
               control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I Conformed The Information."
+              label="I Confirm the information."
             />
           </Grid>
         </Grid>

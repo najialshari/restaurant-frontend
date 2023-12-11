@@ -8,11 +8,10 @@ import {
   deleteItem,
 } from "../../redux/actions/cart";
 import { orderAction, orderClean } from "../../redux/actions/order";
-import { useEffect } from "react";
 
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
-  const orderState = useSelector((state) => state.order);
+  // const orderState = useSelector((state) => state.order);
   const cartDispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,20 +32,14 @@ const Cart = () => {
       tableUUID: "",
       items: itemsState,
     };
-    cartDispatch(orderAction(data));
-  };
-  useEffect(() => {
-    if (orderState.success) {
-      console.log("zzzzzzzzz", orderState.success);
+    cartDispatch(orderAction(data)).then(() => {
       cartDispatch(orderClean());
       cartDispatch(deleteAll());
       setTimeout(() => {
         navigate("/");
       }, 3000);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [orderState.success]);
-
+    });
+  };
   return (
     <div className="cart">
       <h2>Your cart list total: {mySum.toFixed(2)}$</h2>

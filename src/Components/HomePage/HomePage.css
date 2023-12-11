@@ -15,12 +15,17 @@
   padding: 20px 0 20px 20px;
   text-align: start;
 }
+.homePageDiv h2,h3 {
+  line-height: 3rem;
+}
+
 .restaurantName {
   font-weight: 300;
 }
 .homePageLink button {
   background-color: rgb(78, 76, 76);
   color: rgb(251, 246, 246);
+  margin-top: 20px;
   padding: 5px 30px;
   border-radius: 20px;
   border: none;

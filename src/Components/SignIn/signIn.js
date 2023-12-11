@@ -46,7 +46,6 @@ const SignIn = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        m: "10px auto",
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>

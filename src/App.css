@@ -1,11 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  
-    background-color: white;
+    background-color: #fcfcfc;
     color: black;
-        
   }
   
   .dark-mode {
-    background-color:  rgba(33, 25, 12, 0.407);
+    background-color: rgb(131, 131, 131);
     color: white;
+  }
+  .App{
+    margin-top: 54px;
   }

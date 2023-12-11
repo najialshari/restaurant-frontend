@@ -1,75 +1,31 @@
-import { useRef,react, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./footer.css";
 import { useDispatch } from "react-redux";
 import { subscribeAction } from "../../redux/actions/subscribers";
+import { Grid, TextField, Button, Stack } from "@mui/material";
 
 const Footer = () => {
   const dispatch = useDispatch();
-
- 
-const emailRef = useRef({})
- const [subscribeData, setSubscribeData] = useState({
-    email: ""
-  });
-//   const handleInputChange = (e) => {
-//     subscribeData[e.target.name] = e.target.value;
-//   };
-
-  const handleSubscribe = async (e) => {
+  const [data, setData] = useState({ email: "" });
+  const handleInputChange = (e) => setData({ [e.target.name]: e.target.value });
+  const handleSubscribe = (e) => {
     e.preventDefault();
-    subscribeData.email = emailRef.current.value;
-    await dispatch(subscribeAction(subscribeData))
-      .then(() =>
-      setTimeout(() => {
-        emailRef.current.value = " "}, 100),
-        
-      console.log("subscribe: ", "sucess"))
+    dispatch(subscribeAction(data))
+      .then(() => setData({ email: "" }))
       .catch((err) => console.error("subscribe:", err));
   };
-
 
   return (
     <footer>
       <div className="footer-section">
         <div className="sections">
           <div className="section">
-            <h4>Section</h4>
+            <h4>Follow</h4>
             <ul>
               <li>
                 <Link className="footer-Link" to="/">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="footer-Link" to="/">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link className="footer-Link" to="/">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link className="footer-Link" to="/">
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link className="footer-Link" to="/">
-                  About
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="section">
-            <h4>Section</h4>
-            <ul>
-              <li>
-                <Link className="footer-Link" to="/">
-                  Twitter
+                  Facebook
                 </Link>
               </li>
               <li>
@@ -82,14 +38,45 @@ const emailRef = useRef({})
                   YouTube
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          <div className="section">
+            <h4>Company</h4>
+            <ul>
               <li>
                 <Link className="footer-Link" to="/">
-                  FaceBook
+                  About us
                 </Link>
               </li>
               <li>
                 <Link className="footer-Link" to="/">
-                  Telegram
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-Link" to="/">
+                  Contact us
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="section">
+            <h4>Help</h4>
+            <ul>
+              <li>
+                <Link className="footer-Link" to="/">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-Link" to="/">
+                  Terms of use
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-Link" to="/">
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -97,31 +84,42 @@ const emailRef = useRef({})
         </div>
 
         <div className="sub-section">
-          <div>
-            <h2>Subscribe to our Newsletter</h2>
-            <p>Monthly digest of whats new and exciting from us.</p>
-            <div className="d-flex w-100 gap-2">
-              <input
-                className="sub-input"
-                type="email"
-                // name="email"
-                placeholder="Email address"
-                ref={emailRef}
-                // onChange={handleInputChange}
+          <h3>Keep up to date</h3>
+          <span>Join our newsletter for regular updates</span>
+          <Stack direction={"row"} spacing={1}>
+            <Grid item xs={12} md={8}>
+              <TextField
+                required
+                size="small"
+                name="email"
+                id="email"
+                sx={{
+                  backgroundColor: "whitesmoke",
+                  borderRadius: "5px",
+                }}
+                placeholder="Enter your email"
+                value={data.email}
+                onChange={(e) => handleInputChange(e)}
               />
-              <button className="sub-btn" 
-                    type="button" 
-                    onClick={handleSubscribe}
-                    >
-                Subscribe
-              </button>
-            </div>
-          </div>
+            </Grid>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                backgroundColor:  "rgb(220, 178, 40)",
+                textTransform: "capitalize",
+                color: "white",
+              }}
+              onClick={handleSubscribe}
+            >
+              Subscribe
+            </Button>
+          </Stack>
         </div>
       </div>
 
       <div className="footer-company">
-        <p>POWERED BY SYAN © 2022 Company, Inc. All rights reserved.</p>
+        <p>POWERED BY SYAN © 2023 Company, Inc. All rights reserved.</p>
       </div>
     </footer>
   );

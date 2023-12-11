@@ -3,8 +3,11 @@
     width: 75%;
     text-align: center;
     margin: auto;
+    min-height: 60vh;
 }
-
+.backButtonLink{
+  text-align: center;
+}
 .cart .topBar{
     display: flex;
     justify-content: space-between;
