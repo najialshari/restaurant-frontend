@@ -1,66 +1,64 @@
-
 .cart {
-    width: 75%;
-    text-align: center;
-    margin: auto;
-    min-height: 60vh;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  flex-grow: 1;
 }
-.backButtonLink{
+.backButtonLink {
   text-align: center;
 }
-.cart .topBar{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    text-align: start;
+.cart .topBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px auto;
+  text-align: start;
+  width: 80%;
 }
-.cart .cartList .cartItems{
-    display: flex;
-    margin-bottom: 20px;
-    background-color: white;
-    color:black;
-    border: 1px solid black;
-    border-radius: 15px;
-    padding: 10px;
+.cart .cartList .cartItems {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px;
 }
- .cart .cartList .cartItems .price {
-    width: 90%;
-    margin: 10px auto;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
- .cart .cartList .cartItems .price div i {
-    font-size: 1.5rem;
-  }
-
-
-@media (min-width : 768px) and (max-width : 1400px) {
- .itemsContainer .item {
-    width: 45%
-  }
+.cart .cartList .cartItems .price {
+  width: 90%;
+  margin: 10px auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (min-width : 576px) and (max-width : 767px) {
- .itemsContainer {
+.cart .cartList .cartItems .price div i {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  .itemsContainer .item {
+    width: 45%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .itemsContainer {
     display: block;
   }
 
- .itemsContainer .item {
+  .itemsContainer .item {
     width: 80%;
     margin: 0 auto 30px;
   }
 }
 
-@media (max-width : 575px) {
-
- .itemsContainer,
- .itemsContainer .item {
+@media (max-width: 575px) {
+  .itemsContainer,
+  .itemsContainer .item {
     width: 100%;
   }
 }
-.countNumber{
+.countNumber {
   margin: 0 10px;
 }

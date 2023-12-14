@@ -6,6 +6,7 @@
   text-align: center;
   color: rgb(0, 0, 0);
   text-shadow: 1px 2px 4px rgb(220, 178, 40);
+  flex-grow: 1;
 }
 .homePageImage {
   height: 20vh;

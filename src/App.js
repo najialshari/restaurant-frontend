@@ -9,7 +9,6 @@ import SignIn from "./Components/SignIn/signIn";
 import Menu from "./Components/menu/menu";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import ForgetPassword from "./Components/forgetPassword/forgetPassword";
-// import RequireAuth from './RequiredAuth';
 import Notification from "./Components/Notifications/Notifications";
 import Profile from "./Components/EditProfile";
 import TableScan from "./Components/TableScan/tableScan";
@@ -20,9 +19,8 @@ import Cart from "./Components/Cart/cart";
 function App() {
   window.onbeforeunload = () => localStorage.clear();
   return (
-  <div>
-      <NavBar />
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/home" exact element={<HomePage />} />
@@ -35,15 +33,12 @@ function App() {
         <Route path={"/meals/:id"} element={<CategoryMeal />} />
         <Route path="*" element={<Home />} />
         <Route path="/notfound" element={<PageNotFound />} />
-        {/* <Route element={<RequireAuth />}> */}
         <Route path={"/profile"} element={<Profile />} />
-        {/* </Route> */}
       </Routes>
 
       <Notification />
-    </div>
       <Footer />
-  </div>  
+    </div>
   );
 }
 

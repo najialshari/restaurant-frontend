@@ -78,7 +78,8 @@ export const getUserInfoAction = () => async (dispatch) => {
 
 export const updatePasswordAction = (userData) => async (dispatch) => {
   let data = {
-    url: API_URLS().AUTH.UPDATE_PASSWORD,
+    // url: API_URLS().AUTH.UPDATE_PASSWORD,
+    url: API_URLS().AUTH.RESET_PASSWORD,
     method: "PATCH",
     body: {
       ...userData,

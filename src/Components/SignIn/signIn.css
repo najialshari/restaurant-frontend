@@ -1,15 +1,33 @@
 .signBox {
-  margin: 70px auto 20px;
-  padding: 20px;
-  width: 30%;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  color: grey;
+  flex-grow: 1;
+  color: gray;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
-@media only screen and (max-width: 550px) {
+.signBox > div {
+  position:relative;
+  background-color: whitesmoke;
+  padding: 20px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 30%;
+  box-shadow: 1px 2px 5px hsl(0, 0%, 66%);
+}
+
+@media only screen and (max-width: 750px) {
   .signBox {
-    margin: 70px auto 20px;
+    /* margin: 70px auto 20px; */
     padding: 10px;
-    width:80vw;
+    /* width:80vw; */
+  }
+  .signBox > div {
+    width: 85%;
   }
 }

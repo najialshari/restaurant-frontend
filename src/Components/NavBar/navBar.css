@@ -1,17 +1,14 @@
 .navBar {
-  background-color: rgb(220, 178, 40);
-  color: aliceblue;
-
+  background-color: #ef6c00;
   position: fixed;
   top: 0;
   z-index: 999;
+  height: 7vh;
   width: 100%;
   display: flex;
-
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-
   background-image: url("../../Images/footer.png");
   background-repeat: repeat-x;
   background-size: 60vh;

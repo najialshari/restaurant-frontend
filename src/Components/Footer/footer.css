@@ -1,10 +1,11 @@
 footer {
   background-image: url("../../Images/footer.png");
   background-repeat: repeat-x;
-  background-size: 90vh;
+  background-size: 100vh;
   background-position-y: 100px;
   width: 100%;
   padding-bottom: 20px;
+  color: white;
   background-color: rgb(108, 107, 107);
 }
 .footer-section {
@@ -12,14 +13,14 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding: 10px 50px;
   line-height: 2rem;
 }
 
 .sections {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 30vw;
 }
 
@@ -27,7 +28,6 @@ footer {
   list-style: none;
   text-align: left;
 }
-
 .footer-Link {
   text-decoration: none;
   color: currentColor;
@@ -36,11 +36,13 @@ footer {
 .footer-Link:hover {
   color: rgb(220, 178, 40);
 }
-.sub-section span {
-color :whitesmoke
+.sub-section button {
+  background-color: #ef6c00;
+  text-transform: capitalize;
+  /* color: white */
 }
-.sub-btn:hover {
-  background-color: rgb(78, 76, 76);
+.sub-section button:hover {
+  background-color: #ff6d00;
 }
 .footer-company {
   display: flex;
@@ -48,15 +50,16 @@ color :whitesmoke
   text-align: center;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 900px) {
   .footer-section {
     display: flex;
     flex-direction: column;
   }
-
+  .sections {
+    width: 100%;
+  }
   .sections ul,
   .sections h4 {
     padding-left: 0;
-    text-align: center;
   }
 }

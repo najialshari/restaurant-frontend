@@ -4,7 +4,7 @@
 .profile {
   width: 50%;
   margin: 10px auto;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   padding: 10px;
   border-radius: 10px;
 }

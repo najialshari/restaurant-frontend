@@ -1,96 +1,79 @@
-import {
-  Box,
-  Avatar,
-  Typography,
-  TextField,
-  FormControlLabel,
-  Button,
-  Grid,
-  Link,
-  Checkbox
-} from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-// import { deepPurple } from "@mui/material/colors";
+import { Box, Avatar, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { signinAction } from "../../redux/actions/users";
-// import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { updatePasswordAction } from "../../redux/actions/users";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
+import "./forgetPassword.css";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 const ForgetPassword = () => {
+  const [data, setData] = useState({
+    usernameOrEmail: "",
+  });
 
-    const [userData, setUserData] = useState({
-      usernameOrEmail: ""
-    })
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
-
-    const handleOnChange =  (e) =>{
-        userData[e.target.name] = e.target.value
-    } 
-    // const handleSubmit = async (userData ,e) => {
-    //     e.preventDefault();
-    //     await dispatch(signinAction(userData)).then(()=> navigate("/me")
-    //     )
-    // }
+  const handleOnChange = (e) => {
+    setData({ [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updatePasswordAction({ usernameOrPassword: data })).then((res) => {
+      console.log(res);
+      if (res.success)
+        setTimeout(() => {
+          navigate("/signin");
+        }, 3000);
+      else return;
+    });
+  };
   return (
-    <Box
-    className="signBox"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        m: "10px auto",
-        
-      }}
-    >
-      <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>
-        <LockOutlinedIcon />
-      </Avatar>
-      <Typography component="h1" variant="h5">
-      Forget Password
-      </Typography>
-      <Box component="form" 
-      // onSubmit={e => handleSubmit(userData, e)} 
-      noValidate sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email or Username"
-          name="account"
-          // autoFocus
-          onChange={(e) => handleOnChange(e)}
-        />
-        
-        {/* <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        /> */}
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 ,bgcolor:"rgb(220, 178, 40)"}}
-          
-        >
+    <Box className="signBox">
+      <div>
+      <Box sx={{ position: "absolute",right:0, top:0, padding:"20px"}}>
+          <RouterLink to="/signin">
+            <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
+          </RouterLink>
+        </Box>
+        <Avatar sx={{ width: 32, height: 32 ,bgcolor: "rgb(220, 178, 40)" }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography variant="subtitle1">
           Reset Password
-        </Button>
-        <Grid container>
-          <Grid item xs>
-            <Link href="/signin" variant="body2">
-              Sign In
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="/signup" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
-          </Grid>
-        </Grid>
-      </Box>
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={(e) => handleSubmit(e)}
+          noValidate
+          sx={{ mt: 1 }}
+        >
+          <label>Please enter your email to reset password</label>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="usernameOrEmail"
+            label="Email"
+            name="usernameOrEmail"
+            autoFocus
+            onChange={(e) => handleOnChange(e)}
+            value={data.usernameOrEmail}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              my: 1,
+              textTransform: "capitalize",
+              bgcolor: "rgb(220, 178, 40)",
+            }}
+          >
+            Reset Password
+          </Button>
+        </Box>
+      </div>
     </Box>
   );
 };

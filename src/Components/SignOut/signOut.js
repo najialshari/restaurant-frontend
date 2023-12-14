@@ -1,29 +1,20 @@
-import {
-  Box,
-  Avatar,
-  
-} from "@mui/material";
-import LogoutIcon from '@mui/icons-material/Logout';
+import { Box, Avatar } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
 // import { deepPurple } from "@mui/material/colors";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { logOutAction } from "../../redux/actions/users";
 import { useNavigate } from "react-router-dom";
-import './signOut.css';
-
+import "./signOut.css";
 
 const SignOut = () => {
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-  const handleLogOut = async () => {
-    
-    await dispatch(logOutAction())
-   .then((res) =>navigate("/signin"));
+  const handleLogOut = () => {
+    dispatch(logOutAction());
+    navigate("/");
   };
- 
-   
+
   return (
     <Box
       sx={{
@@ -31,15 +22,16 @@ const SignOut = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-         pt: "0",
-        
+        pt: "0",
       }}
     >
-      <Avatar className="logOutLogo" sx={{ mt: -1,mb: -1,  bgcolor: "inherit" }}
-              onClick={() => handleLogOut()} >
-        <LogoutIcon /> 
+      <Avatar
+        className="logOutLogo"
+        sx={{ mt: -1, mb: -1, bgcolor: "inherit" }}
+        onClick={() => handleLogOut()}
+      >
+        <LogoutIcon />
       </Avatar>
-    
     </Box>
   );
 };

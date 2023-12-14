@@ -15,6 +15,7 @@ const API_URLS = (extraData) => ({
     GET_USERINFO: API_ROOT + "/users/",
     UPDATE_PROFILEPIC: API_ROOT + "/users/updateprofilepic/",
     DELETE_USER: API_ROOT + "/users/"+ extraData,
+    RESET_PASSWORD: API_ROOT + "/users/resetpassword"
   },
   MENU: {
     GET_MENU_CATEGORIES: API_ROOT + "/menus/categories",

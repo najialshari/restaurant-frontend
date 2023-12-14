@@ -42,7 +42,6 @@ const Cart = () => {
   };
   return (
     <div className="cart">
-      <h2>Your cart list total: {mySum.toFixed(2)}$</h2>
       <div className="topBar">
         <Link className="backButtonLink" to={"/"}>
           {" "}
@@ -55,6 +54,7 @@ const Cart = () => {
       </div>
 
       <div className="cartList">
+      {itemsState.length > 0 && <h2>Your cart list total: {mySum.toFixed(2)}$</h2>}
         {itemsState.map((item, i) => (
           <div className="cartItems" key={i}>
             <div>

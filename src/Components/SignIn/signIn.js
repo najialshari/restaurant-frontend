@@ -6,16 +6,18 @@ import {
   FormControlLabel,
   Button,
   Grid,
-  Link,
   Checkbox,
+  Link,
+  ThemeProvider,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signinAction } from "../../redux/actions/users";
-import { useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./signIn.css";
-
+import { theme } from "../theme/theme";
 const SignIn = () => {
   const [userData, setUserData] = useState({
     usernameOrEmail: "",
@@ -39,72 +41,71 @@ const SignIn = () => {
   }, [isSignedIn, navigate]);
 
   return (
-    <Box
-      className="signBox"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Avatar sx={{ m: 1, bgcolor: "rgb(220, 178, 40)" }}>
-        <LockOutlinedIcon />
-      </Avatar>
-      <Typography component="h1" variant="h5">
-        Sign in
-      </Typography>
-      <Box
-        component="form"
-        onSubmit={(e) => handleSubmit(userData, e)}
-        noValidate
-        sx={{ mt: 1 }}
-      >
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email or Username"
-          name="usernameOrEmail"
-          autoFocus
-          onChange={(e) => handleOnChange(e)}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          onChange={(e) => handleOnChange(e)}
-        />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2, bgcolor: "rgb(220, 178, 40)" }}
-        >
-          Sign In
-        </Button>
-        <Grid container>
-          <Grid item xs>
-            <Link href="/forgetpassword" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="/signup" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
-          </Grid>
-        </Grid>
-      </Box>
+    <Box className="signBox">
+      <div>
+        <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
+          <RouterLink to="/">
+            <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
+          </RouterLink>
+        </Box>
+        <ThemeProvider theme={theme}>
+          <Avatar>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography variant="subtitle1">Sign in</Typography>
+          <Box
+            component="form"
+            onSubmit={(e) => handleSubmit(userData, e)}
+            noValidate
+          >
+            <TextField
+              required
+              id="usernameOrEmail"
+              label="Email or Username"
+              name="usernameOrEmail"
+              autoFocus
+              onChange={(e) => handleOnChange(e)}
+            />
+            <TextField
+              required
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              onChange={(e) => handleOnChange(e)}
+            />
+
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button type="submit" fullWidth variant="contained">
+              Sign In
+            </Button>
+            <Box
+              mt={2}
+              display="flex"
+              justifyContent="space-between"
+              className="link"
+            >
+              <Grid item xs={8}>
+                <Link
+                  component={RouterLink}
+                  to={"/forgetPassword"}
+                  variant="body2"
+                >
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link component={RouterLink} to={"/signup"} variant="body2">
+                  Don't have an account? Sign Up
+                </Link>
+              </Grid>
+            </Box>
+          </Box>
+        </ThemeProvider>
+      </div>
     </Box>
   );
 };

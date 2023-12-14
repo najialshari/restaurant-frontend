@@ -105,11 +105,6 @@ const Footer = () => {
             <Button
               type="submit"
               variant="contained"
-              sx={{
-                backgroundColor:  "rgb(220, 178, 40)",
-                textTransform: "capitalize",
-                color: "white",
-              }}
               onClick={handleSubscribe}
             >
               Subscribe

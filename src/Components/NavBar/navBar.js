@@ -16,25 +16,19 @@ function NavBar() {
     navRef.current.classList.toggle("responsive_nav");
     btnRef.current.classList.toggle("responsive_btn");
   };
-  const [mood, setMood] = useState(false);
 
   const darkMood = () => {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
+    document.querySelector("body").classList.toggle("dark-mode");
   };
-  useEffect(() => {
-    darkMood();
-  }, [setMood]);
 
   const [isTableTokenAvailable, setIsTableTokenAvailable] = useState({});
   const [isSignedIn, setIsSignedIn] = useState({});
   const tableToken = useSelector((state) => state.qrcodes.data.table);
+  const signedIn = useSelector((state) => state.auth.data.user);
 
   const items = useSelector((state) => state.cart);
   let sum = 0;
   for (let dummy of items) sum += dummy.count;
-
-  const signedIn = useSelector((state) => state.auth.data.user);
 
   useEffect(() => {
     setIsTableTokenAvailable(tableToken);
@@ -56,20 +50,14 @@ function NavBar() {
       </button>
       <div className="" ref={navRef}>
         <ul className="menu-List">
-        {signedIn && (
+          {signedIn && (
             <div style={{ color: "white" }}>
               Hi,&nbsp;{signedIn.username.toUpperCase()}
             </div>
           )}
-          {!mood ? (
-            <li className="darkBtn navLink" onClick={() => setMood(!mood)}>
-              <CgDarkMode />
-            </li>
-          ) : (
-            <li className="darkBtn navLink" onClick={darkMood}>
-              <CgDarkMode />
-            </li>
-          )}
+          <li className="darkBtn navLink" onClick={darkMood}>
+            <CgDarkMode />
+          </li>
           <li>
             <Link className="navLink" to={"/home"}>
               Home
@@ -80,14 +68,14 @@ function NavBar() {
               Categories
             </Link>
           </li>
-          {isSignedIn && !isTableTokenAvailable ? (
+          {isSignedIn && !isTableTokenAvailable && (
             <li>
               <Link className="navLink" to={"/profile"}>
                 Profile
               </Link>
             </li>
-          ) : null}
-         
+          )}
+
           {isSignedIn || isTableTokenAvailable ? null : (
             <>
               <li>
@@ -102,23 +90,25 @@ function NavBar() {
               </li>
             </>
           )}
-          <li>
-            <Link className="navLink" id="cartLogo" to={"/cart"}>
-              <GiBowlOfRice
-                style={{
-                  marginTop: "-5px",
-                  marginBottom: "-5px",
-                  fontSize: "30px",
-                }}
-              />
-              <span>{sum}</span>
-            </Link>
-          </li>
-          {isTableTokenAvailable || isSignedIn ? (
+          {(sum > 0 ) && 
+            <li>
+              <Link className="navLink" id="cartLogo" to={"/cart"}>
+                <GiBowlOfRice
+                  style={{
+                    marginTop: "-5px",
+                    marginBottom: "-5px",
+                    fontSize: "30px",
+                  }}
+                />
+                <span>{sum}</span>
+              </Link>
+            </li>
+          }
+          {(isTableTokenAvailable || isSignedIn) && (
             <li className="navLink">
               <SignOut />
             </li>
-          ) : null}
+          )}
 
           <button className="nav-btn " onClick={showNavMenu}>
             <FaTimes style={{ background: " rgb(220, 178, 40)" }} />

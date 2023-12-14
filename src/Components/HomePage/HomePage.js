@@ -26,7 +26,7 @@ const HomePage = () => {
           <br />
         </h3>
         {window.location.pathname === "/home" ? (
-          <Link className="homePageLink" to={"/"}>
+          <Link className="homePageLink" to={"/#menuCategories"}>
             {" "}
             <button>Check the Menu</button>{" "}
           </Link>
