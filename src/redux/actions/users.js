@@ -78,8 +78,7 @@ export const getUserInfoAction = () => async (dispatch) => {
 
 export const updatePasswordAction = (userData) => async (dispatch) => {
   let data = {
-    // url: API_URLS().AUTH.UPDATE_PASSWORD,
-    url: API_URLS().AUTH.RESET_PASSWORD,
+    url: API_URLS().AUTH.UPDATE_PASSWORD,
     method: "PATCH",
     body: {
       ...userData,
@@ -127,6 +126,7 @@ export const updateEmailAction = (userData) => async (dispatch) => {
       console.error(e);
     });
 };
+
 export const updatePhoneNoAction = (userData) => async (dispatch) => {
   let data = {
     url: API_URLS().AUTH.UPDATE_PHONENO,
@@ -168,6 +168,23 @@ export const deleteUserAction = () => async (dispatch) => {
   await requestApi(data)
     .then((res) => {
       dispatch({ type: DELETE_USER });
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+};
+
+export const resetPasswordAction = (userData) => async (dispatch) => {
+  let data = {
+    url: API_URLS().AUTH.RESET_PASSWORD,
+    method: "PATCH",
+    body: {
+      ...userData,
+    },
+  };
+  await requestApi(data)
+    .then((res) => {
+      dispatch({ type: SIGNUP_NEW_USER, payload: res.data });
     })
     .catch((e) => {
       console.error(e);

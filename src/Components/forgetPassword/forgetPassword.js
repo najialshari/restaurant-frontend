@@ -1,14 +1,23 @@
-import { Box, Avatar, Typography, TextField, Button } from "@mui/material";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updatePasswordAction } from "../../redux/actions/users";
+import {
+  Box,
+  Avatar,
+  Typography,
+  TextField,
+  Button,
+  ThemeProvider,
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { resetPasswordAction } from "../../redux/actions/users";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 import "./forgetPassword.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { myTheme } from "../theme/theme";
+
 const ForgetPassword = () => {
   const [data, setData] = useState({
-    usernameOrEmail: "",
+    email: "",
   });
 
   const dispatch = useDispatch();
@@ -19,60 +28,58 @@ const ForgetPassword = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updatePasswordAction({ usernameOrPassword: data })).then((res) => {
-      console.log(res);
-      if (res.success)
-        setTimeout(() => {
-          navigate("/signin");
-        }, 3000);
-      else return;
-    });
+    dispatch(resetPasswordAction(data));
   };
+
+  const isResetPassword = useSelector((state) => state.auth.success);
+  useEffect(() => {
+    if (isResetPassword) {
+      setTimeout(() => {
+        navigate("/signin");
+      }, 3000);
+    }
+  }, [isResetPassword, navigate]);
+
   return (
     <Box className="signBox">
       <div>
-      <Box sx={{ position: "absolute",right:0, top:0, padding:"20px"}}>
+        <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
           <RouterLink to="/signin">
             <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
           </RouterLink>
         </Box>
-        <Avatar sx={{ width: 32, height: 32 ,bgcolor: "rgb(220, 178, 40)" }}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography variant="subtitle1">
-          Reset Password
-        </Typography>
-        <Box
-          component="form"
-          onSubmit={(e) => handleSubmit(e)}
-          noValidate
-          sx={{ mt: 1 }}
-        >
-          <label>Please enter your email to reset password</label>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="usernameOrEmail"
-            label="Email"
-            name="usernameOrEmail"
-            autoFocus
-            onChange={(e) => handleOnChange(e)}
-            value={data.usernameOrEmail}
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{
-              my: 1,
-              textTransform: "capitalize",
-              bgcolor: "rgb(220, 178, 40)",
-            }}
+        <ThemeProvider theme={myTheme}>
+          <Avatar sx={{ width: 32, height: 32 }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography variant="subtitle1">Reset Password</Typography>
+          <Box
+            component="form"
+            onSubmit={(e) => handleSubmit(e)}
+            noValidate
+            sx={{ mt: 1 }}
           >
-            Reset Password
-          </Button>
-        </Box>
+            <label>Please enter your email to reset password</label>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoFocus
+              onChange={(e) => handleOnChange(e)}
+              value={data.email}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+            >
+              Reset Password
+            </Button>
+          </Box>
+        </ThemeProvider>
       </div>
     </Box>
   );

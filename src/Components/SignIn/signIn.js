@@ -17,7 +17,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { signinAction } from "../../redux/actions/users";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./signIn.css";
-import { theme } from "../theme/theme";
+import { myTheme } from "../theme/theme";
+
 const SignIn = () => {
   const [userData, setUserData] = useState({
     usernameOrEmail: "",
@@ -48,7 +49,7 @@ const SignIn = () => {
             <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
           </RouterLink>
         </Box>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={myTheme}>
           <Avatar>
             <LockOutlinedIcon />
           </Avatar>

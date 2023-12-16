@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 import { orange } from "@mui/material/colors";
-export const theme = createTheme({
+export const myTheme = createTheme({
   components: {
     MuiTextField: {
       defaultProps: {

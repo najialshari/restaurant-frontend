@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navBar.css";
-import { FaTimes, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { GiBowlOfRice } from "react-icons/gi";
 import { CgDarkMode } from "react-icons/cg";
 import logo from "../../Images/logo6.png";
@@ -11,10 +11,12 @@ import { useSelector } from "react-redux";
 function NavBar() {
   const navRef = useRef();
   const btnRef = useRef();
+  const [dropMenu, setDropMenu] = useState("mobile");
 
   const showNavMenu = () => {
-    navRef.current.classList.toggle("responsive_nav");
-    btnRef.current.classList.toggle("responsive_btn");
+    setDropMenu((old) =>
+      old === "mobileMenuIn" ? "mobileMenuOut" : "mobileMenuIn"
+    );
   };
 
   const darkMood = () => {
@@ -48,29 +50,34 @@ function NavBar() {
       <button className="nav-btn " ref={btnRef} onClick={showNavMenu}>
         <FaBars />
       </button>
-      <div className="" ref={navRef}>
+      <div className={dropMenu} ref={navRef}>
         <ul className="menu-List">
           {signedIn && (
-            <div style={{ color: "white" }}>
-              Hi,&nbsp;{signedIn.username.toUpperCase()}
-            </div>
+            // <div style={{ color: "white" }}>
+            <div>Hi,&nbsp;{signedIn.username.toUpperCase()}</div>
           )}
-          <li className="darkBtn navLink" onClick={darkMood}>
+          <li
+            className="darkBtn navLink"
+            onClick={() => {
+              darkMood();
+              showNavMenu();
+            }}
+          >
             <CgDarkMode />
           </li>
           <li>
-            <Link className="navLink" to={"/home"}>
+            <Link className="navLink" to={"/home"} onClick={showNavMenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link className="navLink" to={"/category"}>
+            <Link className="navLink" to={"/category"} onClick={showNavMenu}>
               Categories
             </Link>
           </li>
           {isSignedIn && !isTableTokenAvailable && (
             <li>
-              <Link className="navLink" to={"/profile"}>
+              <Link className="navLink" to={"/profile"} onClick={showNavMenu}>
                 Profile
               </Link>
             </li>
@@ -79,20 +86,25 @@ function NavBar() {
           {isSignedIn || isTableTokenAvailable ? null : (
             <>
               <li>
-                <Link className="navLink" to={"/signin"}>
-                  Sign in
+                <Link className="navLink" to={"/signin"} onClick={showNavMenu}>
+                  Sign In
                 </Link>
               </li>
               <li>
-                <Link className="navLink" to={"/signup"}>
+                <Link className="navLink" to={"/signup"} onClick={showNavMenu}>
                   Sign Up
                 </Link>
               </li>
             </>
           )}
-          {(sum > 0 ) && 
+          {sum > 0 && (
             <li>
-              <Link className="navLink" id="cartLogo" to={"/cart"}>
+              <Link
+                className="navLink"
+                id="cartLogo"
+                to={"/cart"}
+                onClick={showNavMenu}
+              >
                 <GiBowlOfRice
                   style={{
                     marginTop: "-5px",
@@ -103,16 +115,16 @@ function NavBar() {
                 <span>{sum}</span>
               </Link>
             </li>
-          }
+          )}
           {(isTableTokenAvailable || isSignedIn) && (
-            <li className="navLink">
+            <li className="navLink" onClick={showNavMenu}>
               <SignOut />
             </li>
           )}
 
-          <button className="nav-btn " onClick={showNavMenu}>
+          {/* <button className="nav-btn " onClick={showNavMenu}>
             <FaTimes style={{ background: " rgb(220, 178, 40)" }} />
-          </button>
+          </button> */}
         </ul>
       </div>
     </nav>

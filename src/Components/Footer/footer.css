@@ -36,10 +36,12 @@ footer {
 .footer-Link:hover {
   color: rgb(220, 178, 40);
 }
+.sub-section h3 {
+  line-height: 1.5rem;
+}
 .sub-section button {
   background-color: #ef6c00;
   text-transform: capitalize;
-  /* color: white */
 }
 .sub-section button:hover {
   background-color: #ff6d00;
@@ -58,8 +60,8 @@ footer {
   .sections {
     width: 100%;
   }
-  .sections ul,
-  .sections h4 {
-    padding-left: 0;
+  .sub-section {
+    width: 100%;
+    margin-top: 1rem;
   }
 }

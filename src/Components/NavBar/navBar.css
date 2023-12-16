@@ -1,8 +1,7 @@
 .navBar {
-  background-color: #ef6c00;
+  background-color: rgb(239, 108, 0);
   position: fixed;
   top: 0;
-  z-index: 999;
   height: 7vh;
   width: 100%;
   display: flex;
@@ -13,6 +12,7 @@
   background-repeat: repeat-x;
   background-size: 60vh;
   background-position-y: 10px;
+  z-index: 5;
 }
 
 .menu-List {
@@ -36,7 +36,6 @@ li {
 }
 .darkBtn {
   border: none;
-  background-color: inherit;
   color: rgb(251, 246, 246);
   font-size: 20px;
 }
@@ -55,47 +54,87 @@ li {
 .nav-btn {
   position: absolute;
   top: 1.2rem;
-  right: 1rem;
+  right: 0rem;
   background-color: transparent;
   border: none;
   color: rgb(251, 246, 246);
   cursor: pointer;
   display: none;
-  width: 30;
-  size: 0px;
+  width: 30px;
 }
 
 @media only screen and (max-width: 640px) {
   .nav-btn {
+    /* 3bars icon */
     display: flex;
   }
   .bar {
     display: none;
+    width: 100%;
   }
   .navBar {
     display: flex;
     flex-direction: column;
   }
-
+  .mobileMenuOut {
+    position: absolute;
+    top:-100vh;
+    right:0;
+    animation-duration: .5s;
+    animation-name: slideout;
+  }
+  @keyframes slideout {
+    from {
+      top: 7vh;
+    }
+    20%{
+      top:10vh;
+    }
+    to {
+      top: -100vh;
+    }
+  }
+  .mobileMenuIn {
+    position: absolute;
+    top:7vh;
+    right:0;
+    animation-duration: .5s;
+    animation-name: slidein;
+  }
+  @keyframes slidein {
+    from {
+      top: -100vh;
+    }
+    60%{
+      top:10vh;
+    }
+    to {
+      top: 7vh;
+    }
+  }
+  
   .menu-List {
     flex: none;
+    padding: 2rem;
+    gap: 1.5rem;
     flex-direction: column;
     text-align: center;
-    padding: 10px 20px 10px 20px;
-    width: 85vw;
-  }
-  .responsive_nav {
-    display: none;
+    width: 70vw;
+    background-color: rgba(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: -2px 2px 5px lightgrey;
+    z-index: 50;
   }
 
-  .menu-List li {
-    padding: 5px 0;
-    width: 95%;
-    margin: auto;
+  .menu-List li a,
+  .menu-List * {
+    margin: 0px;
+    line-height: 1.8rem;
     border-radius: 20px;
+    color: black;
   }
   .menu-List li:hover,
   .darkBtn:hover {
-    background-color: rgba(255, 255, 255, 0.368);
+    background-color: rgb(239, 108, 0);
   }
 }

@@ -87,14 +87,14 @@ const Footer = () => {
           <h3>Keep up to date</h3>
           <span>Join our newsletter for regular updates</span>
           <Stack direction={"row"} spacing={1}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} >
               <TextField
                 required
                 size="small"
                 name="email"
                 id="email"
                 sx={{
-                  backgroundColor: "whitesmoke",
+                  backgroundColor: "white",
                   borderRadius: "5px",
                 }}
                 placeholder="Enter your email"
