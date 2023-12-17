@@ -76,6 +76,9 @@ li {
     display: flex;
     flex-direction: column;
   }
+  .mobileMenuInit{
+    display: none;
+  }
   .mobileMenuOut {
     position: absolute;
     top:-100vh;

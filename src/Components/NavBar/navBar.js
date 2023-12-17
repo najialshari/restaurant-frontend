@@ -11,11 +11,13 @@ import { useSelector } from "react-redux";
 function NavBar() {
   const navRef = useRef();
   const btnRef = useRef();
-  const [dropMenu, setDropMenu] = useState("mobileMenuOut");
+  const [dropMenu, setDropMenu] = useState("mobileMenuInit");
 
   const showNavMenu = () => {
     setDropMenu((old) =>
-      old === "mobileMenuIn" ? "mobileMenuOut" : "mobileMenuIn"
+      old === "mobileMenuOut" || old === "mobileMenuInit"
+        ? "mobileMenuIn"
+        : "mobileMenuOut"
     );
   };
 
