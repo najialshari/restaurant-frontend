@@ -39,6 +39,13 @@ function NavBar() {
   }, [tableToken]);
 
   useEffect(() => {
+    if (dropMenu === "mobileMenuOut")
+      setTimeout(() => {
+        setDropMenu("mobileMenuInit");
+      }, 600);
+  }, [dropMenu]);
+
+  useEffect(() => {
     setIsSignedIn(signedIn);
   }, [signedIn]);
 
