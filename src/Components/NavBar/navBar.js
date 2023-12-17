@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 function NavBar() {
   const navRef = useRef();
   const btnRef = useRef();
-  const [dropMenu, setDropMenu] = useState("mobile");
+  const [dropMenu, setDropMenu] = useState("mobileMenuOut");
 
   const showNavMenu = () => {
     setDropMenu((old) =>
