@@ -12,7 +12,7 @@ import { resetPasswordAction } from "../../redux/actions/users";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 import "./forgetPassword.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import Close from "@mui/icons-material/Close";
 import { myTheme } from "../theme/theme";
 
 const ForgetPassword = () => {
@@ -45,8 +45,14 @@ const ForgetPassword = () => {
       <div>
         <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
           <RouterLink to="/signin">
-            <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
-          </RouterLink>
+          <Close
+                sx={{
+                  boxShadow: 3,
+                  borderRadius: "50%",
+                  backgroundColor:"white",
+                  padding:"2px"
+                }}
+              />          </RouterLink>
         </Box>
         <ThemeProvider theme={myTheme}>
           <Avatar sx={{ width: 32, height: 32 }}>

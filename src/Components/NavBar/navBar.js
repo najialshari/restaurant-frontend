@@ -3,15 +3,25 @@ import { Link } from "react-router-dom";
 import "./navBar.css";
 import { FaBars } from "react-icons/fa";
 import { GiBowlOfRice } from "react-icons/gi";
-import { CgDarkMode } from "react-icons/cg";
+import NightlightRoundIcon from "@mui/icons-material/NightlightRound";
+import {
+  AccountCircle,
+  Home,
+  Login,
+  Logout,
+  PersonAdd,
+  RestaurantMenu,
+} from "@mui/icons-material";
 import logo from "../../Images/logo6.png";
-import SignOut from "../SignOut/signOut";
-import { useSelector } from "react-redux";
+// import SignOut from "../SignOut/signOut";
+import { useSelector, useDispatch } from "react-redux";
+import { logOutAction } from "../../redux/actions/users";
 
 function NavBar() {
   const navRef = useRef();
   const btnRef = useRef();
   const [dropMenu, setDropMenu] = useState("mobileMenuInit");
+  const dispatch = useDispatch();
 
   const showNavMenu = () => {
     setDropMenu((old) =>
@@ -19,6 +29,9 @@ function NavBar() {
         ? "mobileMenuIn"
         : "mobileMenuOut"
     );
+  };
+  const handleLogOut = () => {
+    dispatch(logOutAction());
   };
 
   const darkMood = () => {
@@ -66,28 +79,33 @@ function NavBar() {
             <div>Hi,&nbsp;{signedIn.username.toUpperCase()}</div>
           )}
           <li
-            className="darkBtn navLink"
             onClick={() => {
               darkMood();
               showNavMenu();
             }}
           >
-            <CgDarkMode />
+            <div className="navLink">
+              <NightlightRoundIcon className="icon" />
+              <span>Mode</span>
+            </div>
           </li>
           <li>
             <Link className="navLink" to={"/home"} onClick={showNavMenu}>
-              Home
+              <Home className="icon" />
+              <span>Home</span>
             </Link>
           </li>
           <li>
             <Link className="navLink" to={"/category"} onClick={showNavMenu}>
-              Categories
+              <RestaurantMenu className="icon" />
+              <span>Menu</span>
             </Link>
           </li>
           {isSignedIn && !isTableTokenAvailable && (
             <li>
               <Link className="navLink" to={"/profile"} onClick={showNavMenu}>
-                Profile
+                <AccountCircle className="icon" />
+                <span>Profile</span>
               </Link>
             </li>
           )}
@@ -96,12 +114,14 @@ function NavBar() {
             <>
               <li>
                 <Link className="navLink" to={"/signin"} onClick={showNavMenu}>
-                  Sign In
+                  <Login className="icon" />
+                  <span>Sign In</span>
                 </Link>
               </li>
               <li>
                 <Link className="navLink" to={"/signup"} onClick={showNavMenu}>
-                  Sign Up
+                  <PersonAdd className="icon" />
+                  <span>Sign Up</span>
                 </Link>
               </li>
             </>
@@ -126,8 +146,18 @@ function NavBar() {
             </li>
           )}
           {(isTableTokenAvailable || isSignedIn) && (
-            <li className="navLink" onClick={showNavMenu}>
-              <SignOut />
+            <li>
+              <Link
+                className="navLink"
+                to={"/"}
+                onClick={() => {
+                  showNavMenu();
+                  handleLogOut();
+                }}
+              >
+                <Logout className="icon" />
+                <span>Logout</span>
+              </Link>
             </li>
           )}
 

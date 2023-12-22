@@ -1,14 +1,16 @@
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Typography,
+  TextField,
+  Button,
+  Box
+} from "@mui/material";
+import {Close, FileUpload} from "@mui/icons-material";
 import React, { useState } from "react";
-// import Container from "@mui/material/Container";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-// import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
+import { Link as RouterLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfilePicAction } from "../../redux/actions/users";
 import "./ChangeProfilePic.css";
@@ -40,6 +42,18 @@ const ChangeProfilePic = () => {
   return (
     <div>
       <div className="updatePhoto">
+      <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
+            <RouterLink to="/">
+              <Close
+                sx={{
+                  boxShadow: 3,
+                  borderRadius: "50%",
+                  backgroundColor:"white",
+                  padding:"2px"
+                }}
+              />
+            </RouterLink>
+        </Box>
         <img className="profilePhoto" alt="hi" src={user && user?.photo} />
         <div className="profileName">
           <Typography
@@ -63,7 +77,7 @@ const ChangeProfilePic = () => {
             }}
             size="small"
             variant="contained"
-            endIcon={<FileUploadIcon />}
+            endIcon={<FileUpload />}
             onClick={handleClickOpen}
           >
             change photo

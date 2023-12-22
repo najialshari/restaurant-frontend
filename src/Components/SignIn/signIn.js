@@ -10,8 +10,7 @@ import {
   Link,
   ThemeProvider,
 } from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import {LockOutlined, Close} from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signinAction } from "../../redux/actions/users";
@@ -44,14 +43,21 @@ const SignIn = () => {
   return (
     <Box className="signBox">
       <div>
-        <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
-          <RouterLink to="/">
-            <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
-          </RouterLink>
-        </Box>
         <ThemeProvider theme={myTheme}>
+          <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
+            <RouterLink to="/">
+              <Close
+                sx={{
+                  boxShadow: 3,
+                  borderRadius: "50%",
+                  backgroundColor:"white",
+                  padding:"2px"
+                }}
+              />
+            </RouterLink>
+          </Box>
           <Avatar>
-            <LockOutlinedIcon />
+            <LockOutlined />
           </Avatar>
           <Typography variant="subtitle1">Sign in</Typography>
           <Box

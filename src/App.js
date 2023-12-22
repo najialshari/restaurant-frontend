@@ -10,7 +10,7 @@ import Menu from "./Components/menu/menu";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import ForgetPassword from "./Components/forgetPassword/forgetPassword";
 import Notification from "./Components/Notifications/Notifications";
-import Profile from "./Components/EditProfile";
+import Profile from "./Components/Profile";
 import TableScan from "./Components/TableScan/tableScan";
 import CategoryMeal from "./Components/CategoryMeal/categoryMeal";
 import HomePage from "./Components/HomePage/HomePage";

@@ -10,7 +10,7 @@ import {
   ThemeProvider,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import Close from "@mui/icons-material/Close";
 import { signupAction } from "../../redux/actions/users";
 import { useDispatch, useSelector } from "react-redux";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
@@ -56,8 +56,14 @@ const SignUp = () => {
       <div>
         <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
           <RouterLink to="/">
-            <HighlightOffIcon fontSize="medium" sx={{ color: "gray" }} />
-          </RouterLink>
+          <Close
+                sx={{
+                  boxShadow: 3,
+                  borderRadius: "50%",
+                  backgroundColor:"white",
+                  padding:"2px"
+                }}
+              />          </RouterLink>
         </Box>
         <ThemeProvider theme={myTheme}>
           <Avatar sx={{ width: 32, height: 32 }}>
