@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import menuLogo from "../../Images/menu0.png";
-import logo from "../../Images/logo6.png";
+// import logo from "../../Images/logo6.png";
 
 const HomePage = () => {
   return (

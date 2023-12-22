@@ -1,13 +1,13 @@
 import React from 'react'
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay'
-import home1 from '../../Images/home1.png'
-import home2 from '../../Images/home2.jpg'
+// import useEmblaCarousel from 'embla-carousel-react';
+// import Autoplay from 'embla-carousel-autoplay'
+// import home1 from '../../Images/home1.png'
+// import home2 from '../../Images/home2.jpg'
 import './home.css'
 import Menu from '../menu/menu';
 import HomePage from '../HomePage/HomePage';
 function Home() {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()])
+  // const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()])
 
   return (
     <div className='homeContainer'>

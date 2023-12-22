@@ -1,5 +1,6 @@
 .homeContainer {
   width: 100vw;
+  flex-grow: 1;
 }
 .home {
   overflow: hidden;
