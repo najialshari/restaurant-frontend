@@ -1,33 +1,30 @@
-.welcome{
-  align-items: center;
-  text-align: center;
-
+.homeContainer {
+  width: 100vw;
 }
 .home {
-    overflow: hidden;
-    margin-bottom: 0;
-  }
-  .slideContainer {
-    display: flex;
-  }
+  overflow: hidden;
+  margin-bottom: 0;
+  /* background-color: aqua; */
+}
+.slideContainer {
+  display: flex;
+}
 
-  .slideImage {
-    display: flex;
-    flex: 0 0 100% ;
-    width: 100vw;
-    height: 40vh;
-    justify-content: center;
+.slideImage {
+  display: flex;
+  /* flex: 0 0 100%; */
+  width: 50vw;
+  height: 40vh;
+  justify-content: center;
+  /* background-color: black; */
+}
 
-    background-color: black;
-  }
-  
-  
-@media only screen and (max-width:432.95px){
-  .slideImage img{
+@media only screen and (max-width: 432.95px) {
+  .slideImage img {
     width: 100vw;
     height: auto;
   }
   .slideImage {
     height: auto;
   }
-  }
+}

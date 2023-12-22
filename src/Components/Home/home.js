@@ -10,14 +10,15 @@ function Home() {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()])
 
   return (
-    <div className='homePage0'>
+    <div className='homeContainer'>
       
-      <div className="home" ref={emblaRef}>
+      {/* <div className="home" ref={emblaRef}>
+        
         <div className="slideContainer">
           <div className="slideImage"><img src={home1} alt='HOME1' /></div>
           <div className="slideImage"><img src={home2} alt='HOME2' /></div>
         </div>
-      </div>
+      </div> */}
       <HomePage />
       <Menu/>
     </div>

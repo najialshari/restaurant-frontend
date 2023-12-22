@@ -114,7 +114,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-company">
-        <p>POWERED BY SYAN © 2023 Company, Inc. All rights reserved.</p>
+        <p>Designed by SYAN © 2023 Company, Inc. All rights reserved.</p>
       </div>
     </footer>
   );

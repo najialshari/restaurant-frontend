@@ -3,7 +3,7 @@ footer {
   background-repeat: repeat-x;
   background-size: 100vh;
   background-position-y: 100px;
-  width: 100%;
+  width: 100vw;
   padding-bottom: 20px;
   color: white;
   background-color: rgb(108, 107, 107);
@@ -58,10 +58,15 @@ footer {
     flex-direction: column;
   }
   .sections {
-    width: 100%;
+    width: 90vw;
   }
   .sub-section {
-    width: 100%;
+    width: 90vw;
     margin-top: 1rem;
+  }
+  .footer-company {
+    width: 90vw;
+    margin: auto;
+    text-align: start;
   }
 }

@@ -7,24 +7,19 @@ const HomePage = () => {
   return (
     <div className="homePage">
       <div className="homePageDiv">
-        <div className="navBar-Logo">
+        {/* <div className="navBar-Logo">
           <Link className="navLinkLogo" to={""}>
             <img src={logo} alt="resturantLogo" />
           </Link>
-        </div>
+        </div> */}
         <h2>
           Welcome To{" "}
           <span className="restaurantName">
-            {" "}
-            <b>LEZZET</b>
-          </span>{" "}
+            <b>LEZZET</b>{" "}
+          </span>
           Restaurant
         </h2>
-        <h3>
-          {" "}
-          Discover and Enjoy The Most Delicious Food And Drinks in Istanbul{" "}
-          <br />
-        </h3>
+        <h3 >Enjoy the unforgettable taste</h3>
         {window.location.pathname === "/home" ? (
           <Link className="homePageLink" to={"/#menuCategories"}>
             {" "}
