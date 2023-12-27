@@ -1,28 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
 .homePage {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  text-align: start;
+  justify-content: space-between;
   color: rgb(0, 0, 0);
   flex-grow: 1;
 }
 .homePageImage {
-  height: 20vh;
-  padding: 0px 0;
+  width: 300px;
+  height: 300px;
+  margin-top: .5rem;
+  border-radius: 10px;
 }
 .homePageDiv {
-  padding: 20px 0 20px 0px;
+  padding-left: 20px;
   text-align: start;
 }
 .homePageDiv h2 {
   text-shadow: 1px 2px 4px rgb(220, 178, 40);
   line-height: 3rem;
   font-size: 60px;
+  margin-block: 1rem;
 }
-.homePageDiv h3{
-  font-family: 'Petit Formal Script', cursive;
+.homePageDiv h3 {
+  font-family: "Petit Formal Script", cursive;
   font-size: xx-large;
 }
 .restaurantName {
@@ -40,17 +41,19 @@
 .homePageLink button:hover {
   background-color: rgb(220, 178, 40);
   color: rgb(78, 76, 76);
-  /* border: none; */
 }
 
 @media only screen and (max-width: 640px) {
   .homePage {
     display: flex;
     flex-direction: column;
-    padding-inline:10px;
+    width: 90vw;
+    margin-inline: auto;
   }
   .homePageImage {
-    width: 50vw;
-    height: auto;
+    width: 250px;
+    height: 250px;
+    margin-block: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 }

@@ -3,10 +3,10 @@ footer {
   background-repeat: repeat-x;
   background-size: 100vh;
   background-position-y: 100px;
-  width: 100vw;
+  width: 100%;
   padding-bottom: 20px;
-  color: white;
-  background-color: rgb(108, 107, 107);
+  color: rgb(255, 255, 255, 0.8);
+  background-color: #616161;
 }
 .footer-section {
   display: flex;
@@ -64,9 +64,8 @@ footer {
     width: 90vw;
     margin-top: 1rem;
   }
-  .footer-company {
+  .footer-company p {
     width: 90vw;
-    margin: auto;
     text-align: start;
   }
 }

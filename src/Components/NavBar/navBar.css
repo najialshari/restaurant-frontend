@@ -1,9 +1,8 @@
 .navBar {
-  background-color: rgb(239, 108, 0);
   position: fixed;
   top: 0;
   height: 7vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +12,7 @@
   background-size: 60vh;
   background-position-y: 10px;
   z-index: 5;
+  background-color: rgb(239, 108, 0);
 }
 
 .menu-List {
@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* background-color: aqua; */
 }
 
 li {
@@ -33,40 +32,47 @@ li {
   text-decoration: none;
   font-weight: 400;
   cursor: pointer;
-  color: rgb(251, 246, 246);
-  display: block;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 .navBar .icon{
   display: none;
 }
+
 .navLinkLogo img {
   height: 50px;
   width: 50px;
+  border: 1px solid ;
+  background-color: white;
+  border-radius: 25px;
+  display: block;
 }
 
 .navLink:hover,
 .nav-btn:hover,
 #cartLogo:hover,
 .darkBtn:hover {
-  color: rgb(78, 76, 76);
+color: black;
 }
 
 .nav-btn {
   position: absolute;
-  top: 1.2rem;
-  right: 0rem;
-  background-color: transparent;
-  border: none;
-  color: rgb(251, 246, 246);
+  right: 2rem;
+  color: white;
   cursor: pointer;
   display: none;
-  width: 30px;
 }
-
+.darkIcon{
+  position: absolute;
+  right: 4rem;
+  color: white;
+  cursor: pointer;
+}
 @media only screen and (max-width: 640px) {
   .nav-btn {
-    /* 3bars icon */
-    display: flex;
+    /* Drop Down Menu icon */
+    display: block;
   }
   .mobileMenuInit {
     display: none;

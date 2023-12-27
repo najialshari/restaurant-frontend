@@ -18,6 +18,42 @@ code {
     monospace;
 }
 
+.dark-mode-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  .sub-section button {
+    background-color: rgb(131, 131, 131);
+  }
+  .sub-section button:hover {
+    background-color: rgb(131, 131, 131, 0.8);
+  }
+}
+.dark-mode-nav {
+  position: fixed;
+  top: 0;
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  & .icon {
+    display: none;
+  }
+  & .navLink {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  & .navLink:hover,
+  .nav-btn:hover {
+    color: white;
+  }
+  & .darkIcon:hover {
+    background-color: rgba(0,0,0,.8);
+  }
+}
 .dark-mode {
   background-color: rgb(131, 131, 131);
   color: white;
@@ -27,4 +63,5 @@ code {
   flex-direction: column;
   min-height: 93vh;
   margin-top: 7vh;
+  width: 100%;
 }

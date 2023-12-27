@@ -19,7 +19,7 @@ const HomePage = () => {
           </span>
           Restaurant
         </h2>
-        <h3 >Enjoy the unforgettable taste</h3>
+        <h3>Enjoy the unforgettable taste</h3>
         {window.location.pathname === "/home" ? (
           <Link className="homePageLink" to={"/#menuCategories"}>
             {" "}
@@ -35,11 +35,14 @@ const HomePage = () => {
           </a>
         )}
       </div>
-      <img
+      <div>
+        
+        <img
         className="homePageImage"
         alt="404 - QR Code doesn`t work "
         src={menuLogo}
       />
+      </div>
     </div>
   );
 };
