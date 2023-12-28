@@ -58,7 +58,7 @@ function Menu() {
               {item.CategoryMeals?.map((itemType) => (
                 <motion.div
                   initial={{
-                    x: "150vw",
+                    x: "10vw",
                     transition: { type: "spring", duration: 2 },
                   }}
                   animate={{

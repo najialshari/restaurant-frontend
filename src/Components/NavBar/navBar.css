@@ -1,3 +1,6 @@
+header{
+  position: relative;
+}
 .navBar {
   position: fixed;
   top: 0;
