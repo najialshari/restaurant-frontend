@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navBar.css";
 import { GiBowlOfRice } from "react-icons/gi";
-import NightlightRoundIcon from "@mui/icons-material/NightlightRound";
 import {
   AccountCircle,
   Home,
@@ -11,6 +10,8 @@ import {
   PersonAdd,
   RestaurantMenu,
   Menu,
+  NightlightRound,
+  LightMode,
 } from "@mui/icons-material";
 import logo from "../../Images/logo6.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -71,21 +72,9 @@ function NavBar() {
           <img src={logo} alt="resturantLogo" />
         </Link>
       </div>
-      <div className="nav-btn " ref={btnRef} onClick={showNavMenu}>
-        <Menu />
-      </div>
-      <div className="darkIcon"
-          onClick={() => {
-            darkMood();
-          }}>
-        <NightlightRoundIcon fontSize="12px"/>
-      </div>
 
-      <div>
-        {signedIn && (
-          // <div style={{ color: "white" }}>
-          <div>Hi,&nbsp;{signedIn.username.toUpperCase()}</div>
-        )}
+      <div className="rSideNav">
+        {signedIn && <div>Hi,&nbsp;{signedIn.username.toUpperCase()}</div>}
         <div className={dropMenu} ref={navRef}>
           <ul className="menu-List">
             <li>
@@ -167,11 +156,20 @@ function NavBar() {
                 </Link>
               </li>
             )}
-
-            {/* <button className="nav-btn " onClick={showNavMenu}>
-            <FaTimes style={{ background: " rgb(220, 178, 40)" }} />
-          </button> */}
           </ul>
+        </div>
+        <div className="navIcons">
+          <div
+            className="darkIcon"
+            onClick={() => {
+              darkMood();
+            }}
+          >
+            {navClass === "navBar" ? <NightlightRound fontSize="small"/> : <LightMode fontSize="small"/>}
+            </div>
+          <div className="nav-btn " ref={btnRef} onClick={showNavMenu}>
+            <Menu />
+          </div>
         </div>
       </div>
     </header>

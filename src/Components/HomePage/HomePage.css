@@ -19,12 +19,12 @@
 .homePageDiv h2 {
   text-shadow: 1px 2px 4px rgb(220, 178, 40);
   line-height: 3rem;
-  font-size: 60px;
+  font-size: 3rem;
   margin-block: 1rem;
 }
 .homePageDiv h3 {
   font-family: "Petit Formal Script", cursive;
-  font-size: xx-large;
+  font-size: 2rem;
 }
 .restaurantName {
   font-weight: 300;

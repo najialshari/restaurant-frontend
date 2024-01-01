@@ -46,12 +46,12 @@ code {
   & .navLink {
     color: rgba(255, 255, 255, 0.8);
   }
+  .darkIcon {
+    color: white;
+  }
   & .navLink:hover,
   .nav-btn:hover {
     color: white;
-  }
-  & .darkIcon:hover {
-    background-color: rgba(0,0,0,.8);
   }
 }
 .dark-mode {
