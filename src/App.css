@@ -49,8 +49,7 @@ code {
   .darkIcon {
     color: white;
   }
-  & .navLink:hover,
-  .nav-btn:hover {
+  & .navLink:hover {
     color: white;
   }
 }

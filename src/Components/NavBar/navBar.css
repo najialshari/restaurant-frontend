@@ -67,13 +67,13 @@ color: black;
 }
 .darkIcon{
   cursor: pointer;
-  display: flex;
+  display: block;
   color: black;
 }
 @media only screen and (max-width: 640px) {
   .nav-btn {
     /* Drop Down Menu icon */
-    display: flex;
+    display: block;
   }
   .mobileMenuInit {
     display: none;
