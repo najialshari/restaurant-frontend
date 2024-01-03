@@ -53,9 +53,7 @@ li {
 }
 
 .navLink:hover,
-.nav-btn:hover,
-#cartLogo:hover,
-.darkBtn:hover {
+#cartLogo:hover {
 color: black;
 }
 .navIcons{
