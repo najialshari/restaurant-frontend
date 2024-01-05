@@ -29,18 +29,17 @@
 .profilePhoto {
   width: 10rem;
   height: 10rem;
-  margin: left;
+  /* margin: left; */
 }
 .profileName {
   display: flex;
   flex-direction: column;
   margin: "auto ";
-  /* margin-left:"20vw" */
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 700px) {
   .profile {
-    width: 400px;
+    width: 80%;
   }
   .updatePhoto {
     display: flex;
@@ -50,6 +49,25 @@
   .profilePhoto {
     width: 8rem;
     height: 8rem;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .profile{
+    width: 90%;
+  }
+  .profile .proData{
+    width: 90%;
+  }
+  .updatePhoto {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+  }
+  .profilePhoto {
+    width: 5rem;
+    height: 5rem;
     margin: auto;
   }
 }

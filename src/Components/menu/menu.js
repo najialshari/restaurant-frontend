@@ -9,7 +9,6 @@ import { getCategoriesAction } from "../../redux/actions/categories";
 import { useState } from "react";
 
 function Menu() {
-
   const dispatch = useDispatch();
   const getCategories = async () => {
     await dispatch(getCategoriesAction()).catch((err) => {
@@ -77,28 +76,27 @@ function Menu() {
                         {itemType.Meal?.name[0].toUpperCase() +
                           itemType.Meal?.name.substr(1)}
                       </h2>
-                      <label>{itemType.MealType?.name}</label>
-                      {itemType.discount > 0 ? (
-                        <p className="mealsprice">
-                          <span className="oldPrice">{itemType.price} $ </span>{" "}
-                          <span>
-                            {" "}
-                            {/* <b> {PriceAfterDiscount(itemType.price)} $</b></span></p>: */}
-                            <b>
-                              {" "}
-                              {parseFloat(
-                                itemType.price -
-                                  itemType.price * (itemType.discount / 100)
-                              ).toFixed(2)}{" "}
-                              $
-                            </b>
-                          </span>
-                        </p>
-                      ) : (
-                        <p className="mealsprice">
-                          <b>{itemType.price} $</b>
-                        </p>
-                      )}
+                      <div className="mealType">
+                        <div>{itemType.MealType?.name}</div>
+                        {itemType.discount > 0 ? (
+                          <div className="mealsPrice">
+                            <div className="oldPrice">{itemType.price}$</div>
+                            <div>
+                              <b>
+                                {parseFloat(
+                                  itemType.price -
+                                    itemType.price * (itemType.discount / 100)
+                                ).toFixed(2)}
+                                $
+                              </b>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="mealsprice">
+                            <b>{itemType.price}$</b>
+                          </div>
+                        )}
+                      </div>
                     </div>
                     {/* <br /> */}
                     <p className="moreDetailsButton">More details</p>

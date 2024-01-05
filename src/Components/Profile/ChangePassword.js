@@ -29,7 +29,7 @@ const ChangePassword = () => {
         ml: "4em",
         margin: "auto",
         padding: "auto",
-        width: "60vw",
+        // width: "60vw",
         mb: "20px",
       }}
     >

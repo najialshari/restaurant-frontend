@@ -1,203 +1,121 @@
-.categories ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 5%;
-    background-color: black;
-    border-radius: 10px;
-    /* margin: 5px 10px; */
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
+.categories ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
 }
-.categories  a{
-    color: rgb(50, 49, 49);
-    text-decoration: none;
+.categories a {
+  color: rgb(50, 49, 49);
+  text-decoration: none;
 }
 
-#categoriesType{
-    color: white;
-    text-decoration: none;
-    
+#categoriesType {
+  color: white;
+  text-decoration: none;
 }
-.categories a:hover,
-#categoriesType:hover{
-    color:  rgb(220, 178, 40);
-    text-decoration: none;
-    
+.categories {
+  margin: 5px 20px;
 }
-.categories{
-    margin:5px 20px ;
+.category-title {
+  padding-left: 5%;
 }
-.category-title{
-    padding-left: 5%;
-}
-.category-description{
-    padding-left: 10%;
+.category-description {
+  padding-left: 10%;
 }
 
 .category-cards {
-
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 5px  0;
-
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px 0;
 }
-
 
 .mealsCard {
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
 
-    display: flex;
-    flex-direction: column;
-    background: rgb(255, 255, 255);
+  width: 250px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px gray;
+  color: gray;
 
-    margin: 10px;
-    height: 290px;
-    width: 220px;
-    border-radius: 2rem;
-    border: 3px solid grey;
-    color: gray;
-
-    padding: 0px ;   
-    position: relative;
-    /* overflow: auto; */
-    overflow: hidden;
-
+  margin: 10px;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
 }
-
-
-
 .mealsImage {
-    height: 180px;
-    width: 100% ;
-    /* object-fit: cover; */
-    padding:0 ;
-    /* margin:0 auto; */
-    margin:0 ;
-    text-align: center;
-    /* padding-left: 25%; */
-    /* padding-bottom: 30px; */
-    /* margin-top: 25%; */
-
-
-
+  height: 180px;
+  width: 100%;
+  text-align: center;
+  border-radius: 4px;
 }
 
 .linkToMeal {
-    align-items: center;
-    text-decoration: none;
-    color: gray;
-    text-align: center;
+  align-items: center;
+  text-decoration: none;
+  color: gray;
+  text-align: center;
 }
-
-.moreDetailsButton {
-    /* padding: 20px; */
-    position: absolute;
-  bottom: 0px;
-  
-    padding-bottom: 9px;
-    /* margin-top: 0; */
-    margin-bottom: 0;
-    padding-top: 10px;
-    font-weight: 500;
-
-    /* background-color: gray; */
-    background-image: linear-gradient(white 10%,gray 90%)   ;
-
-    color: white;
-    width: 100%;
-    /* margin: 0 10px; */
-    /* border-radius: 10px; */
-    text-align: center;
-
-}
-.moreDetailsButton:hover {
-    
-    
-    background-color:  rgb(220, 178, 40) ;
-    background-image: linear-gradient(white 10%, rgb(220, 178, 40) 90%)   ;
-    color:  gray;
-    text-align: center;
-    border: inherit;
-
-}
-/* .moreDetailsButton:hover .mealsCard {
-
-    
-    border: 3px solid  rgb(220, 178, 40);
-    
-
-} */
 
 .mealsCard h2 {
-    margin: auto;
-    /* display: flex; */
-    /* position: absolute;
-    Top: 170px;
-    bottom: 50px; */
-    
-    width: 100%;
-    text-align: center;
-    font-size:medium;
+  text-align: left;
+  font-size: medium;
+}
+.mealType {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.moreDetailsButton {
+  font-weight: 300;
+  background-color: rgb(239, 108, 0);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+.mealsPrice {
+  display: flex;
+}
+.oldPrice {
+  padding-right: 10px;
+  text-decoration-line: line-through;
+  text-decoration-color: rgb(193, 9, 9);
 }
 
-.mealsprice {
-    position: absolute;
-    bottom: 40px;
+@media only screen and (max-width: 640px) {
+  .categories ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
 
-    margin: 0 5px;
+  .categories ul li a,
+  .categories ul li {
     width: 100%;
     text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
+    /* background-color: aqua; */
+  }
+  .categories ul li:hover {
+    background-color: rgba(255, 255, 255, 0.368);
+    border-radius: 5px;
+  }
 }
-.oldPrice{
-    padding-right: 10px;
-    text-decoration-line:line-through;
-    text-decoration-color: rgb(193, 9, 9);
+
+@media only screen and (max-width: 300px) {
+  .mealsCard {
+    margin: 10px 0;
   }
-  
-
-@media only screen and (max-width:640px){
-    
-    .categories ul{
-     
-        display: flex;
-        flex-direction: column;
-        padding-top: 10px;
-       
-
-    }
-    
-    .categories ul li a
-    ,.categories ul li{
-        width: 100%;
-        text-align: center;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        
-        /* background-color: aqua; */
-        
-       
-
-    }
-    .categories ul li:hover{
-        
-        background-color: rgba(255, 255, 255, 0.368);
-        border-radius: 5px;
-       
-
-    }
-    
-  }
-
-@media only screen and (max-width:300px){
-    
-    .mealsCard{
-        margin:10px 0;
-    }
-    
-  }
+}
