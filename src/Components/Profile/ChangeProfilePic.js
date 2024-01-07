@@ -6,14 +6,16 @@ import {
   Typography,
   TextField,
   Button,
-  Box
+  Box,
+  ThemeProvider,
 } from "@mui/material";
-import {Close, FileUpload} from "@mui/icons-material";
+import { Close, FileUpload } from "@mui/icons-material";
 import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfilePicAction } from "../../redux/actions/users";
-import "./ChangeProfilePic.css";
+import "./profile.css";
+import { myTheme } from "../theme/theme";
 
 const ChangeProfilePic = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
@@ -42,17 +44,17 @@ const ChangeProfilePic = () => {
   return (
     <div>
       <div className="updatePhoto">
-      <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
-            <RouterLink to="/">
-              <Close
-                sx={{
-                  boxShadow: 3,
-                  borderRadius: "50%",
-                  backgroundColor:"white",
-                  padding:"2px"
-                }}
-              />
-            </RouterLink>
+        <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
+          <RouterLink to="/">
+            <Close
+              sx={{
+                boxShadow: 3,
+                borderRadius: "50%",
+                backgroundColor: "white",
+                padding: "2px",
+              }}
+            />
+          </RouterLink>
         </Box>
         <img className="profilePhoto" alt="hi" src={user && user?.photo} />
         <div className="profileName">
@@ -69,19 +71,20 @@ const ChangeProfilePic = () => {
           >
             {user?.username}
           </Typography>
-          <Button
-            sx={{
-              width: "fit-content",
-              textTransform: "capitalize",
-              m: "auto",
-            }}
-            size="small"
-            variant="contained"
-            endIcon={<FileUpload />}
-            onClick={handleClickOpen}
-          >
-            change photo
-          </Button>
+          <ThemeProvider theme={myTheme}>
+            <Button
+              sx={{
+                width: "fit-content",
+                m: "auto",
+              }}
+              size="small"
+              variant="contained"
+              endIcon={<FileUpload />}
+              onClick={handleClickOpen}
+            >
+              change photo
+            </Button>
+          </ThemeProvider>
         </div>
       </div>
       <Dialog open={open} onClose={handleClose}>

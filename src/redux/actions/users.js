@@ -11,6 +11,7 @@ import {
   UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
   DELETE_USER,
+  UPDATE_USERINFO
 } from "../constants";
 import API_URLS from "../../api";
 import { requestApi } from "../../helper";
@@ -185,6 +186,23 @@ export const resetPasswordAction = (userData) => async (dispatch) => {
   await requestApi(data)
     .then((res) => {
       dispatch({ type: SIGNUP_NEW_USER, payload: res.data });
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+};
+
+export const updateUserInfoAction = (userData) => async (dispatch) => {
+  let data = {
+    url: API_URLS().AUTH.UPDATE_USERINFO,
+    method: "PATCH",
+    body: {
+      ...userData,
+    },
+  };
+  await requestApi(data)
+    .then((res) => {
+      dispatch({ type: UPDATE_USERINFO, payload: res.data });
     })
     .catch((e) => {
       console.error(e);

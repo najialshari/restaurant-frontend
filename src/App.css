@@ -29,7 +29,7 @@ code {
   }
 }
 .dark-mode-nav {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   height: 7vh;
   width: 100%;
@@ -37,7 +37,7 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  z-index: 5;
+  z-index: 5; */
   background-color: rgba(0, 0, 0, 0.8);
 
   & .icon {
@@ -54,7 +54,11 @@ code {
   }
 }
 .dark-mode {
-  background-color: rgb(131, 131, 131);
+  background-color: rgba(131, 131, 131,.9);
+  color: white;
+}
+.dark-mode-homePage {
+  background-color: lightgrey;
   color: white;
 }
 .App {

@@ -23,10 +23,10 @@
   margin: 5px 20px;
 }
 .category-title {
-  padding-left: 5%;
+  text-align: center;
 }
 .category-description {
-  padding-left: 10%;
+  text-align: center;
 }
 
 .category-cards {
@@ -35,40 +35,31 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  padding: 5px 0;
 }
 
 .mealsCard {
   display: flex;
   flex-direction: column;
-  background: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 
   width: 250px;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0px 1px 3px gray;
   color: gray;
 
   margin: 10px;
-  padding: 1rem;
-  position: relative;
   overflow: hidden;
 }
 .mealsImage {
-  height: 180px;
+  height: 200px;
   width: 100%;
-  text-align: center;
-  border-radius: 4px;
 }
 
-.linkToMeal {
-  align-items: center;
-  text-decoration: none;
-  color: gray;
-  text-align: center;
+.mealsText {
+  padding: 1rem;
 }
 
 .mealsCard h2 {
-  text-align: left;
   font-size: medium;
 }
 .mealType {
@@ -105,17 +96,22 @@
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
-
-    /* background-color: aqua; */
   }
   .categories ul li:hover {
     background-color: rgba(255, 255, 255, 0.368);
     border-radius: 5px;
   }
+  .category-cards {
+    justify-content: space-between;
+  }
+  .mealsCard {
+    width: 45%;
+  }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 440px) {
   .mealsCard {
-    margin: 10px 0;
+    margin: 10px auto;
+    width: 90%;
   }
 }

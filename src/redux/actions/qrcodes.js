@@ -5,7 +5,6 @@ import {
 } from "../constants";
 import API_URLS from "../../api";
 import { requestApi } from "../../helper";
-import { Navigate } from "react-router-dom";
 
 
 

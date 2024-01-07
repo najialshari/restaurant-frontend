@@ -7,44 +7,18 @@ import { updateUsernameAction } from "../../redux/actions/users";
 
 const ChangeUsername = () => {
   const user = useSelector((state) => state?.auth?.data?.user);
-  const initData = { newUsername: user.username, password: "" };
-  const [data, setData] = useState(initData);
   const dispatch = useDispatch();
 
-  const handleOnChangeInput = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const handleOnChangeUsername = () => {
-    dispatch(updateUsernameAction(data)).then(()=>
-    setData(initData));
-  };
 
   return (
     <Container className="proData"
       sx={{
         display: "flex",
         flexDirection: "column",
-        // ml: "4em",
-        // margin: "auto",
-        // padding: "auto",
-        // width: "60vw",
-        // mb: "20px",
-        // mt: "2em",
-        // backgroundColor:"white"
       }}
     >
-      <TextField
-        id="Username"
-        name="newUsername"
-        label="Username"
-        variant="standard"
-        helperText={`To change the current username.`}
-        defaultValue={user?.username}
-        required={false}
-        onChange={handleOnChangeInput}
-      />
-      <TextField
+      
+      {/* <TextField
         id="password"
         name="password"
         label="Re-Enter your password"
@@ -66,7 +40,7 @@ const ChangeUsername = () => {
         onClick={handleOnChangeUsername}
       >
         Change username
-      </Button>
+      </Button> */}
     </Container>
   );
 };

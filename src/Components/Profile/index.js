@@ -6,7 +6,7 @@ import ChangePassword from "./ChangePassword";
 import ChangePhoneNo from "./ChangePhoneNo";
 import ChangeProfilePic from "./ChangeProfilePic";
 import ChangeUsername from "./ChangeUsername";
-import "./ChangeProfilePic.css";
+import "./profile.css";
 
 function Profile() {
   const location = useLocation();
@@ -15,9 +15,6 @@ function Profile() {
   return signedIn ? (
     <div className="profile ">
       <ChangeProfilePic />
-      <ChangeUsername />
-      <ChangeEmail />
-      <ChangePhoneNo />
       <ChangePassword />
     </div>
   ) : (

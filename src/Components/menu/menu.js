@@ -33,7 +33,7 @@ function Menu() {
 
   return (
     <div className="categories" id="menuCategories">
-      <ul>
+      {/* <ul>
         {categories?.map((item) => (
           <li key={item.id}>
             <a id="categoriesType" href={`#${item.name}`}>
@@ -41,18 +41,18 @@ function Menu() {
             </a>
           </li>
         ))}
-      </ul>
+      </ul> */}
 
       <div className="categories-container">
         {categories?.map((item) => (
-          <div className="category-container" key={item.id}>
-            {/* <h2 className="category-title" id={`${item.name}`}>
-              {item.name}:
-            </h2> */}
+          <div key={item.id}>
+            <h2 className="category-title" id={`${item.name}`}>
+              {item.name}
+            </h2>
 
-            <div className="category-description">
+            {/* <div className="category-description">
               <p>{item.description}</p>
-            </div>
+            </div> */}
             <div className="category-cards">
               {item.CategoryMeals?.map((itemType) => (
                 <motion.div
@@ -66,40 +66,40 @@ function Menu() {
                   }}
                   key={itemType.id}
                   className="mealsCard"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.03 }}
                 >
                   <Link to={`/meals/${itemType.id}`} className="linkToMeal">
                     <img className="mealsImage" alt="" src={itemType.image} />
-                    <div className="cardDetails">
-                      <h2 className="mealName">
-                        {itemType.Meal?.name[0].toUpperCase() +
-                          itemType.Meal?.name.substr(1)}
-                      </h2>
-                      <div className="mealType">
-                        <div>{itemType.MealType?.name}</div>
-                        {itemType.discount > 0 ? (
-                          <div className="mealsPrice">
-                            <div className="oldPrice">{itemType.price}$</div>
-                            <div>
-                              <b>
-                                {parseFloat(
-                                  itemType.price -
-                                    itemType.price * (itemType.discount / 100)
-                                ).toFixed(2)}
-                                $
-                              </b>
+                    <div className="mealsText">
+                      <div className="cardDetails">
+                        <h2>
+                          {itemType.Meal?.name[0].toUpperCase() +
+                            itemType.Meal?.name.substr(1)}
+                        </h2>
+                        <div className="mealType">
+                          <div>{itemType.MealType?.name}</div>
+                          {itemType.discount > 0 ? (
+                            <div className="mealsPrice">
+                              <div className="oldPrice">{itemType.price}$</div>
+                              <div>
+                                <b>
+                                  {parseFloat(
+                                    itemType.price -
+                                      itemType.price * (itemType.discount / 100)
+                                  ).toFixed(2)}
+                                  $
+                                </b>
+                              </div>
                             </div>
-                          </div>
-                        ) : (
-                          <div className="mealsprice">
-                            <b>{itemType.price}$</b>
-                          </div>
-                        )}
+                          ) : (
+                            <div className="mealsprice">
+                              <b>{itemType.price}$</b>
+                            </div>
+                          )}
+                        </div>
                       </div>
+                      <p className="moreDetailsButton">More details</p>
                     </div>
-                    {/* <br /> */}
-                    <p className="moreDetailsButton">More details</p>
                   </Link>
                 </motion.div>
               ))}

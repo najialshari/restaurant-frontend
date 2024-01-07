@@ -1,4 +1,4 @@
-.navBar {
+header {
   position: fixed;
   top: 0;
   height: 7vh;
@@ -39,7 +39,7 @@ li {
   cursor: pointer;
   color: white;
 }
-.navBar .icon{
+header .icon{
   display: none;
 }
 

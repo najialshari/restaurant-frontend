@@ -1,7 +1,7 @@
-import {
-  Box
-} from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import {
+//   Box
+// } from "@mui/material";
+// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 // import { deepPurple } from "@mui/material/colors";
 import { useState ,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
@@ -27,6 +27,7 @@ const TableScan = () => {
   };
   useEffect(() => {
     getQrCodeInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   // const isTableAvailble = useSelector(state => state?.qrcodes?.isAuthenticated)
@@ -46,6 +47,7 @@ const TableScan = () => {
   console.log("isTableAvailble,",isTableAvailble)
   if(isTableAvailble) navigate("/");
   // else navigate("/notfound");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [isTableAvailble]);
   
   return (

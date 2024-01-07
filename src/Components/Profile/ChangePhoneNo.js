@@ -6,22 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updatePhoneNoAction } from "../../redux/actions/users";
 
 const ChangePhoneNo = () => {
-  const user = useSelector((state) => state?.auth?.data?.user);
-  const initData = {
-    newPhoneNo: user.phoneNo,
-    password: "",
-  };
-  const dispatch = useDispatch();
-  const [data, setData] = useState(initData);
-
-  const handleInputChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const handleOnChangePhoneNo = () => {
-    dispatch(updatePhoneNoAction(data)).then(() => setData(initData));
-
-  };
+  
   return (
     <Container className="proData"
       sx={{
@@ -34,16 +19,8 @@ const ChangePhoneNo = () => {
         mb: "20px",
       }}
     >
-      <TextField
-        label="Phone Number"
-        variant="standard"
-        type={"number"}
-        helperText={`Enter the Phone No here`}
-        name={"newPhoneNo"}
-        onChange={handleInputChange}
-        defaultValue={user.phoneNo}
-      />
-      <TextField
+      
+      {/* <TextField
         label="Password"
         variant="standard"
         type={"password"}
@@ -65,7 +42,7 @@ const ChangePhoneNo = () => {
         onClick={handleOnChangePhoneNo}
       >
         change phone number
-      </Button>
+      </Button> */}
     </Container>
   );
 };

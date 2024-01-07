@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
+main{
+  background-color: white;
+  flex-grow: 1;
+}
 .homePage {
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: rgb(0, 0, 0);
-  flex-grow: 1;
+  width: 100%;
 }
 .homePageImage {
   width: 300px;
   height: 300px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   border-radius: 10px;
 }
 .homePageDiv {
@@ -22,12 +26,12 @@
   font-size: 3rem;
   margin-block: 1rem;
 }
+.homePageDiv h2 .restaurantName {
+  font-size: 3.5rem;
+}
 .homePageDiv h3 {
   font-family: "Petit Formal Script", cursive;
   font-size: 2rem;
-}
-.restaurantName {
-  font-weight: 300;
 }
 .homePageLink button {
   background-color: rgb(78, 76, 76);
@@ -47,7 +51,6 @@
   .homePage {
     display: flex;
     flex-direction: column;
-    width: 90vw;
     margin-inline: auto;
   }
   .homePageImage {
@@ -55,5 +58,14 @@
     height: 250px;
     margin-block: 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  .homePageDiv h2 {
+    font-size: 2rem;
+  }
+  .homePageDiv h3 {
+    font-size: 1.5rem;
+  }
+  .homePageDiv h2 .restaurantName {
+    font-size: 2.5rem;
   }
 }

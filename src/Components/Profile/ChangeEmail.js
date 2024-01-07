@@ -6,18 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateEmailAction } from "../../redux/actions/users";
 
 const ChangeEmail = () => {
-  const user = useSelector((state) => state?.auth?.data?.user);
-  const initData = { newEmail: user.email, password: "" };
-  const dispatch = useDispatch();
-  const [data, setData] = useState(initData);
+  
 
-  const handleInputChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const handleOnChangeEmail = () => {
-    dispatch(updateEmailAction(data)).then(() => setData(initData));
-  };
   return (
     <Container className="proData"
       sx={{
@@ -30,16 +20,8 @@ const ChangeEmail = () => {
         mb: "20px",
       }}
     >
-      <TextField
-        label="Email"
-        variant="standard"
-        type={"email"}
-        helperText={`Enter the email here`}
-        name={"newEmail"}
-        onChange={handleInputChange}
-        defaultValue={user.email}
-      />
-      <TextField
+      
+      {/* <TextField
         label="Password"
         variant="standard"
         type={"password"}
@@ -62,7 +44,7 @@ const ChangeEmail = () => {
         onClick={handleOnChangeEmail}
       >
         chang email
-      </Button>
+      </Button> */}
     </Container>
   );
 };

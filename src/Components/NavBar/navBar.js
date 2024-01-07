@@ -36,8 +36,10 @@ function NavBar() {
   };
 
   const darkMood = () => {
+    document.querySelector("header").classList.toggle("dark-mode-nav");
     document.querySelector("body").classList.toggle("dark-mode");
-    document.querySelector("Footer").classList.toggle("dark-mode-footer");
+    document.querySelector("footer").classList.toggle("dark-mode-footer");
+    document.querySelector("main").classList.toggle("dark-mode-homePage");
     setNavClass((old) => (old === "navBar" ? "dark-mode-nav" : "navBar"));
   };
 
@@ -66,7 +68,7 @@ function NavBar() {
   }, [signedIn]);
 
   return (
-    <header className={navClass}>
+    <header>
       <div className="navBar-Logo">
         <Link className="navLinkLogo" to={"/home"}>
           <img src={logo} alt="resturantLogo" />
@@ -165,8 +167,12 @@ function NavBar() {
               darkMood();
             }}
           >
-            {navClass === "navBar" ? <NightlightRound fontSize="small"/> : <LightMode fontSize="small"/>}
-            </div>
+            {navClass === "navBar" ? (
+              <NightlightRound fontSize="small" />
+            ) : (
+              <LightMode fontSize="small" />
+            )}
+          </div>
           <div className="nav-btn " ref={btnRef} onClick={showNavMenu}>
             <Menu />
           </div>

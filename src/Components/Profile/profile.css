@@ -4,7 +4,7 @@
 .profile {
   width: 600px;
   margin: 10px auto;
-  background-color: whitesmoke;
+  background-color: white;
   padding: 10px;
   border-radius: 10px;
   position: relative;
@@ -36,6 +36,9 @@
   flex-direction: column;
   margin: "auto ";
 }
+/* .proData button, .profileName button{
+  background-color: aqua;
+} */
 
 @media only screen and (max-width: 700px) {
   .profile {
