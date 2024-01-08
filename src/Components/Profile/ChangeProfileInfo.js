@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Button, ThemeProvider, Container, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  updatePasswordAction,
-  updatePhoneNoAction,
-  updateEmailAction,
-  updateUsernameAction,
-  updateUserInfoAction
-} from "../../redux/actions/users";
+import { updateUserInfoAction } from "../../redux/actions/users";
 import { myTheme } from "../theme/theme";
 
 const ChangePassword = () => {
@@ -30,12 +24,7 @@ const ChangePassword = () => {
   };
 
   const handleOnChangePassword = () => {
-    // dispatch(updateEmailAction(data)).then(() => setData(initData));
-    // dispatch(updateUsernameAction(data)).then(() => setData(initData));
-    // dispatch(updatePhoneNoAction(data)).then(() => setData(initData));
-    // dispatch(updatePasswordAction(data)).then(() => setData(initData));
-    dispatch(updateUserInfoAction(data)).then(() => setData(initData));
-
+    dispatch(updateUserInfoAction(data));
   };
   return (
     <Container
@@ -52,24 +41,23 @@ const ChangePassword = () => {
         label="Username"
         variant="standard"
         defaultValue={user?.username}
-        required={false}
         onChange={handleInputChange}
       />
       <TextField
         label="Email"
+        name="newEmail"
         variant="standard"
-        type={"email"}
-        name={"newEmail"}
-        onChange={handleInputChange}
+        type="email"
         defaultValue={user.email}
+        onChange={handleInputChange}
       />
       <TextField
         label="Phone Number"
+        name="newPhoneNo"
         variant="standard"
-        type={"number"}
-        name={"newPhoneNo"}
-        onChange={handleInputChange}
+        type="number"
         defaultValue={user.phoneNo}
+        onChange={handleInputChange}
       />
       <TextField
         id="Current password"

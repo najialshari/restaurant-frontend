@@ -9,6 +9,7 @@ import {
   UPDATE_EMAIL,
   UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
+  UPDATE_USERINFO,
 } from "../constants";
 
 let initialState = {
@@ -137,6 +138,24 @@ const usersReducer = (state = initialState, action) => {
           user: {
             ...state?.data?.user,
             phoneNo: action?.payload?.data?.phoneNo,
+          },
+        },
+      };
+      window.localStorage.setItem("user", JSON.stringify(newState?.data?.user));
+      return {
+        ...newState,
+      };
+    case UPDATE_USERINFO:
+      window.localStorage.removeItem("table");
+      newState = {
+        ...state,
+        data: {
+          ...state.data,
+          user: {
+            ...state?.data?.user,
+            phoneNo: action?.payload?.data?.phoneNo,
+            email: action?.payload?.data?.email,
+            username: action?.payload?.data?.username,
           },
         },
       };

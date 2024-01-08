@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux";
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import ChangeEmail from "./ChangeEmail";
-import ChangePassword from "./ChangePassword";
-import ChangePhoneNo from "./ChangePhoneNo";
+import ChangePassword from "./ChangeProfileInfo";
 import ChangeProfilePic from "./ChangeProfilePic";
-import ChangeUsername from "./ChangeUsername";
 import "./profile.css";
 
 function Profile() {
