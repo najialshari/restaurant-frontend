@@ -10,10 +10,11 @@
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, 
   rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  flex-grow: 1;
 }
 .profile .proData {
-  width: 80%;
-  margin: 20px auto;
+  width: 90%;
+  margin: 1.5rem auto;
 }
 .updatePhoto {
   display: flex;
@@ -23,12 +24,12 @@
 }
 .updatePhoto img {
   border-radius: 50%;
-  margin: 0 auto;
-  border: 1px solid rgba(0, 0, 0, 0.16);
+  margin: .5rem auto ;
+  border: 1px solid rgba(180, 180, 180, 1);
 }
 .profilePhoto {
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   /* margin: left; */
 }
 .profileName {
@@ -36,9 +37,6 @@
   flex-direction: column;
   margin: "auto ";
 }
-/* .proData button, .profileName button{
-  background-color: aqua;
-} */
 
 @media only screen and (max-width: 700px) {
   .profile {
@@ -60,7 +58,7 @@
     width: 90%;
   }
   .profile .proData{
-    width: 90%;
+    width: 95%;
   }
   .updatePhoto {
     display: flex;

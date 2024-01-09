@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 // import { getCategoryMealsAction } from "../../redux/actions/menu";
 import { getCategoriesAction } from "../../redux/actions/categories";
 import { useState } from "react";
+import Fab from "@mui/material/Fab";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -70,6 +72,11 @@ function Menu() {
                 >
                   <Link to={`/meals/${itemType.id}`} className="linkToMeal">
                     <img className="mealsImage" alt="" src={itemType.image} />
+                    <Fab       
+                      aria-label="like" sx={{ position:"absolute",top:5 , right:5, width: 20, height:20, backgroundColor:"white"}}
+                    >
+                      <FavoriteIcon sx={{ width: 15, height: 15 }}/>
+                    </Fab>
                     <div className="mealsText">
                       <div className="cardDetails">
                         <h2>

@@ -10,6 +10,8 @@ import {
   UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
   UPDATE_USERINFO,
+  UPDATE_PASSWORD,
+  CLEAR_PASSWORD
 } from "../constants";
 
 let initialState = {
@@ -145,6 +147,7 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...newState,
       };
+
     case UPDATE_USERINFO:
       window.localStorage.removeItem("table");
       newState = {
@@ -160,6 +163,16 @@ const usersReducer = (state = initialState, action) => {
         },
       };
       window.localStorage.setItem("user", JSON.stringify(newState?.data?.user));
+      return {
+        ...newState,
+      };
+
+    case UPDATE_PASSWORD:
+      window.localStorage.removeItem("table");
+      newState = {
+        ...state,
+        password: true,
+      };
       return {
         ...newState,
       };
@@ -193,6 +206,10 @@ const usersReducer = (state = initialState, action) => {
           user: null,
         },
       };
+      case CLEAR_PASSWORD: 
+      return {
+        ...state, password: false
+      }
     default:
       return state;
   }

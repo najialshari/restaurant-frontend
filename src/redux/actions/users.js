@@ -11,7 +11,8 @@ import {
   UPDATE_PHONENO,
   UPDATE_PROFILEPIC,
   DELETE_USER,
-  UPDATE_USERINFO
+  UPDATE_USERINFO,
+  CLEAR_PASSWORD,
 } from "../constants";
 import API_URLS from "../../api";
 import { requestApi } from "../../helper";
@@ -86,10 +87,11 @@ export const updatePasswordAction = (userData) => async (dispatch) => {
     },
   };
   await requestApi(data)
-    .then((res) => {
+    .then(() => {
       dispatch({ type: UPDATE_PASSWORD });
     })
     .catch((e) => {
+      dispatch({ type: CLEAR_PASSWORD });
       console.error(e);
     });
 };
