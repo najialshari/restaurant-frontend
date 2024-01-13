@@ -43,7 +43,7 @@ const ChangeProfilePic = () => {
   };
   return (
     <div>
-      <div className="updatePhoto">
+      <div className="updatePhotoContainer">
         <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
           <RouterLink to="/">
             <Close
@@ -56,35 +56,37 @@ const ChangeProfilePic = () => {
             />
           </RouterLink>
         </Box>
-        <img className="profilePhoto" alt="hi" src={user && user?.photo} />
-        <div className="profileName">
-          <Typography
-            id="username"
-            variant="caption"
-            sx={{
-              size: "2em",
-              fontSize: "1em",
-              width: "fit-content",
-              m: "auto",
-              color: "black",
-            }}
-          >
-            {user?.username}
-          </Typography>
-          <ThemeProvider theme={myTheme}>
-            <Button
+        <div className="profilePicGroup">
+          <img className="profilePhoto" alt="hi" src={user && user?.photo} />
+          <div className="profileName">
+            <Typography
+              id="username"
+              variant="caption"
               sx={{
+                size: "2em",
+                fontSize: "1em",
                 width: "fit-content",
                 m: "auto",
+                color: "black",
               }}
-              size="small"
-              variant="contained"
-              endIcon={<FileUpload />}
-              onClick={handleClickOpen}
             >
-              change photo
-            </Button>
-          </ThemeProvider>
+              {user?.username}
+            </Typography>
+            <ThemeProvider theme={myTheme}>
+              <Button
+                sx={{
+                  width: "fit-content",
+                  m: "auto",
+                }}
+                size="small"
+                variant="contained"
+                endIcon={<FileUpload />}
+                onClick={handleClickOpen}
+              >
+                change photo
+              </Button>
+            </ThemeProvider>
+          </div>
         </div>
       </div>
       <Dialog open={open} onClose={handleClose}>

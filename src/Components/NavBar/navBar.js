@@ -39,8 +39,8 @@ function NavBar() {
     document.querySelector("header").classList.toggle("dark-mode-nav");
     document.querySelector("body").classList.toggle("dark-mode");
     document.querySelector("footer").classList.toggle("dark-mode-footer");
-    document.querySelector("main").classList.toggle("dark-mode-homePage");
     setNavClass((old) => (old === "navBar" ? "dark-mode-nav" : "navBar"));
+    document.querySelector("main").classList.toggle("dark-mode-homePage");
   };
 
   const [isTableTokenAvailable, setIsTableTokenAvailable] = useState({});
