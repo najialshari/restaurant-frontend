@@ -44,7 +44,7 @@ const ChangeProfilePic = () => {
   return (
     <div>
       <div className="updatePhotoContainer">
-        <Box sx={{ position: "absolute", right: 0, top: 0, padding: "20px" }}>
+        <Box sx={{ position: "absolute", right: "20px", top: "20px" }}>
           <RouterLink to="/">
             <Close
               sx={{
@@ -56,38 +56,38 @@ const ChangeProfilePic = () => {
             />
           </RouterLink>
         </Box>
-        <div className="profilePicGroup">
+        <div>
           <img className="profilePhoto" alt="hi" src={user && user?.photo} />
-          <div className="profileName">
-            <Typography
-              id="username"
-              variant="caption"
-              sx={{
-                size: "2em",
-                fontSize: "1em",
-                width: "fit-content",
-                m: "auto",
-                color: "black",
-              }}
-            >
-              {user?.username}
-            </Typography>
-            <ThemeProvider theme={myTheme}>
-              <Button
-                sx={{
-                  width: "fit-content",
-                  m: "auto",
-                }}
-                size="small"
-                variant="contained"
-                endIcon={<FileUpload />}
-                onClick={handleClickOpen}
-              >
-                change photo
-              </Button>
-            </ThemeProvider>
-          </div>
         </div>
+        <div>
+          <Typography
+            id="username"
+            variant="caption"
+            sx={{
+              fontSize: "1em",
+              width: "fit-content",
+              color: "black",
+            }}
+          >
+            {user?.username}
+          </Typography>
+        </div>
+        <div>
+          <ThemeProvider theme={myTheme}>
+            <Button
+              sx={{
+                width: "fit-content",
+              }}
+              size="small"
+              variant="contained"
+              endIcon={<FileUpload />}
+              onClick={handleClickOpen}
+            >
+              change photo
+            </Button>
+          </ThemeProvider>
+        </div>
+        {/* </div> */}
       </div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Update Profile Picture</DialogTitle>

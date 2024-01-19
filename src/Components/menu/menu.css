@@ -19,9 +19,6 @@
   color: white;
   text-decoration: none;
 }
-.categories {
-  margin: 5px 20px;
-}
 .category-title {
   text-align: center;
 }
@@ -30,10 +27,8 @@
 }
 .category {
   margin: 1rem auto;
-  background-color: #fafafa;
-  width:fit-content;
-  border-radius: 15px;
-  border: 1px lightgray solid
+  background-color: #fcfcfc;
+  border-block: 1px rgba(0,0,0,.1) solid;
 }
 .category-cards {
   display: flex;
@@ -108,7 +103,7 @@
     border-radius: 5px;
   }
   .category-cards {
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .mealsCard {
     width: 45%;

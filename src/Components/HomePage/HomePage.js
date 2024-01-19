@@ -1,18 +1,29 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./HomePage.css";
-import menuLogo from "../../Images/menu0.png";
+// import menuLogo from "../../Images/menu0.png";
+import bg1 from "../../Images/bg1.jpg";
+import bg2 from "../../Images/bg2.jpg";
+import bg3 from "../../Images/bg3.jpg";
 // import logo from "../../Images/logo6.png";
-
+import { BsArrowLeftShort ,BsArrowRightShort} from "react-icons/bs";
+import { useEffect, useState } from "react";
 const HomePage = () => {
+  const data = [bg1,bg2,bg3]
+  const [active, setActive] = useState(0);
+  useEffect(()=>{
+    const id = setInterval(() => {
+      if (active >= 2) setActive(0)
+      else setActive(prev => prev+1)
+   }, 8000);
+  return (()=>{
+    clearInterval(id)
+  })
+},[active])
+
   return (
     <main>
       <div className="homePage">
-        <div className="homePageDiv">
-          {/* <div className="navBar-Logo">
-          <Link className="navLinkLogo" to={""}>
-            <img src={logo} alt="resturantLogo" />
-          </Link>
-        </div> */}
+        {/* <div className="homePageDiv">
           <h2>
             Welcome To{" "}
             <span className="restaurantName">
@@ -41,6 +52,29 @@ const HomePage = () => {
             className="homePageImage"
             alt="404 - QR Code doesn`t work "
             src={menuLogo}
+          />
+        </div> */}
+        <div className="homePageImg">
+            {data.map((item,index) => (
+
+            <img
+              src={item}
+              alt="oo"
+              key={index}
+              className="homePageImg"
+              style={{translate : `${-100* active}%`}}
+            />
+          
+            ))}
+          <BsArrowLeftShort
+            className="arrow arrow-left"
+            onClick={() => (active > 0 ? setActive(active - 1) : setActive(2))}
+
+          />
+          <BsArrowRightShort
+            className="arrow arrow-right"
+            onClick={() => (active < 2 ? setActive(active + 1) : setActive(0))}
+
           />
         </div>
       </div>

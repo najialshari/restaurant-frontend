@@ -32,8 +32,9 @@ function Menu() {
   }, [TempCategories]);
 
   return (
-    <div className="categories" id="menuCategories">
-      {/* <ul>
+    <main>
+      <div className="categories" id="menuCategories">
+        {/* <ul>
         {categories?.map((item) => (
           <li key={item.id}>
             <a id="categoriesType" href={`#${item.name}`}>
@@ -43,7 +44,6 @@ function Menu() {
         ))}
       </ul> */}
 
-      <div className="categories-container">
         {categories?.map((item) => (
           <div className="category" key={item.id}>
             <h2 className="category-title" id={`${item.name}`}>
@@ -90,6 +90,7 @@ function Menu() {
                       </svg>
                     </div>
                   </div>
+
                   <Link to={`/meals/${itemType.id}`} className="linkToMeal">
                     <img className="mealsImage" alt="" src={itemType.image} />
                     <div className="mealsText">
@@ -129,7 +130,7 @@ function Menu() {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 
