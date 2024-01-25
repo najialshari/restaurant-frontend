@@ -86,7 +86,7 @@ function NavBar() {
               </Link>
             </li>
             <li>
-              <Link className="navLink" to={"/category"} onClick={showNavMenu}>
+              <Link className="navLink" to={"/menu"} onClick={showNavMenu}>
                 <RestaurantMenu className="icon" />
                 <span>Menu</span>
               </Link>

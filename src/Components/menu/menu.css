@@ -36,19 +36,17 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  gap:20px
 }
 
 .mealsCard {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
-
-  width: 250px;
+  width: 220px;
   border-radius: 15px;
   box-shadow: 0px 1px 3px gray;
   color: gray;
-
-  margin: 10px;
   overflow: hidden;
 }
 .mealsImage {
@@ -105,14 +103,11 @@
   .category-cards {
     justify-content: space-around;
   }
-  .mealsCard {
-    width: 45%;
-  }
+  
 }
 
 @media only screen and (max-width: 440px) {
   .mealsCard {
     margin: 10px auto;
-    width: 90%;
   }
 }
