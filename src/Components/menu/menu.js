@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 // import { getCategoryMealsAction } from "../../redux/actions/menu";
 import { getCategoriesAction } from "../../redux/actions/categories";
 import { useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Menu() {
   const dispatch = useDispatch();
@@ -133,7 +134,9 @@ function Menu() {
             </div>
           ))
         ) : (
-          <div className="loading">Loading...</div>
+          <div className="loading">
+            Loading... <CircularProgress />
+          </div>
         )}
       </div>
     </main>
