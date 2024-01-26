@@ -135,7 +135,7 @@ function Menu() {
           ))
         ) : (
           <div className="loading">
-            Loading... <CircularProgress />
+            Loading... <CircularProgress size={"2rem"}/>
           </div>
         )}
       </div>
