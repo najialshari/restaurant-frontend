@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar/navBar";
-import Home from "./Components/Home/home";
+// import Home from "./Components/Home/home";
 import Footer from "./Components/Footer/footer";
 import SignUp from "./Components/SignUp/signUp";
 import SignIn from "./Components/SignIn/signIn";
@@ -22,8 +22,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/home" exact element={<HomePage />} />
+        {/* <Route path="/" exact element={<Home />} /> */}
+        <Route path="/" exact element={<HomePage />} />
         <Route path="/menu" exact element={<Menu />} />
         <Route path="/cart" exact element={<Cart />} />
         <Route path={"/signup"} element={<SignUp />} />
@@ -31,7 +31,7 @@ function App() {
         <Route path={"/table/:id"} element={<TableScan />} />
         <Route path={"/forgetPassword"} element={<ForgetPassword />} />
         <Route path={"/meals/:id"} element={<CategoryMeal />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<HomePage />} />
         <Route path="/notfound" element={<PageNotFound />} />
         <Route path={"/profile"} element={<Profile />} />
       </Routes>

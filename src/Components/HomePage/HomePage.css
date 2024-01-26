@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
 main {
+  width: 100%;
   background-color: white;
   flex-grow: 1;
 }
