@@ -17,7 +17,7 @@ const HomePage = () => {
   useEffect(() => {
     const interID = setInterval(() => {
       handleNext();
-    }, 10000);
+    }, 8000);
     return () => clearInterval(interID);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);

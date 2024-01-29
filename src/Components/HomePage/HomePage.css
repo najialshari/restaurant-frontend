@@ -7,7 +7,7 @@ main {
 .slidesContainer {
   position: relative;
   width: 100%;
-  height: 90vh;
+  min-height: 90vh;
   overflow: hidden;
 }
 .slide{
@@ -18,8 +18,9 @@ main {
   opacity:0;
   top:0;
   left: 0;
-  transform: translateX(100%);
-  transition: all 5s ease;
+  filter: brightness(.5);
+  /* transform: translateX(100%); */
+  transition: all 2s ease;
 }
 .slide div{
   width: 50%;
@@ -34,7 +35,8 @@ main {
 }
 .active {
   opacity: 1;
-  transform: translateX(0);
+  filter: brightness(1);
+  /* transform: translateX(0); */
 }
 .slide img {
   object-fit: fill;
@@ -62,7 +64,7 @@ main {
 }
 .slide div h1 {
   text-shadow: 1px 2px 4px rgb(220, 178, 40);
-  font-size: 5rem;
+  font-size: 4rem;
 }
 .homePageDiv h2 .restaurantName {
   font-size: 3.5rem;
@@ -107,12 +109,27 @@ main {
     font-size: 2.5rem;
   }
   .arrow-left {
-    left: 1rem;
+    left: 2rem;
   }
   .arrow-right {
-    right: 1rem;
+    right: 2rem;
   }
   .slidesContainer {
-    width: 90%;
+    width: 100%;
+  }
+  .slide{
+    display: block;
+  }
+  .slide div{
+    width:100%
+  } 
+  .slide div h1{
+    display: none;
+    font-size: 2rem;
+    background-color: red;
+  }
+  .slide div:first-child{
+    width:100%;
+    height: 90vh;
   }
 }
