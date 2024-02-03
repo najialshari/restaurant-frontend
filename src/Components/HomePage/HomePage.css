@@ -19,7 +19,6 @@ main {
   top: 0;
   left: 0;
   padding: 1rem;
-  /* animation: flashout 2s linear; */
 }
 .slide div {
   width: 50%;
@@ -184,6 +183,9 @@ main {
 }
 @media only screen and (max-width: 440px) {
   .slide div:first-child {
-    height: 60vh;
+    height: 40vh;
+  }
+  .slidesContainer{
+    height: 50vh;
   }
 }
