@@ -4,7 +4,7 @@ import bg3 from "../../Images/bg3.jpg"
 export const carousel = [
   {
     src: bg1,
-    text: "The Tatse of Passion",
+    text: "The Taste of Passion",
   },
   {
     src: bg2,
