@@ -40,12 +40,12 @@ const HomePage = () => {
               !start
                 ? direction === "right"
                   ? index === active
-                    ? { animation: "flashRight 3s ease" }
+                    ? { animation: "flashRight 2s ease" }
                     : index === old
                     ? { animation: "flashRightOut 1s ease" }
                     : null
                   : index === active
-                  ? { animation: "flashLeft 3s ease" }
+                  ? { animation: "flashLeft 2s ease" }
                   : index === old
                   ? { animation: "flashLeftOut 1s ease" }
                   : null
