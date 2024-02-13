@@ -12,9 +12,9 @@ import ForgetPassword from "./Components/forgetPassword/forgetPassword";
 import Notification from "./Components/Notifications/Notifications";
 import Profile from "./Components/Profile";
 import TableScan from "./Components/TableScan/tableScan";
-import CategoryMeal from "./Components/CategoryMeal/categoryMeal";
 import HomePage from "./Components/HomePage/HomePage";
 import Cart from "./Components/Cart/cart";
+import MealDetails from "./Components/CategoryMeal/MealDetails";
 
 function App() {
   window.onbeforeunload = () => localStorage.clear();
@@ -30,7 +30,7 @@ function App() {
         <Route path={"/signin"} element={<SignIn />} />
         <Route path={"/table/:id"} element={<TableScan />} />
         <Route path={"/forgetPassword"} element={<ForgetPassword />} />
-        <Route path={"/meals/:id"} element={<CategoryMeal />} />
+        <Route path={"/meals/:id"} element={<MealDetails />} />
         <Route path="*" element={<HomePage />} />
         <Route path="/notfound" element={<PageNotFound />} />
         <Route path={"/profile"} element={<Profile />} />

@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="topBar">
-        <Link className="backButtonLink" to={"/"}>
+        <Link className="backButtonLink" to={"/menu"}>
           {" "}
           Back To Menu
         </Link>
