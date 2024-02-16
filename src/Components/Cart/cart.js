@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./cart.css";
+import "./Cart.css";
 import { Link, useNavigate } from "react-router-dom";
 import {
   decreaseCount,
@@ -8,9 +8,20 @@ import {
   deleteItem,
 } from "../../redux/actions/cart";
 import { orderAction, orderClean } from "../../redux/actions/order";
-
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  InputBase,
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
+import { Add, Remove } from "@mui/icons-material";
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
+  const [qty, setQty] = useState(1);
+
   // const orderState = useSelector((state) => state.order);
   const cartDispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,12 +29,12 @@ const Cart = () => {
   let mySum = 0;
   for (let dummy of itemsState) mySum += dummy.price * dummy.count;
 
-  const handleDecrease = (itemID) => {
-    cartDispatch(decreaseCount(itemID));
-  };
-  const handleIncrease = (itemID) => {
-    cartDispatch(increaseCount(itemID));
-  };
+  // const handleDecrease = (itemID) => {
+  //   cartDispatch(decreaseCount(itemID));
+  // };
+  // const handleIncrease = (itemID) => {
+  //   cartDispatch(increaseCount(itemID));
+  // };
   const handleOrder = async () => {
     const data = {
       totalPrice: mySum,
@@ -40,63 +51,158 @@ const Cart = () => {
       }, 3000);
     });
   };
+
+  const handleDecrease = () => {
+    qty > 1 && setQty(qty - 1);
+  };
+  const handleAdd = () => {
+    setQty(qty + 1);
+  };
   return (
-    <div className="cart">
-      <div className="topBar">
-        <Link className="backButtonLink" to={"/menu"}>
-          {" "}
-          Back To Menu
-        </Link>
+    <div className="cartContainer">
+      <div className="cartLeftPart">
+        {/* <div className="topBar">
+          <Link className="backButtonLink" to={"/menu"}>
+            {" "}
+            Back To Menu
+          </Link>
 
-        <button className="backButtonLink" onClick={handleOrder}>
-          Send Order
-        </button>
-      </div>
+          <button className="backButtonLink" onClick={handleOrder}>
+            Send Order
+          </button>
+        </div> */}
 
-      <div className="cartList">
-      {itemsState.length > 0 && <h2>Your cart list total: {mySum.toFixed(2)}$</h2>}
-        {itemsState.map((item, i) => (
-          <div className="cartItems" key={i}>
-            <div>
-              <img src={item.image} width="100px" height="100px" alt="..." />
-              {/* <li>{item.categoryMealsId}</li> */}
-              <li>
-                <strong>{item.name}</strong>
-              </li>
-              <label>{item.type}</label>
-            </div>
-            <div className="price">
-              <div>
-                Qty
-                <div>
-                  <button
-                    disabled={item.count === 0 ? true : false}
-                    onClick={() => handleDecrease(item.id)}
-                  >
-                    {" "}
-                    -{" "}
-                  </button>
-                  <span className="countNumber">{item.count}</span>
-                  <button onClick={() => handleIncrease(item.id)}> + </button>
+        <div className="cartItemContainer">
+          {itemsState.length > 0 && (
+            <>
+              <Typography variant="h4" my={"1rem"}>
+                Food Cart{" "}
+              </Typography>
+              <Divider />
+            </>
+          )}
+          {itemsState.map((item, i) => (
+            <>
+              <div className="cartItem" key={i}>
+                <div className="cartItemImg">
+                  <img src={item.image} alt="..." />
+                  {/* <li>{item.categoryMealsId}</li> */}
+                </div>
+                <div className="price">
+                  <div className="priceLeft">
+                    <div>
+                      <Typography variant="h4">{item.name}</Typography>
+                      <Typography variant="caption">{item.type}</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="h6">Quantity</Typography>
+                      <div>
+                        <IconButton
+                          aria-label="decrease"
+                          sx={{
+                            width: 25,
+                            height: 25,
+                            backgroundColor: "#f7f7f7",
+                          }}
+                          onClick={handleDecrease}
+                        >
+                          <Remove />
+                        </IconButton>
+                        <InputBase
+                          onChange={(e) =>
+                            !isNaN(Number(e.target.value)) &&
+                            Number(e.target.value) > 0 &&
+                            setQty(Number(e.target.value))
+                          }
+                          value={qty}
+                          inputProps={{
+                            style: {
+                              textAlign: "center",
+                              width: "40px",
+                              height: "20px",
+                              border: "1px solid #e1e1e1",
+                              borderRadius: "5px",
+                              margin: "0 5px",
+                              color: "black",
+                            },
+                          }}
+                        />
+                        <IconButton
+                          aria-label="add"
+                          sx={{
+                            width: 25,
+                            height: 25,
+                            backgroundColor: "#f7f7f7",
+                          }}
+                          onClick={handleAdd}
+                        >
+                          <Add />
+                        </IconButton>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <Typography variant="h6">{item.price}$</Typography>
+                  </div>
+
+                  {/* <div>
+                  <i
+                    className="bi bi-trash"
+                    onClick={() => cartDispatch(deleteItem(item.id))}
+                  ></i>
+                </div> */}
                 </div>
               </div>
-              <div>
-                <p>Price</p>
-                <p>{item.price}$</p>
-              </div>
-              <div>
-                <p>Sub(Total)</p>
-                <strong>{(item.price * item.count).toFixed(2)}$</strong>
-              </div>
-              <div>
-                <i
-                  className="bi bi-trash"
-                  onClick={() => cartDispatch(deleteItem(item.id))}
-                ></i>
-              </div>
-            </div>
-          </div>
-        ))}
+              <Divider sx={{margin: "1rem 0"}}/>
+            </>
+          ))}
+          <Box sx={{ textAlign: "right" }}>
+            <Typography variant="h5">Subtotal: 555$</Typography>
+          </Box>
+        </div>
+      </div>
+      <div className="cartRightPart">
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#fb8b24",
+            textTransform: "capitalize",
+            width: "100%",
+            "&:hover": {
+              backgroundColor: "#ff5722",
+            },
+          }}
+        >
+          Checkout
+        </Button>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "50%",
+            // height:"4rem",
+          }}
+        >
+          <Typography variant="body" fontWeight={"500"}>
+            Items (3)
+          </Typography>
+          <Typography variant="body" fontWeight={"500"}>
+            {mySum.toFixed(2)} $
+          </Typography>
+        </Box>
+        <Divider />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "30%",
+          }}
+        >
+          <Typography variant="h6">Subtotal</Typography>
+          <Typography variant="h6">{mySum.toFixed(2)} $</Typography>
+        </Box>
       </div>
     </div>
   );
