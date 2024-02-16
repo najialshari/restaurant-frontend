@@ -2,16 +2,16 @@ import React from "react";
 import "./MealDetails.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { addItem} from "../../redux/actions/cart";
+import { addItem } from "../../redux/actions/cart";
 import { getCategoryMealsByIdAction } from "../../redux/actions/menu";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { Rating } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { CircularProgress, IconButton, InputBase, Rating } from "@mui/material";
+import { Add, Remove, Share } from "@mui/icons-material";
 
 function MealDetails() {
   let { id } = useParams();
-
   const [categoryMeal, setCategoryMeal] = useState();
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
   const getCategoryMealsById = async () => {
@@ -32,22 +32,22 @@ function MealDetails() {
     setCategoryMeal(tempCategoryMeal);
   }, [tempCategoryMeal]);
 
-  const PriceAfterDiscount = (price, discount = 10) => {
+  const PriceAfterDiscount = (price, discount) => {
     const newPrice = price - price * (discount / 100);
     return parseFloat(newPrice).toFixed(2);
   };
+  const handleDecrease = () => {
+    qty > 1 && setQty(qty - 1);
+  };
+  const handleAdd = () => {
+    setQty(qty + 1);
+  };
   return (
     <div className="MealContainer">
-      {/* <Link className="backButtonLink" to={"/menu"}>
-        {" "}
-        Back to menu
-      </Link> */}
-      {/* <div className="oneMealCard"> */}
       {categoryMeal?.id ? (
         <div key={categoryMeal.id} className="MealCard">
           <div className="leftCardPart">
             <img className="mealImage" alt="" src={categoryMeal.image} />
-            {/* <br /> */}
           </div>
           <div className="rightCardPart">
             <div>
@@ -81,8 +81,62 @@ function MealDetails() {
               )}
             </div>
             <div>
+              <IconButton
+                aria-label="decrease"
+                sx={{
+                  width: 25,
+                  height: 25,
+                  backgroundColor: "#f7f7f7",
+                }}
+                onClick={handleDecrease}
+              >
+                <Remove />
+              </IconButton>
+              <InputBase
+                onChange={(e) =>
+                  !isNaN(Number(e.target.value)) &&
+                  Number(e.target.value) > 0 &&
+                  setQty(Number(e.target.value))
+                }
+                value={qty}
+                inputProps={{
+                  style: {
+                    textAlign: "center",
+                    width: "40px",
+                    height: "20px",
+                    border: "1px solid #e1e1e1",
+                    borderRadius: "5px",
+                    margin: "0 5px",
+                    color: "black",
+                  },
+                }}
+              />
+              <IconButton
+                aria-label="add"
+                sx={{
+                  width: 25,
+                  height: 25,
+                  backgroundColor: "#f7f7f7",
+                }}
+                onClick={handleAdd}
+              >
+                <Add />
+              </IconButton>
+              <IconButton
+                aria-label="share"
+                sx={{
+                  width: 25,
+                  height: 25,
+                  backgroundColor: "#f7f7f7",
+                  marginLeft: "auto",
+                }}
+              >
+                <Share fontSize="small" />
+              </IconButton>
+            </div>
+            <div>
               <button
-                className="addButton"
+                className="addToCart"
                 onClick={() =>
                   dispatch(
                     addItem(
@@ -103,11 +157,21 @@ function MealDetails() {
                 {" "}
                 Add to cart
               </button>
+              <button className="orderNow" onClick={() => null}>
+                {" "}
+                Order Now
+              </button>
+              <button className="addToFav" onClick={() => null}>
+                {" "}
+                Add to favorite
+              </button>
             </div>
           </div>
         </div>
       ) : (
-        <div className="noDetails">Loading ...</div>
+        <div className="loading">
+          Loading... <CircularProgress size={"2rem"} />
+        </div>
       )}
     </div>
   );

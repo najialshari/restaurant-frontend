@@ -135,7 +135,8 @@ function Menu() {
           ))
         ) : (
           <div className="loading">
-            Loading... <CircularProgress size={"2rem"}/>
+            Loading... <CircularProgress size={"2rem"} /> This is a non-paid
+            hosting service, therefore It may take up to 1 minute to show items.
           </div>
         )}
       </div>
