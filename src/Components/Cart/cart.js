@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Add, Remove } from "@mui/icons-material";
+
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
   const [qty, setQty] = useState(1);
