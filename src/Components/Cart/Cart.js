@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   decreaseCount,
   increaseCount,
@@ -11,13 +11,15 @@ import { orderAction, orderClean } from "../../redux/actions/order";
 import {
   Box,
   Button,
+  ButtonGroup,
   Divider,
   IconButton,
   InputBase,
+  Link,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { Add, Remove } from "@mui/icons-material";
+import { Add, Remove, Share } from "@mui/icons-material";
 
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
@@ -62,105 +64,124 @@ const Cart = () => {
   return (
     <div className="cartContainer">
       <div className="cartLeftPart">
-        {/* <div className="topBar">
-          <Link className="backButtonLink" to={"/menu"}>
-            {" "}
-            Back To Menu
-          </Link>
-
-          <button className="backButtonLink" onClick={handleOrder}>
-            Send Order
-          </button>
-        </div> */}
-
-        <div className="cartItemContainer">
-          {itemsState.length > 0 && (
-            <>
-              <Typography variant="h4" my={"1rem"}>
-                Food Cart{" "}
-              </Typography>
-              <Divider />
-            </>
-          )}
-          {itemsState.map((item, i) => (
-            <>
-              <div className="cartItem" key={i}>
-                <div className="cartItemImg">
-                  <img src={item.image} alt="..." />
-                  {/* <li>{item.categoryMealsId}</li> */}
-                </div>
-                <div className="price">
-                  <div className="priceLeft">
-                    <div>
-                      <Typography variant="h4">{item.name}</Typography>
-                      <Typography variant="caption">{item.type}</Typography>
-                    </div>
-                    <div>
-                      <Typography variant="h6">Quantity</Typography>
-                      <div>
-                        <IconButton
-                          aria-label="decrease"
-                          sx={{
-                            width: 25,
-                            height: 25,
-                            backgroundColor: "#f7f7f7",
-                          }}
-                          onClick={handleDecrease}
-                        >
-                          <Remove />
-                        </IconButton>
-                        <InputBase
-                          onChange={(e) =>
-                            !isNaN(Number(e.target.value)) &&
-                            Number(e.target.value) > 0 &&
-                            setQty(Number(e.target.value))
-                          }
-                          value={qty}
-                          inputProps={{
-                            style: {
-                              textAlign: "center",
-                              width: "40px",
-                              height: "20px",
-                              border: "1px solid #e1e1e1",
-                              borderRadius: "5px",
-                              margin: "0 5px",
-                              color: "black",
-                            },
-                          }}
-                        />
-                        <IconButton
-                          aria-label="add"
-                          sx={{
-                            width: 25,
-                            height: 25,
-                            backgroundColor: "#f7f7f7",
-                          }}
-                          onClick={handleAdd}
-                        >
-                          <Add />
-                        </IconButton>
-                      </div>
-                    </div>
+        {itemsState.length > 0 && (
+          <>
+            <Typography variant="h4" my={"1rem"}>
+              Food Cart{" "}
+            </Typography>
+            <Divider />
+          </>
+        )}
+        {itemsState.map((item, i) => (
+          <>
+            <div className="cartItem" key={i}>
+              <div className="cartItemImg">
+                <img src={item.image} alt="..." />
+                {/* <li>{item.categoryMealsId}</li> */}
+              </div>
+              <div className="cartItemDetailsContainer">
+                <div className="cartItemDetailsTopRow">
+                  <div>
+                    <Typography
+                      variant="h5"
+                      sx={{ textTransform: "capitalize" }}
+                    >
+                      {item.name}
+                    </Typography>
+                    <Typography variant="body">{item.type}</Typography>
                   </div>
                   <div>
                     <Typography variant="h6">{item.price}$</Typography>
                   </div>
-
-                  {/* <div>
+                </div>
+                <div className="cartItemDetailsBottomRow">
+                  <div>
+                    <IconButton
+                      aria-label="decrease"
+                      sx={{
+                        width: 25,
+                        height: 25,
+                        backgroundColor: "#f7f7f7",
+                      }}
+                      onClick={handleDecrease}
+                    >
+                      <Remove />
+                    </IconButton>
+                    <InputBase
+                      onChange={(e) =>
+                        !isNaN(Number(e.target.value)) &&
+                        Number(e.target.value) > 0 &&
+                        setQty(Number(e.target.value))
+                      }
+                      value={qty}
+                      inputProps={{
+                        style: {
+                          textAlign: "center",
+                          width: "40px",
+                          height: "15px",
+                          border: "1px solid #e1e1e1",
+                          borderRadius: "5px",
+                          margin: "0 5px",
+                          color: "black",
+                        },
+                      }}
+                    />
+                    <IconButton
+                      aria-label="add"
+                      sx={{
+                        width: 25,
+                        height: 25,
+                        backgroundColor: "#f7f7f7",
+                      }}
+                      onClick={handleAdd}
+                    >
+                      <Add />
+                    </IconButton>
+                  </div>
+                  <div className="itemCardLinks">
+                    <Link component="button" variant="body2" underline="none">
+                      Share
+                    </Link>
+                    <Divider
+                      orientation="vertical"
+                      flexItem
+                      sx={{
+                        height: "15px",
+                        margin: { xs: "auto 5px", md: "auto 10px" },
+                      }}
+                    />
+                    <Link component="button" variant="body2" underline="none">
+                      Add to Fav
+                    </Link>
+                    <Divider
+                      orientation="vertical"
+                      flexItem
+                      sx={{
+                        height: "15px",
+                        margin: { xs: "auto 5px", md: "auto 10px" },
+                      }}
+                    />
+                    <Link component="button" variant="body2" underline="none">
+                      Remove{" "}
+                    </Link>
+                  </div>
+                </div>
+                {/* <div>
                   <i
                     className="bi bi-trash"
                     onClick={() => cartDispatch(deleteItem(item.id))}
                   ></i>
                 </div> */}
-                </div>
               </div>
-              <Divider sx={{margin: "1rem 0"}}/>
-            </>
-          ))}
-          <Box sx={{ textAlign: "right" }}>
-            <Typography variant="h5">Subtotal: 555$</Typography>
-          </Box>
-        </div>
+            </div>
+            <Divider/>
+          </>
+        ))}
+        <Box sx={{ textAlign: "right" }}>
+          <Typography variant="h5" m={"1rem"}>
+            Subtotal: 555$
+          </Typography>
+        </Box>
       </div>
       <div className="cartRightPart">
         <Button

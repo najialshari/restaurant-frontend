@@ -7,23 +7,9 @@
 }
 .cartLeftPart {
   width: 70%;
-  /* text-align: center; */
-  /* margin: 0 auto; */
-  /* background-color: aqua; */
   padding: 1rem;
   background-color: white;
-  /* height: 500px; */
 }
-/* .backButtonLink {
-  text-align: center;
-}
-.cartLeftPart .topBar {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px auto;
-  text-align: start;
-  width: 80%;
-} */
 .cartItem {
   display: flex;
   margin: 1.5rem 1rem;
@@ -37,61 +23,78 @@
   height: 100%;
 }
 .cartItemImg img {
+  display: block;
   width: 100%;
   height: 100%;
 }
-.price {
-  width: 90%;
-  margin: 10px auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 100%;
-}
-.priceLeft {
+.cartItemDetailsContainer {
+  flex: 1;
+  padding-block: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+.cartItemDetailsTopRow,
+.cartItemDetailsBottomRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.itemCardLinks {
+  display: flex;
 }
 .cartRightPart {
   background-color: white;
   width: 25%;
   height: 200px;
   padding: 1rem;
-  border: 1px solid rgba(128, 128, 128, 0.2);
 }
-
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .cartContainer {
     flex-direction: column;
     gap: 1rem;
   }
   .cartLeftPart,
   .cartRightPart {
-    width: 100%;
-  }
-  .itemsContainer {
-    display: block;
-  }
-
-  .itemsContainer .item {
     width: 80%;
-    margin: 0 auto 30px;
+    margin: auto;
+  }
+  .cartRightPart {
+    width: 350px;
   }
 }
-
-@media (max-width: 575px) {
-  .itemsContainer,
-  .itemsContainer .item {
+@media (max-width: 750px) {
+  .cartLeftPart {
     width: 100%;
   }
-  .cartItem{
+}
+@media (max-width: 600px) {
+  .cartItemDetailsBottomRow {
     flex-direction: column;
-    height: auto;
+    gap: 2rem;
   }
 }
-.countNumber {
-  margin: 0 10px;
+@media (max-width: 440px) {
+  .cartItem {
+    flex-direction: column;
+    height: 350px;
+    margin: 1rem 0;
+  }
+  .cartItemImg {
+    width: 100%;
+    height: 200px;
+  }
+  .cartItemDetailsContainer {
+    width: 100%;
+    padding: 0;
+  }
+  .cartItemDetailsBottomRow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .cartRightPart {
+    width: 100%;
+  }
 }

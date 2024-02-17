@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<HomePage />} />
         <Route path="/menu" exact element={<Menu />} />
-        {/* <Route path="/cart" exact element={<Cart />} /> */}
+        <Route path="/cart" exact element={<Cart />} />
         <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/signin"} element={<SignIn />} />
         <Route path={"/table/:id"} element={<TableScan />} />
