@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPasswordAction } from "../../redux/actions/users";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-import "./forgetPassword.css";
+import "./ForgetPassword.css";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Close from "@mui/icons-material/Close";
 import { myTheme } from "../theme/theme";
