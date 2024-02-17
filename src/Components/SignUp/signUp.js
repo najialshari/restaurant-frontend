@@ -17,7 +17,7 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { myTheme } from "../theme/theme";
-import "./signUp.css";
+import "./SignUp.css";
 
 const SignUp = () => {
   const [user, setUser] = useState({

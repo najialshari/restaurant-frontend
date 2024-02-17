@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./footer.css";
+import "./Footer.css";
 import { useDispatch } from "react-redux";
 import { subscribeAction } from "../../redux/actions/subscribers";
 import { Grid, TextField, Button, Stack } from "@mui/material";

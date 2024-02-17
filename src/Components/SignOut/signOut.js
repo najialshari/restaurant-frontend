@@ -1,10 +1,9 @@
 import { Box, Avatar } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-// import { deepPurple } from "@mui/material/colors";
 import { useDispatch } from "react-redux";
 import { logOutAction } from "../../redux/actions/users";
 import { useNavigate } from "react-router-dom";
-import "./signOut.css";
+import "./SignOut.css";
 
 const SignOut = () => {
   const dispatch = useDispatch();

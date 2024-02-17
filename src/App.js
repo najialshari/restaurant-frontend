@@ -1,19 +1,21 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./Components/NavBar/navBar";
-import Footer from "./Components/Footer/footer";
-import SignUp from "./Components/SignUp/signUp";
-import SignIn from "./Components/SignIn/signIn";
-import Menu from "./Components/menu/menu";
-import PageNotFound from "./Components/PageNotFound/PageNotFound";
-import ForgetPassword from "./Components/ForgetPassword/ForgetPassword";
-import Notification from "./Components/Notifications/Notifications";
-import Profile from "./Components/Profile";
-import TableScan from "./Components/TableScan/tableScan";
-import HomePage from "./Components/HomePage/HomePage";
-import Cart from "./Components/Cart/Cart";
-import MealDetails from "./Components/MealCard/MealDetails";
+import {
+  NavBar,
+  Footer,
+  Cart,
+  SignUp,
+  SignIn,
+  Menu,
+  PageNotFound,
+  ForgetPassword,
+  Notification,
+  Profile,
+  TableScan,
+  HomePage,
+  MealDetails,
+} from "./Components";
 
 function App() {
   window.onbeforeunload = () => localStorage.clear();

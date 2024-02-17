@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./navBar.css";
+import "./NavBar.css";
 import { GiBowlOfRice } from "react-icons/gi";
 import {
   AccountCircle,

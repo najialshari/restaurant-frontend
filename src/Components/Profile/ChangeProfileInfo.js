@@ -6,7 +6,7 @@ import {
   updatePasswordAction,
 } from "../../redux/actions/users";
 import { myTheme } from "../theme/theme";
-import "./tabs.css";
+import "./Tabs.css";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();

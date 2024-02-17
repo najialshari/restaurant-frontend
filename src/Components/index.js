@@ -1,0 +1,13 @@
+export {default as Cart} from './Cart/Cart'
+export {default as NavBar} from './NavBar/NavBar'
+export {default as Footer} from './Footer/Footer'
+export {default as SignUp} from "./SignUp/SignUp";
+export {default as SignIn} from "./SignIn/SignIn";
+export {default as Menu} from "./Menu/Menu";
+export {default as PageNotFound} from "./PageNotFound/PageNotFound";
+export {default as ForgetPassword} from "./ForgetPassword/ForgetPassword";
+export {default as Notification} from "./Notifications/Notifications";
+export {default as Profile} from "./Profile";
+export {default as TableScan} from "./TableScan/TableScan";
+export {default as HomePage} from "./HomePage/HomePage";
+export {default as MealDetails} from "./MealCard/MealDetails";

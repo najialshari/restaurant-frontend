@@ -7,7 +7,7 @@ import { useState ,useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { scanQRAciton } from "../../redux/actions/qrcodes";
 import { useNavigate, useParams } from "react-router-dom";
-import './tableScan.css';
+import './TableScan.css';
 import PageNotFound from "../PageNotFound/PageNotFound";
 
 

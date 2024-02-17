@@ -3,7 +3,7 @@ import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import ChangePassword from "./ChangeProfileInfo";
 import ChangeProfilePic from "./ChangeProfilePic";
-import "./profile.css";
+import "./Profile.css";
 
 function Profile() {
   const location = useLocation();

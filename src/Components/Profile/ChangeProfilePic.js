@@ -14,7 +14,7 @@ import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfilePicAction } from "../../redux/actions/users";
-import "./profile.css";
+import "./Profile.css";
 import { myTheme } from "../theme/theme";
 
 const ChangeProfilePic = () => {
