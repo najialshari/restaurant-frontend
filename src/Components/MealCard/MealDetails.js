@@ -10,7 +10,8 @@ import { Add, Remove, Share } from "@mui/icons-material";
 
 function MealDetails() {
   let { id } = useParams();
-  const [categoryMeal, setCategoryMeal] = useState();
+
+  const categoryMeal = useSelector((state) => state?.menu?.categoryMealsById);
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
@@ -22,27 +23,20 @@ function MealDetails() {
   useEffect(() => {
     getCategoryMealsById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
-
-  const tempCategoryMeal = useSelector(
-    (state) => state?.menu?.categoryMealsById
-  );
-
-  useEffect(() => {
-    setCategoryMeal(tempCategoryMeal);
-  }, [tempCategoryMeal]);
+  }, []);
 
   const subTotal = () => {
-    return categoryMeal.discount > 0
-      ? parseFloat(
-          (categoryMeal.price -
-            categoryMeal.price * (categoryMeal.discount / 100)) * qty
-        ).toFixed(2)
-      : parseFloat(categoryMeal.price * qty).toFixed(2);
+    return (
+      (categoryMeal.price -
+        categoryMeal.price * (categoryMeal.discount / 100)) *
+      qty
+    ).toFixed(2);
   };
-  const PriceAfterDiscount = (price, discount) => {
-    const newPrice = price - price * (discount / 100);
-    return parseFloat(newPrice).toFixed(2);
+  const newPriceValue = () => {
+    return (
+      categoryMeal.price -
+      (categoryMeal.price * (categoryMeal.discount / 100)).toFixed(2)
+    );
   };
   const handleDecrease = () => {
     qty > 1 && setQty(qty - 1);
@@ -72,20 +66,28 @@ function MealDetails() {
                 size="small"
               />
             </div>
-            <div>
+            <div className="price">
               {categoryMeal.discount > 0 ? (
-                <span>
-                  <span className="oldPrice">{categoryMeal.price} $ </span>{" "}
-                  <span>
-                    {PriceAfterDiscount(
-                      categoryMeal.price,
-                      categoryMeal.discount
-                    )}
-                    $
+                <div>
+                  <span className="mealOldPrice">
+                    <s>{categoryMeal.price}$</s>
                   </span>
-                </span>
+                  <span className="mealNewPrice">
+                    {Math.floor(newPriceValue())}
+                  </span>
+                  <span className="mealOldPrice">
+                    {(newPriceValue() * 100) % 100}$
+                  </span>
+                </div>
               ) : (
-                <span>{categoryMeal.price} $</span>
+                <div>
+                  <span className="mealNewPrice">
+                    {Math.floor(newPriceValue())}
+                  </span>
+                  <span className="mealOldPrice">
+                    {(newPriceValue() * 100) % 100}$
+                  </span>
+                </div>
               )}
             </div>
             <div>

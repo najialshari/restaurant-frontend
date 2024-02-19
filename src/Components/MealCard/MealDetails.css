@@ -12,7 +12,6 @@
   align-items: flex-start;
   margin: 0 auto;
   width: 70%;
-  /* height: 90vh; */
 }
 
 .leftCardPart,
@@ -42,27 +41,27 @@
 .rightCardPart :first-child h2 + span {
   font-size: small;
 }
-.rightCardPart div:nth-child(2) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.rightCardPart div:nth-child(3){
-  display: flex;
-  align-items: center;
-}
 .rightCardPart p {
   margin: 0;
   font-size: medium;
   padding: 10px 0;
 }
-.rightCardPart div:nth-child(2) span {
-  font-size: 30px;
+.price div:nth-of-type(1) {
+  display: flex;
+  align-items: flex-start;
 }
-.rightCardPart div:nth-child(2) span .oldPrice {
-  font-size: 20px;
-  padding-right: 10px;
-  text-decoration-line: line-through;
+.mealNewPrice {
+  font-size: 30px;
+  line-height: 0.7;
+}
+.mealOldPrice {
+  font-size: 15px;
+  line-height: 0.8;
+  margin-right: .5rem;
+}
+.rightCardPart div:nth-child(3) {
+  display: flex;
+  align-items: center;
 }
 .loading {
   display: flex;
@@ -73,12 +72,13 @@
   height: 50vh;
   gap: 2rem;
 }
-.addToCart ,.orderNow ,.addToFav {
+.addToCart,
+.orderNow,
+.addToFav {
   margin-bottom: 1rem;
   padding: 0.1rem 0rem;
   border-radius: 5px;
   font-size: medium;
-  /* font-weight: bold; */
   cursor: pointer;
   border: none;
   width: 100%;
@@ -98,7 +98,8 @@
   background-color: white;
   border: 1px solid rgb(251, 139, 36);
 }
-.addToCart:hover,  .orderNow:hover{
+.addToCart:hover,
+.orderNow:hover {
   background-color: #ff5722;
 }
 .addToFav:hover {

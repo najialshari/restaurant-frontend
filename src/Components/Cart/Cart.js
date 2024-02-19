@@ -22,14 +22,11 @@ import { Add, Remove } from "@mui/icons-material";
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
 
-  // const orderState = useSelector((state) => state.order);
   const cartDispatch = useDispatch();
   const navigate = useNavigate();
 
-  let subtotal = 0;
-  for (let dummy of itemsState) subtotal += dummy.subTotal;
-  let items = 0;
-  for (let dummy of itemsState) items += dummy.qty;
+  const subtotal = itemsState.reduce((n, {subTotal}) => n + subTotal, 0)
+  const items = itemsState.reduce((n, {qty}) => n + qty, 0)
 
   const handleDecrease = (itemID, subtotal) => {
     cartDispatch(decreaseItem(itemID, subtotal));

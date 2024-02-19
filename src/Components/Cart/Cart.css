@@ -50,6 +50,8 @@
   width: 25%;
   height: 200px;
   padding: 1rem;
+  position: sticky;
+  top:4rem;
 }
 @media (max-width: 1000px) {
   .cartContainer {
