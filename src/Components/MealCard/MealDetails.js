@@ -32,6 +32,14 @@ function MealDetails() {
     setCategoryMeal(tempCategoryMeal);
   }, [tempCategoryMeal]);
 
+  const subTotal = () => {
+    return categoryMeal.discount > 0
+      ? parseFloat(
+          (categoryMeal.price -
+            categoryMeal.price * (categoryMeal.discount / 100)) * qty
+        ).toFixed(2)
+      : parseFloat(categoryMeal.price * qty).toFixed(2);
+  };
   const PriceAfterDiscount = (price, discount) => {
     const newPrice = price - price * (discount / 100);
     return parseFloat(newPrice).toFixed(2);
@@ -140,13 +148,11 @@ function MealDetails() {
                 onClick={() =>
                   dispatch(
                     addItem(
-                      1,
                       categoryMeal.id,
-                      1,
+                      qty,
                       categoryMeal.price,
-                      categoryMeal.price,
-                      1,
-                      1,
+                      subTotal(),
+                      categoryMeal.discount,
                       categoryMeal.image,
                       categoryMeal?.Meal?.name,
                       categoryMeal?.MealType?.name

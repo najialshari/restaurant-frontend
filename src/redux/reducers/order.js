@@ -15,7 +15,6 @@ let initialState = {
         };
 
       case 'CLEAN_ORDER':
-        console.log('ooooooooo')
         return {...state,
           success: false,
           data:[],

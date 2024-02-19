@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Cart.css";
 import { useNavigate } from "react-router-dom";
 import {
-  decreaseCount,
-  increaseCount,
+  decreaseItem,
+  increaseItem,
   deleteAll,
   deleteItem,
 } from "../../redux/actions/cart";
@@ -11,36 +11,35 @@ import { orderAction, orderClean } from "../../redux/actions/order";
 import {
   Box,
   Button,
-  ButtonGroup,
   Divider,
   IconButton,
   InputBase,
   Link,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
-import { Add, Remove, Share } from "@mui/icons-material";
+import { Add, Remove } from "@mui/icons-material";
 
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
-  const [qty, setQty] = useState(1);
 
   // const orderState = useSelector((state) => state.order);
   const cartDispatch = useDispatch();
   const navigate = useNavigate();
 
-  let mySum = 0;
-  for (let dummy of itemsState) mySum += dummy.price * dummy.count;
+  let subtotal = 0;
+  for (let dummy of itemsState) subtotal += dummy.subTotal;
+  let items = 0;
+  for (let dummy of itemsState) items += dummy.qty;
 
-  // const handleDecrease = (itemID) => {
-  //   cartDispatch(decreaseCount(itemID));
-  // };
-  // const handleIncrease = (itemID) => {
-  //   cartDispatch(increaseCount(itemID));
-  // };
+  const handleDecrease = (itemID, subtotal) => {
+    cartDispatch(decreaseItem(itemID, subtotal));
+  };
+  const handleIncrease = (itemID, subtotal) => {
+    cartDispatch(increaseItem(itemID, subtotal));
+  };
   const handleOrder = async () => {
     const data = {
-      totalPrice: mySum,
+      totalPrice: subtotal,
       userId: "",
       addressId: "",
       tableUUID: "",
@@ -54,30 +53,20 @@ const Cart = () => {
       }, 3000);
     });
   };
-
-  const handleDecrease = () => {
-    qty > 1 && setQty(qty - 1);
-  };
-  const handleAdd = () => {
-    setQty(qty + 1);
-  };
   return (
     <div className="cartContainer">
       <div className="cartLeftPart">
-        {itemsState.length > 0 && (
-          <>
-            <Typography variant="h4" my={"1rem"}>
-              Food Cart{" "}
-            </Typography>
-            <Divider />
-          </>
-        )}
+        <>
+          <Typography variant="h4" my={"1rem"}>
+            Food Cart ({items})
+          </Typography>
+          <Divider />
+        </>
         {itemsState.map((item, i) => (
-          <>
-            <div className="cartItem" key={i}>
+          <div key={i}>
+            <div className="cartItem">
               <div className="cartItemImg">
                 <img src={item.image} alt="..." />
-                {/* <li>{item.categoryMealsId}</li> */}
               </div>
               <div className="cartItemDetailsContainer">
                 <div className="cartItemDetailsTopRow">
@@ -90,9 +79,27 @@ const Cart = () => {
                     </Typography>
                     <Typography variant="body">{item.type}</Typography>
                   </div>
-                  <div>
-                    <Typography variant="h6">{item.price}$</Typography>
-                  </div>
+
+                  {item.discount > 0 ? (
+                    <div>
+                      <Typography variant="body2" component={"span"} mr={"3px"}>
+                        <s>{item.price}$</s>
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component={"span"}
+                        fontSize={"24px"}
+                      >
+                        {item.price - (item.price * item.discount) / 100}$
+                      </Typography>
+                    </div>
+                  ) : (
+                    <div>
+                      <Typography variant="h6" fontSize={"24px"}>
+                        {item.price}$
+                      </Typography>
+                    </div>
+                  )}
                 </div>
                 <div className="cartItemDetailsBottomRow">
                   <div>
@@ -103,17 +110,18 @@ const Cart = () => {
                         height: 25,
                         backgroundColor: "#f7f7f7",
                       }}
-                      onClick={handleDecrease}
+                      onClick={() => {
+                        const itemNetPrice =
+                          item.price - (item.price * item.discount) / 100;
+                        item.qty > 1 &&
+                          handleDecrease(item.categoryMealsId, itemNetPrice);
+                      }}
                     >
                       <Remove />
                     </IconButton>
                     <InputBase
-                      onChange={(e) =>
-                        !isNaN(Number(e.target.value)) &&
-                        Number(e.target.value) > 0 &&
-                        setQty(Number(e.target.value))
-                      }
-                      value={qty}
+                      readOnly
+                      value={item.qty}
                       inputProps={{
                         style: {
                           textAlign: "center",
@@ -133,7 +141,11 @@ const Cart = () => {
                         height: 25,
                         backgroundColor: "#f7f7f7",
                       }}
-                      onClick={handleAdd}
+                      onClick={() => {
+                        const itemNetPrice =
+                          item.price - (item.price * item.discount) / 100;
+                        handleIncrease(item.categoryMealsId, itemNetPrice);
+                      }}
                     >
                       <Add />
                     </IconButton>
@@ -161,31 +173,33 @@ const Cart = () => {
                         margin: { xs: "auto 5px", md: "auto 10px" },
                       }}
                     />
-                    <Link component="button" variant="body2" underline="none">
+                    <Link
+                      component="button"
+                      variant="body2"
+                      underline="none"
+                      onClick={() =>
+                        cartDispatch(deleteItem(item.categoryMealsId))
+                      }
+                    >
                       Remove{" "}
                     </Link>
                   </div>
                 </div>
-                {/* <div>
-                  <i
-                    className="bi bi-trash"
-                    onClick={() => cartDispatch(deleteItem(item.id))}
-                  ></i>
-                </div> */}
               </div>
             </div>
-            <Divider/>
-          </>
+            <Divider />
+          </div>
         ))}
         <Box sx={{ textAlign: "right" }}>
           <Typography variant="h5" m={"1rem"}>
-            Subtotal: 555$
+            Subtotal: {subtotal.toFixed(2)} $
           </Typography>
         </Box>
       </div>
       <div className="cartRightPart">
         <Button
           variant="contained"
+          onClick={()=>items > 0 && handleOrder()}
           sx={{
             backgroundColor: "#fb8b24",
             textTransform: "capitalize",
@@ -203,14 +217,13 @@ const Cart = () => {
             justifyContent: "space-between",
             alignItems: "center",
             height: "50%",
-            // height:"4rem",
           }}
         >
           <Typography variant="body" fontWeight={"500"}>
-            Items (3)
+            Items ({items})
           </Typography>
           <Typography variant="body" fontWeight={"500"}>
-            {mySum.toFixed(2)} $
+            {subtotal.toFixed(2)} $
           </Typography>
         </Box>
         <Divider />
@@ -223,7 +236,7 @@ const Cart = () => {
           }}
         >
           <Typography variant="h6">Subtotal</Typography>
-          <Typography variant="h6">{mySum.toFixed(2)} $</Typography>
+          <Typography variant="h6">{subtotal.toFixed(2)} $</Typography>
         </Box>
       </div>
     </div>

@@ -50,7 +50,7 @@ function NavBar() {
 
   const items = useSelector((state) => state.cart);
   let sum = 0;
-  for (let dummy of items) sum += dummy.count;
+  for (let dummy of items) sum += dummy.qty;
 
   useEffect(() => {
     setIsTableTokenAvailable(tableToken);
