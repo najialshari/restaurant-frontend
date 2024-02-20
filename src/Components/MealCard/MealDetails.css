@@ -49,15 +49,16 @@
 .price div:nth-of-type(1) {
   display: flex;
   align-items: flex-start;
+  font-size: 18px;
 }
-.mealNewPrice {
+.priceInteger {
   font-size: 30px;
   line-height: 0.7;
 }
-.mealOldPrice {
-  font-size: 15px;
+.priceFraction {
+  font-size: 13px;
   line-height: 0.8;
-  margin-right: 0.5rem;
+  margin-inline: 0.1rem;
 }
 .rightCardPart div:nth-child(3) {
   display: flex;
@@ -129,10 +130,10 @@
   .mealImage {
     height: 40vh;
   }
-  .mealNewPrice {
+  .priceInteger {
     font-size: 25px;
   }
-  .mealOldPrice {
+  .priceFraction {
     font-size: 10px;
   }
 }

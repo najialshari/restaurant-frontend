@@ -69,23 +69,30 @@ function MealDetails() {
             <div className="price">
               {categoryMeal.discount > 0 ? (
                 <div>
-                  <span className="mealOldPrice">
+                  <span
+                    style={{
+                      marginRight: ".5rem",
+                      lineHeight: "1rem",
+                      color: "gray",
+                      marginTop: "auto",
+                    }}
+                  >
                     <s>{categoryMeal.price}$</s>
                   </span>
-                  <span className="mealNewPrice">
+                  <span className="priceInteger">
                     {Math.floor(newPriceValue())}
                   </span>
-                  <span className="mealOldPrice">
-                    {(newPriceValue() * 100) % 100}$
+                  <span className="priceFraction">
+                    {((newPriceValue() * 100) % 100).toString().padEnd(2, "0")}$
                   </span>
                 </div>
               ) : (
                 <div>
-                  <span className="mealNewPrice">
+                  <span className="priceInteger">
                     {Math.floor(newPriceValue())}
                   </span>
-                  <span className="mealOldPrice">
-                    {(newPriceValue() * 100) % 100}$
+                  <span className="priceFraction">
+                    {((newPriceValue() * 100) % 100).toString().padEnd(2, "0")}$
                   </span>
                 </div>
               )}

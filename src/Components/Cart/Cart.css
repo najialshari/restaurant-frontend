@@ -42,6 +42,20 @@
   justify-content: space-between;
   width: 100%;
 }
+.cartItemDetailsTopRow div:nth-of-type(2) {
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-start;
+  height: max-content;
+}
+.MuiTypography-body2.priceIntegerCard {
+  font-size: 25px;
+}
+.MuiTypography-body2.priceFractionCard {
+  font-size: 13px;
+  margin-inline: 0.1rem;
+  padding-top: 4px;
+}
 .itemCardLinks {
   display: flex;
 }
@@ -51,7 +65,7 @@
   height: 200px;
   padding: 1rem;
   position: sticky;
-  top:4rem;
+  top: 4rem;
 }
 @media (max-width: 1000px) {
   .cartContainer {

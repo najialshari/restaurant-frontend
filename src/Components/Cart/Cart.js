@@ -11,10 +11,10 @@ import { orderAction, orderClean } from "../../redux/actions/order";
 import {
   Box,
   Button,
+  Chip,
   Divider,
   IconButton,
   InputBase,
-  Link,
   Typography,
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
@@ -25,8 +25,8 @@ const Cart = () => {
   const cartDispatch = useDispatch();
   const navigate = useNavigate();
 
-  const subtotal = itemsState.reduce((n, {subTotal}) => n + subTotal, 0)
-  const items = itemsState.reduce((n, {qty}) => n + qty, 0)
+  const subtotal = itemsState.reduce((n, { subTotal }) => n + subTotal, 0);
+  const items = itemsState.reduce((n, { qty }) => n + qty, 0);
 
   const handleDecrease = (itemID, subtotal) => {
     cartDispatch(decreaseItem(itemID, subtotal));
@@ -54,7 +54,7 @@ const Cart = () => {
     <div className="cartContainer">
       <div className="cartLeftPart">
         <>
-          <Typography variant="h4" my={"1rem"}>
+          <Typography sx={{ typography: { xs: "h5", sm: "h4" } }} my={"1rem"}>
             Food Cart ({items})
           </Typography>
           <Divider />
@@ -74,26 +74,71 @@ const Cart = () => {
                     >
                       {item.name}
                     </Typography>
-                    <Typography variant="body">{item.type}</Typography>
+                    <Typography variant="body1">{item.type}</Typography>
                   </div>
 
                   {item.discount > 0 ? (
                     <div>
-                      <Typography variant="body2" component={"span"} mr={"3px"}>
+                      <Typography
+                        variant="body1"
+                        color={"gray"}
+                        component={"span"}
+                        m={"auto 10px 4px 0"}
+                      >
                         <s>{item.price}$</s>
                       </Typography>
                       <Typography
-                        variant="h6"
+                        variant="body2"
                         component={"span"}
-                        fontSize={"24px"}
+                        className="priceIntegerCard"
                       >
-                        {item.price - (item.price * item.discount) / 100}$
+                        {Math.floor(
+                          item.price - (item.price * item.discount) / 100,
+                          0
+                        )}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        component={"span"}
+                        className="priceFractionCard"
+                      >
+                        {(
+                          ((item.price -
+                            ((item.price * item.discount) / 100).toFixed(2)) *
+                            100) %
+                          100
+                        )
+                          .toString()
+                          .padEnd(2, "0")}
+                        $
                       </Typography>
                     </div>
                   ) : (
                     <div>
-                      <Typography variant="h6" fontSize={"24px"}>
-                        {item.price}$
+                      <Typography
+                        variant="body2"
+                        component={"span"}
+                        className="priceIntegerCard"
+                      >
+                        {Math.floor(
+                          item.price - (item.price * item.discount) / 100,
+                          0
+                        )}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        component={"span"}
+                        className="priceFractionCard"
+                      >
+                        {(
+                          ((item.price -
+                            ((item.price * item.discount) / 100).toFixed(2)) *
+                            100) %
+                          100
+                        )
+                          .toString()
+                          .padEnd(2, "0")}
+                        $
                       </Typography>
                     </div>
                   )}
@@ -105,7 +150,7 @@ const Cart = () => {
                       sx={{
                         width: 25,
                         height: 25,
-                        backgroundColor: "#f7f7f7",
+                        backgroundColor: "#f5f5f5",
                       }}
                       onClick={() => {
                         const itemNetPrice =
@@ -136,7 +181,7 @@ const Cart = () => {
                       sx={{
                         width: 25,
                         height: 25,
-                        backgroundColor: "#f7f7f7",
+                        backgroundColor: "#f5f5f5",
                       }}
                       onClick={() => {
                         const itemNetPrice =
@@ -148,9 +193,14 @@ const Cart = () => {
                     </IconButton>
                   </div>
                   <div className="itemCardLinks">
-                    <Link component="button" variant="body2" underline="none">
-                      Share
-                    </Link>
+                    <Chip
+                      label="Share"
+                      size={"small"}
+                      sx={{
+                        backgroundColor: "#f5f5f5",
+                      }}
+                      onClick={() => null}
+                    />
                     <Divider
                       orientation="vertical"
                       flexItem
@@ -159,9 +209,12 @@ const Cart = () => {
                         margin: { xs: "auto 5px", md: "auto 10px" },
                       }}
                     />
-                    <Link component="button" variant="body2" underline="none">
-                      Add to Fav
-                    </Link>
+                    <Chip
+                      label="Add To List"
+                      size={"small"}
+                      sx={{ backgroundColor: "#f5f5f5" }}
+                      onClick={() => null}
+                    />
                     <Divider
                       orientation="vertical"
                       flexItem
@@ -170,16 +223,14 @@ const Cart = () => {
                         margin: { xs: "auto 5px", md: "auto 10px" },
                       }}
                     />
-                    <Link
-                      component="button"
-                      variant="body2"
-                      underline="none"
+                    <Chip
+                      label="Remove"
+                      size={"small"}
+                      sx={{ backgroundColor: "#f5f5f5" }}
                       onClick={() =>
                         cartDispatch(deleteItem(item.categoryMealsId))
                       }
-                    >
-                      Remove{" "}
-                    </Link>
+                    />
                   </div>
                 </div>
               </div>
@@ -188,15 +239,15 @@ const Cart = () => {
           </div>
         ))}
         <Box sx={{ textAlign: "right" }}>
-          <Typography variant="h5" m={"1rem"}>
-            Subtotal: {subtotal.toFixed(2)} $
+          <Typography variant="h6" mt={"1rem"}>
+            Subtotal: {subtotal.toFixed(2)}$
           </Typography>
         </Box>
       </div>
       <div className="cartRightPart">
         <Button
           variant="contained"
-          onClick={()=>items > 0 && handleOrder()}
+          onClick={() => items > 0 && handleOrder()}
           sx={{
             backgroundColor: "#fb8b24",
             textTransform: "capitalize",
@@ -220,7 +271,7 @@ const Cart = () => {
             Items ({items})
           </Typography>
           <Typography variant="body" fontWeight={"500"}>
-            {subtotal.toFixed(2)} $
+            {subtotal.toFixed(2)}$
           </Typography>
         </Box>
         <Divider />
@@ -233,7 +284,7 @@ const Cart = () => {
           }}
         >
           <Typography variant="h6">Subtotal</Typography>
-          <Typography variant="h6">{subtotal.toFixed(2)} $</Typography>
+          <Typography variant="h6">{subtotal.toFixed(2)}$</Typography>
         </Box>
       </div>
     </div>
