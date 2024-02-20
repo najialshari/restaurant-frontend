@@ -57,7 +57,7 @@
 .mealOldPrice {
   font-size: 15px;
   line-height: 0.8;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .rightCardPart div:nth-child(3) {
   display: flex;
@@ -120,12 +120,6 @@
   .mealImage {
     height: 50vh;
   }
-  .rightCardPart div:nth-child(2) span {
-    font-size: 25px;
-  }
-  .rightCardPart div:nth-child(2) span .oldPrice {
-    font-size: 15px;
-  }
 }
 
 @media only screen and (max-width: 440px) {
@@ -135,10 +129,10 @@
   .mealImage {
     height: 40vh;
   }
-  .rightCardPart div:nth-child(2) span {
-    font-size: 20px;
+  .mealNewPrice {
+    font-size: 25px;
   }
-  .rightCardPart div:nth-child(2) span .oldPrice {
+  .mealOldPrice {
     font-size: 10px;
   }
 }
