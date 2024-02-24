@@ -110,14 +110,15 @@
     background-color: rgba(255, 255, 255, 0.368);
     border-radius: 5px;
   }
-  .category-cards {
-    justify-content: space-around;
-  }
-  
 }
 
 @media only screen and (max-width: 440px) {
   .mealsCard {
+    width:180px;
     margin: 10px auto;
   }
+   .category-cards {
+    gap:5px;
+  }
+  
 }
