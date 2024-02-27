@@ -16,6 +16,7 @@ import {
   HomePage,
   MealDetails,
 } from "./Components";
+import NewCarousel from "./Components/NewCarousel";
 
 function App() {
   window.onbeforeunload = () => localStorage.clear();
@@ -23,6 +24,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="/new" exact element={<NewCarousel />} />
         <Route path="/" exact element={<HomePage />} />
         <Route path="/menu" exact element={<Menu />} />
         <Route path="/cart" exact element={<Cart />} />

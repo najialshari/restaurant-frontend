@@ -67,82 +67,82 @@ const Cart = () => {
               </div>
               <div className="cartItemDetailsContainer">
                 <div className="cartItemDetailsTopRow">
+                  <Typography
+                    sx={{
+                      typography: { xs: "h6", sm: "h5" },
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                  <Typography variant="body1">{item.type}</Typography>
+                </div>
+                {item.discount > 0 ? (
                   <div>
                     <Typography
-                      variant="h5"
-                      sx={{ textTransform: "capitalize" }}
+                      variant="body1"
+                      color={"gray"}
+                      component={"span"}
+                      m={"auto 10px 4px 0"}
                     >
-                      {item.name}
+                      <s>{item.price}$</s>
                     </Typography>
-                    <Typography variant="body1">{item.type}</Typography>
+                    <Typography
+                      variant="body2"
+                      component={"span"}
+                      className="priceInteger"
+                    >
+                      {Math.floor(
+                        item.price - (item.price * item.discount) / 100,
+                        0
+                      )}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      component={"span"}
+                      className="priceFraction"
+                    >
+                      {(
+                        ((item.price -
+                          ((item.price * item.discount) / 100).toFixed(2)) *
+                          100) %
+                        100
+                      )
+                        .toString()
+                        .padEnd(2, "0")}
+                      $
+                    </Typography>
                   </div>
+                ) : (
+                  <div>
+                    <Typography
+                      variant="body2"
+                      component={"span"}
+                      className="priceInteger"
+                    >
+                      {Math.floor(
+                        item.price - (item.price * item.discount) / 100,
+                        0
+                      )}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      component={"span"}
+                      className="priceFraction"
+                    >
+                      {(
+                        ((item.price -
+                          ((item.price * item.discount) / 100).toFixed(2)) *
+                          100) %
+                        100
+                      )
+                        .toString()
+                        .padEnd(2, "0")}
+                      $
+                    </Typography>
+                  </div>
+                )}
 
-                  {item.discount > 0 ? (
-                    <div>
-                      <Typography
-                        variant="body1"
-                        color={"gray"}
-                        component={"span"}
-                        m={"auto 10px 4px 0"}
-                      >
-                        <s>{item.price}$</s>
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        component={"span"}
-                        className="priceIntegerCard"
-                      >
-                        {Math.floor(
-                          item.price - (item.price * item.discount) / 100,
-                          0
-                        )}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        component={"span"}
-                        className="priceFractionCard"
-                      >
-                        {(
-                          ((item.price -
-                            ((item.price * item.discount) / 100).toFixed(2)) *
-                            100) %
-                          100
-                        )
-                          .toString()
-                          .padEnd(2, "0")}
-                        $
-                      </Typography>
-                    </div>
-                  ) : (
-                    <div>
-                      <Typography
-                        variant="body2"
-                        component={"span"}
-                        className="priceIntegerCard"
-                      >
-                        {Math.floor(
-                          item.price - (item.price * item.discount) / 100,
-                          0
-                        )}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        component={"span"}
-                        className="priceFractionCard"
-                      >
-                        {(
-                          ((item.price -
-                            ((item.price * item.discount) / 100).toFixed(2)) *
-                            100) %
-                          100
-                        )
-                          .toString()
-                          .padEnd(2, "0")}
-                        $
-                      </Typography>
-                    </div>
-                  )}
-                </div>
                 <div className="cartItemDetailsBottomRow">
                   <div>
                     <IconButton

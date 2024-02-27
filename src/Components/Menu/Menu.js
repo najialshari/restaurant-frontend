@@ -43,7 +43,6 @@ function Menu() {
           </li>
         ))}
       </ul> */}
-
         {categories.length > 0 ? (
           categories?.map((item) => (
             <div className="category" key={item.id}>
