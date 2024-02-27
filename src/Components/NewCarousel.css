@@ -1,0 +1,42 @@
+.baba{
+    background-color: antiquewhite;
+    flex:1;
+    display: flex;
+}
+.carwrapper{
+    position: relative;
+    margin:auto;
+    height: 200px;
+    width: 200px;
+    border: 1px greenyellow solid;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+.con{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 200px;
+    /* justify-content: center; */
+    align-items: center;
+    /* gap: 20px; */
+}
+.con .red {
+    min-width: 120px;
+    height: 100%;
+    border: 1px red solid;
+    text-align: center;
+    /* margin-inline: 10px; */
+}
+.carwrapper button:nth-of-type(1){
+    position: absolute;
+    top: 50%;
+    width:20px
+}
+.carwrapper button:nth-of-type(2){
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width:20px
+}
