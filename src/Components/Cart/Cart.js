@@ -18,7 +18,6 @@ import {
   Typography,
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
-
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
 
@@ -150,7 +149,7 @@ const Cart = () => {
                       sx={{
                         width: 25,
                         height: 25,
-                        backgroundColor: "#f5f5f5",
+                        border: "1px solid #e1e1e1",
                       }}
                       onClick={() => {
                         const itemNetPrice =
@@ -181,7 +180,7 @@ const Cart = () => {
                       sx={{
                         width: 25,
                         height: 25,
-                        backgroundColor: "#f5f5f5",
+                        border: "1px solid #e1e1e1",
                       }}
                       onClick={() => {
                         const itemNetPrice =
@@ -196,11 +195,17 @@ const Cart = () => {
                     <Chip
                       label="Share"
                       size={"small"}
+                      variant="outlined"
                       sx={{
-                        backgroundColor: "#f5f5f5",
+                        border: "none",
+                        "& :hover": {
+                          textDecoration: "underline",
+                          textUnderlineOffset: "2px",
+                        },
                       }}
                       onClick={() => null}
                     />
+
                     <Divider
                       orientation="vertical"
                       flexItem
@@ -210,10 +215,17 @@ const Cart = () => {
                       }}
                     />
                     <Chip
-                      label="Add To List"
+                      label="Favorite"
                       size={"small"}
-                      sx={{ backgroundColor: "#f5f5f5" }}
+                      variant="outlined"
                       onClick={() => null}
+                      sx={{
+                        border: "none",
+                        "& :hover": {
+                          textDecoration: "underline",
+                          textUnderlineOffset: "2px",
+                        },
+                      }}
                     />
                     <Divider
                       orientation="vertical"
@@ -226,7 +238,14 @@ const Cart = () => {
                     <Chip
                       label="Remove"
                       size={"small"}
-                      sx={{ backgroundColor: "#f5f5f5" }}
+                      variant="outlined"
+                      sx={{
+                        border: "none",
+                        "& :hover": {
+                          textDecoration: "underline",
+                          textUnderlineOffset: "2px",
+                        },
+                      }}
                       onClick={() =>
                         cartDispatch(deleteItem(item.categoryMealsId))
                       }

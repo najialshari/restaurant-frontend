@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-// import { getCategoryMealsAction } from "../../redux/actions/menu";
 import { getCategoriesAction } from "../../redux/actions/categories";
 import { useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -32,17 +31,8 @@ function Menu() {
   }, [TempCategories]);
 
   return (
-    <main>
+    <section>
       <div className="categories" id="menuCategories">
-        {/* <ul>
-        {categories?.map((item) => (
-          <li key={item.id}>
-            <a id="categoriesType" href={`#${item.name}`}>
-              {item.name}
-            </a>
-          </li>
-        ))}
-      </ul> */}
         {categories.length > 0 ? (
           categories?.map((item) => (
             <div className="category" key={item.id}>
@@ -53,11 +43,11 @@ function Menu() {
                 {item.CategoryMeals?.map((itemType) => (
                   <motion.div
                     initial={{
-                      x: "10vw",
+                      y: "10vw",
                       transition: { type: "spring", duration: 2 },
                     }}
                     animate={{
-                      x: 0,
+                      y: 0,
                       transition: { type: "spring", duration: 2 },
                     }}
                     key={itemType.id}
@@ -95,10 +85,10 @@ function Menu() {
                       <img className="mealsImage" alt="" src={itemType.image} />
                       <div className="mealsText">
                         <div className="cardDetails">
-                          <h2>
+                          <span>
                             {itemType.Meal?.name[0].toUpperCase() +
                               itemType.Meal?.name.substr(1)}
-                          </h2>
+                          </span>
                           <div className="mealType">
                             <div>{itemType.MealType?.name}</div>
                             {itemType.discount > 0 ? (
@@ -107,19 +97,19 @@ function Menu() {
                                   {itemType.price}$
                                 </div>
                                 <div>
-                                  <b>
+                                  <span>
                                     {parseFloat(
                                       itemType.price -
                                         itemType.price *
                                           (itemType.discount / 100)
                                     ).toFixed(2)}
                                     $
-                                  </b>
+                                  </span>
                                 </div>
                               </div>
                             ) : (
-                              <div className="mealsprice">
-                                <b>{itemType.price}$</b>
+                              <div className="mealsPrice">
+                                <span>{itemType.price}$</span>
                               </div>
                             )}
                           </div>
@@ -139,7 +129,7 @@ function Menu() {
           </div>
         )}
       </div>
-    </main>
+    </section>
   );
 }
 
