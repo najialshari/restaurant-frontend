@@ -32,14 +32,14 @@ function Menu() {
 
   return (
     <section>
-      <div className="categories" id="menuCategories">
+      <div className="container" id="menuCategories">
         {categories.length > 0 ? (
           categories?.map((item) => (
-            <div className="category" key={item.id}>
-              <h2 className="category-title" id={`${item.name}`}>
+            <div className="categorySection" key={item.id}>
+              <h2 className="categoryTitle" id={`${item.name}`}>
                 {item.name}
               </h2>
-              <div className="category-cards">
+              <div className="categoryMeals">
                 {item.CategoryMeals?.map((itemType) => (
                   <motion.div
                     initial={{
@@ -51,7 +51,7 @@ function Menu() {
                       transition: { type: "spring", duration: 2 },
                     }}
                     key={itemType.id}
-                    className="mealsCard"
+                    className="mealCard"
                     whileHover={{ scale: 1.03 }}
                   >
                     <div>
@@ -84,37 +84,32 @@ function Menu() {
                     <Link to={`/meals/${itemType.id}`} className="linkToMeal">
                       <img className="mealsImage" alt="" src={itemType.image} />
                       <div className="mealsText">
-                        <div className="cardDetails">
-                          <span>
-                            {itemType.Meal?.name[0].toUpperCase() +
-                              itemType.Meal?.name.substr(1)}
-                          </span>
-                          <div className="mealType">
-                            <div>{itemType.MealType?.name}</div>
-                            {itemType.discount > 0 ? (
-                              <div className="mealsPrice">
-                                <div className="oldPrice">
-                                  {itemType.price}$
-                                </div>
-                                <div>
-                                  <span>
-                                    {parseFloat(
-                                      itemType.price -
-                                        itemType.price *
-                                          (itemType.discount / 100)
-                                    ).toFixed(2)}
-                                    $
-                                  </span>
-                                </div>
+                        <span>
+                          {itemType.Meal?.name[0].toUpperCase() +
+                            itemType.Meal?.name.substr(1)}
+                        </span>
+                        <div className="mealType">
+                          <div>{itemType.MealType?.name}</div>
+                          {itemType.discount > 0 ? (
+                            <div className="mealsPrice">
+                              <div className="oldPrice">{itemType.price}$</div>
+                              <div>
+                                <span>
+                                  {parseFloat(
+                                    itemType.price -
+                                      itemType.price * (itemType.discount / 100)
+                                  ).toFixed(2)}
+                                  $
+                                </span>
                               </div>
-                            ) : (
-                              <div className="mealsPrice">
-                                <span>{itemType.price}$</span>
-                              </div>
-                            )}
-                          </div>
+                            </div>
+                          ) : (
+                            <div className="mealsPrice">
+                              <span>{itemType.price}$</span>
+                            </div>
+                          )}
                         </div>
-                        <p className="moreDetailsButton">More details</p>
+                        <span className="moreDetailsButton">More</span>
                       </div>
                     </Link>
                   </motion.div>

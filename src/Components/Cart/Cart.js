@@ -11,16 +11,16 @@ import { orderAction, orderClean } from "../../redux/actions/order";
 import {
   Box,
   Button,
-  Chip,
   Divider,
   IconButton,
   InputBase,
+  Link,
   Typography,
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
+
 const Cart = () => {
   const itemsState = useSelector((state) => state.cart);
-
   const cartDispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -150,6 +150,7 @@ const Cart = () => {
                         width: 25,
                         height: 25,
                         border: "1px solid #e1e1e1",
+                        color: "hsl(32, 100%, 49%)",
                       }}
                       onClick={() => {
                         const itemNetPrice =
@@ -181,6 +182,7 @@ const Cart = () => {
                         width: 25,
                         height: 25,
                         border: "1px solid #e1e1e1",
+                        color: "hsl(32, 100%, 49%)",
                       }}
                       onClick={() => {
                         const itemNetPrice =
@@ -192,19 +194,20 @@ const Cart = () => {
                     </IconButton>
                   </div>
                   <div className="itemCardLinks">
-                    <Chip
-                      label="Share"
-                      size={"small"}
-                      variant="outlined"
+                    <Link
                       sx={{
-                        border: "none",
-                        "& :hover": {
+                        fontSize: ".9rem",
+                        color: "hsl(32, 100%, 49%)",
+                        textDecoration: "none",
+                        "&:hover": {
+                          cursor: "pointer",
                           textDecoration: "underline",
-                          textUnderlineOffset: "2px",
+                          textUnderlineOffset: "3px",
                         },
                       }}
-                      onClick={() => null}
-                    />
+                    >
+                      Share
+                    </Link>
 
                     <Divider
                       orientation="vertical"
@@ -214,20 +217,22 @@ const Cart = () => {
                         margin: { xs: "auto 5px", md: "auto 10px" },
                       }}
                     />
-                    <Chip
-                      label="Favorite"
-                      size={"small"}
-                      variant="outlined"
-                      onClick={() => null}
+                    <Link
                       sx={{
-                        border: "none",
-                        "& :hover": {
+                        fontSize: ".9rem",
+                        color: "hsl(32, 100%, 49%)",
+                        textDecoration: "none",
+                        "&:hover": {
+                          cursor: "pointer",
                           textDecoration: "underline",
-                          textUnderlineOffset: "2px",
+                          textUnderlineOffset: "3px",
                         },
                       }}
-                    />
+                    >
+                      Fav
+                    </Link>
                     <Divider
+                      text
                       orientation="vertical"
                       flexItem
                       sx={{
@@ -235,21 +240,23 @@ const Cart = () => {
                         margin: { xs: "auto 5px", md: "auto 10px" },
                       }}
                     />
-                    <Chip
-                      label="Remove"
-                      size={"small"}
-                      variant="outlined"
+                    <Link
                       sx={{
-                        border: "none",
-                        "& :hover": {
+                        fontSize: ".9rem",
+                        color: "hsl(32, 100%, 49%)",
+                        textDecoration: "none",
+                        "&:hover": {
+                          cursor: "pointer",
                           textDecoration: "underline",
-                          textUnderlineOffset: "2px",
+                          textUnderlineOffset: "3px",
                         },
                       }}
                       onClick={() =>
                         cartDispatch(deleteItem(item.categoryMealsId))
                       }
-                    />
+                    >
+                      Remove
+                    </Link>
                   </div>
                 </div>
               </div>
