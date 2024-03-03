@@ -49,12 +49,11 @@ section {
   -webkit-box-orient: vertical;
   width: 100%;
   line-height: 20px;
-  height: 45px;
+  height: 40px;
   text-overflow: ellipsis;
   overflow: hidden;
   font-weight: 500;
   word-break: keep-all;
-  background-color: aqua;
 }
 .mealType {
   display: flex;
@@ -113,6 +112,7 @@ section {
   }
   .mealsPrice {
     font-size: 15px;
+  background-color: aqua;
   }
   .oldPrice {
     font-size: 10px;
