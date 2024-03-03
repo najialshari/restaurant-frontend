@@ -103,18 +103,18 @@
   .cartItemImg {
     margin-inline: auto;
     height: 200px;
+    width: 220px;
   }
 }
 @media (max-width: 440px) {
-  .cartItemImg {
-    width: 220px;
-  }
-  .cartItemDetailsBottomRow {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
   .cartRightPart {
     width: 100%;
+  }
+}
+@media (max-width: 300px) {
+  .cartItemDetailsBottomRow {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
   }
 }

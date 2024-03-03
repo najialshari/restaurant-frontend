@@ -197,7 +197,7 @@ const Cart = () => {
                     <Link
                       sx={{
                         fontSize: ".9rem",
-                        color: "hsl(32, 100%, 49%)",
+                        color: "#ff7900",
                         textDecoration: "none",
                         "&:hover": {
                           cursor: "pointer",
@@ -220,7 +220,7 @@ const Cart = () => {
                     <Link
                       sx={{
                         fontSize: ".9rem",
-                        color: "hsl(32, 100%, 49%)",
+                        color: "#ff7900",
                         textDecoration: "none",
                         "&:hover": {
                           cursor: "pointer",
@@ -243,7 +243,7 @@ const Cart = () => {
                     <Link
                       sx={{
                         fontSize: ".9rem",
-                        color: "hsl(32, 100%, 49%)",
+                        color: "#ff7900",
                         textDecoration: "none",
                         "&:hover": {
                           cursor: "pointer",
