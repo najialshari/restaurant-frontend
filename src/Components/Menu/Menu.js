@@ -35,7 +35,7 @@ function Menu() {
       <div className="container" id="menuCategories">
         {categories.length > 0 ? (
           categories?.map((item) => (
-            <div className="categorySection" key={item.id}>
+            <div className="categoryWrapper" key={item.id}>
               <h2 className="categoryTitle" id={`${item.name}`}>
                 {item.name}
               </h2>
@@ -54,7 +54,7 @@ function Menu() {
                     className="mealCard"
                     whileHover={{ scale: 1.03 }}
                   >
-                    <div>
+                    <div className="cardFavLine">
                       <div
                         style={{
                           display: "flex",
@@ -88,7 +88,7 @@ function Menu() {
                           {itemType.Meal?.name[0].toUpperCase() +
                             itemType.Meal?.name.substr(1)}
                         </span>
-                        <div className="mealType">
+                        <div className="mealPriceLine">
                           <div>{itemType.MealType?.name}</div>
                           {itemType.discount > 0 ? (
                             <div className="mealsPrice">

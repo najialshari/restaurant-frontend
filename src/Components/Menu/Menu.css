@@ -55,9 +55,10 @@ section {
   font-weight: 500;
   word-break: keep-all;
 }
-.mealType {
+.mealPriceLine {
   display: flex;
   justify-content: space-between;
+  margin-block: 0.5rem;
 }
 .mealsPrice {
   display: flex;
@@ -77,7 +78,6 @@ section {
   border-radius: 10px;
   text-align: center;
   display: block;
-  margin-top: .5rem;
   padding: 4px;
 }
 .loading {
@@ -112,7 +112,6 @@ section {
   }
   .mealsPrice {
     font-size: 15px;
-  background-color: aqua;
   }
   .oldPrice {
     font-size: 10px;
